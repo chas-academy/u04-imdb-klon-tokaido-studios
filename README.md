@@ -1,4 +1,4 @@
-# Takaido Studios - IMDb Klon
+# Tokaido Studios - IMDb Klon
 
 Ett Laravel-baserat projekt för att bygga en klon av IMDb.
 
