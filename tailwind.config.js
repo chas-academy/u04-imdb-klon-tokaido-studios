@@ -11,8 +11,42 @@ export default {
 
     theme: {
         extend: {
+            // Färger
+            colors: {
+                contentBox: {
+                    background: '#D7DAE5', // Ljus grå
+                    border: '#F57C00',     // Brand orange
+                    text: '#000000',       // Svart
+                },
+                buttonStyle: {
+                    background: '#4E5563',
+                    border: '#F57C00',
+                    text: '#D7DAE5', 
+                    hooverOn: '#6B7384',
+                },
+            },
+
+             // Bakgrundsbilder (för gradienten)
+             backgroundImage: {
+                'gradient-diagonal': 'linear-gradient(45deg, #B2B5C0, #525560)',
+            },
+
+            // Skugga
+            boxShadow: {
+                'content-box': '10px 10px 15px 5px rgba(218, 115, 41, 0.1)', // Anpassad skugga
+            },
+
+            // Typsnitt
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                heading: ['"Inter"', 'sans-serif'], // Rubriker
+                body: ['"Roboto"', 'sans-serif'],   // Brödtext
+            },
+
+            // Textstorlekar
+            fontSize: {
+                h1: ['2.5rem', '1.2'], // 40px
+                h2: ['2rem', '1.3'],   // 32px
+                p: ['1rem', '1.6'],    // 16px
             },
         },
     },
