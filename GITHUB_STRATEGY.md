@@ -36,7 +36,7 @@ För att vi ska kunna samarbeta smidigt i projektet är det viktigt att vi har e
 
 - Beskriv kort vad du har gjort i PR:n.
 
-- Låt en klasskompis granska och godkänna innan PR:n mergeas till main.
+- Visa din branch på möte för gruppen för godkännande innan PR:n mergeas till main.
 
 ### Merge-strategi
 
