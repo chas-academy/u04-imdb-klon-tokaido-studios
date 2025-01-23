@@ -2,7 +2,21 @@
 
 Det här dokumentet beskriver designriktlinjer för att skapa en enhetlig och enkel design. Fokus ligger på färger, typografi och komponenter som vi använder i projektet. Specifikationerna är uppdelade i olika sektioner så att de är lätta att förstå och följa.
 
+**Vänligen notera att detta är som ett utkast, dokumentet är levande och kräver feedback från hela gruppen.**
+
 ---
+
+## ⚙️ För att se designen korrekt
+
+🛏️ Öppna terminalen i projektmappen.
+
+⚙️ Kör:
+
+npm run dev
+
+🔄 Uppdatera sidan i webbläsaren.
+
+❓ Om du fortfarande inte ser designen, kontrollera om det finns några felmeddelanden i terminalen.
 
 ## 🌈 Bakgrundsfärger
 

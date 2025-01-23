@@ -33,7 +33,7 @@ export default {
 
             // Skugga
             boxShadow: {
-                'content-box': '10px 10px 15px 5px rgba(218, 115, 41, 0.1)', // Anpassad skugga
+                'content-box': '10px 10px 15px 5px rgba(10, 8, 6, 0.8)', // Anpassad skugga
             },
 
             // Typsnitt
