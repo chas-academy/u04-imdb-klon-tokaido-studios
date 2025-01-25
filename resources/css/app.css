@@ -2,3 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    body {
+        @apply bg-gradient-diagonal
+        min-h-screen
+        mt-4
+        ml-8
+        mr-8
+    }
+}

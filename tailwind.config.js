@@ -22,7 +22,7 @@ export default {
                     background: '#4E5563', // Grå
                     border: '#F57C00', // Brand Orange
                     text: '#D7DAE5', // Grädd vit
-                    hooverOn: '#6B7384', // 
+                    hooverOn: '#6B7384', // Ljus Grå
                 },
             },
 
@@ -47,7 +47,7 @@ export default {
                 h1: ['2.5rem', '1.2'], // 40px
                 h2: ['2rem', '1.3'],   // 32px
                 p: ['1rem', '1.6'],    // 16px
-                
+
             },
         },
     },

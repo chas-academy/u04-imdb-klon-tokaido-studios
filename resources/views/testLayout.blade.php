@@ -6,43 +6,37 @@
     <title>Testning för Tailwind</title>
     @vite('resources/css/app.css')
 </head>
-<body class="bg-gradient-diagonal min-h-screen flex flex-col items-center justify-center p-4 sm:p-8">
-    
-    <header class="flex flex-row">
-        <x-button-style class="ml-2 mr-1">
+<body>
 
-            <p class="text-p font-body">Admin</p>
+    <x-button-styles size="large">
 
-        </x-button-style>
+        <p class="text-p font-body">Large</p>
 
-        <x-button-style class="ml-1 mr-1">
+    </x-button-styles>
 
-            <p class="text-p font-body">Logga in</p>
+    <x-button-styles>
 
-        </x-button-style>
+        <p class="text-p font-body">Default</p>
 
-        <x-button-style class="ml-1 mr-2">
+    </x-button-styles>
+        
 
-            <p class="text-p font-body">Top 250</p>
+    <x-button-styles size="small">
 
-        </x-button-style>
-    </header>
+        <p class="text-p font-body">Small</p>
 
-    <x-box-content>
+    </x-button-styles>
 
-    <h1 class="text-h1 font-heading">Detta är H1</h1><br>
+    <x-form-styles>
+    {{-- Lägg till fält och innehåll här --}}
+    </x-form-styles>
 
-    <h2 class="text-h2 font-heading">Detta är H2</h2><br>
+    <x-content-styles>
 
-    <p class="text-p font-body">Detta är P</p>
+        <h1 class="text-h1">Hallå Eller</h1>
 
-    </x-box-content>
+    </x-content-styles>
 
-    <x-box-content class="mt-4">
-
-    <p class="text-p font-body">Detta är P för att visa hur det ser ut med lite mer text, här kommer ju också bilder, forumlär och liknande kunna ligga. Detta är gjort för visuell representering. Jag ber om ursäkt att jag inte hann så långt.</p>
-
-    </x-box-content>
 
 </body>
 </html>
