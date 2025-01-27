@@ -3,18 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\Genre;
-use Illuminate\Http\Request;
 
 class GenreController extends Controller
 {
     public function index()
     {
-        return Genre::all();
+        $genres = Genre::all();
+        return view('genres.index', ['genres' => $genres]);
     }
 
-    public function games($id)
+    public function showGames($id)
     {
         $genre = Genre::findOrFail($id);
-        return $genre->games;
+        $games = $genre->games;
+        return view('genres.games', ['genre' => $genre, 'games' => $games]);
     }
 }

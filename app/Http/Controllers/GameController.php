@@ -2,19 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Game;
 use Illuminate\Http\Request;
+use App\Models\Game;
 
 class GameController extends Controller
 {
-    public function index(Request $request)
+    
+    
+    public function home()
     {
-        $query = Game::query();
-    
-        if ($request->has('search')) {
-            $query->where('title', 'like', '%' . $request->search . '%');
-        }
-    
-        return $query->get();
+        return view('home');
     }
+    public function index()
+    {
+        $games = Game::all();
+        return view('games.index', ['games' => $games]);
+    }
+
+    public function search(Request $request)
+{
+    $title = $request->input('title');
+    $games = Game::where('title', 'like', '%' . $title . '%')->get();
+    return view('games.search', ['games' => $games]);
+}
 }
