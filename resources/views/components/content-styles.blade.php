@@ -7,7 +7,7 @@
                 shadow-content-box   
                 p-8 rounded-lg  
                 border-2 flex 
-                w-full h-auto 
+                w-80% h-auto 
                 m-4" 
     
     ]) }}>

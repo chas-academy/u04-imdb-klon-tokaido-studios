@@ -22,3 +22,15 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::get('/genres', function() 
+{
+    return view('genres.index');
+
+});
+
+Route::get('/genres/{id}/games', function ($id)
+{
+    return view('genres.show');
+});
+

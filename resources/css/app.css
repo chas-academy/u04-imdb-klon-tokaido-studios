@@ -5,9 +5,10 @@
 @layer base {
     body {
         @apply bg-gradient-diagonal
+        box-content
         min-h-screen
         mt-4
-        ml-8
-        mr-8
+        pl-8
+        pr-8
     }
 }

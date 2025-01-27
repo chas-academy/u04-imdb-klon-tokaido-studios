@@ -27,11 +27,12 @@
 
     </x-button-styles>
 
+    
     <x-form-styles>
-    {{-- Lägg till fält och innehåll här --}}
+        {{-- Lägg till fält och innehåll här --}}
     </x-form-styles>
 
-    <x-content-styles>
+    <x-content-styles class="justify-center">
 
         <h1 class="text-h1">Hallå Eller</h1>
 

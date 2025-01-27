@@ -1,5 +1,5 @@
 
-<x-content-styles>
+<x-content-styles class="justify-center mx-w-md">
     <form>
         {{-- Titel för formuläret --}}
         <h2 class="text-xl font-semibold text-gray-800 mb-2">Lägg till Titel</h2>
