@@ -5,6 +5,8 @@
 @layer base {
     body {
         @apply bg-gradient-diagonal
+        justify-center
+        max-w-7xl
         box-content
         min-h-screen
         mt-4

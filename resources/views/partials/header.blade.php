@@ -10,7 +10,7 @@
 <body>
     <!-- Header -->
     <header>
-        <div class="max-w-7xl mx-auto py-4 px-6 flex items-center justify-between">
+        <div class="py-4 px-6 flex items-center justify-between">
             <!-- Logo -->
             <a href="/" class="text-2xl font-bold">
                 IGDb <!-- Ersätts med en logga när vi har en -->
