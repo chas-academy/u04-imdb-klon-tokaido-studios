@@ -23,7 +23,14 @@ class DatabaseSeeder extends Seeder
             'Skyrim' => ['Adventure'],
             'Baldur\'s Gate 3' => ['RPG'],
             'Factorio' => ['Strategy'],
-            'It Takes Two' => ['Puzzle']
+            'It Takes Two' => ['Puzzle'],
+            'Borderlands 3' => ['Action', 'Adventure'],
+            'Final Fantasy VII' => ['RPG'],
+            'The Witcher 3: Wild Hunt' => ['Action', 'Adventure'],
+            'The Legend of Zelda: Breath of the Wild' => ['Adventure'],
+            'Grand Theft Auto V' => ['Action', 'Adventure'],
+            'Portal 2' => ['Action', 'Puzzle'],
+            'Civilization VI' => ['Strategy']
         ];
 
     // Hämta alla genrer som redan finns i databasen

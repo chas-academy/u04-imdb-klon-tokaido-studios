@@ -37,6 +37,41 @@ class GameSeeder extends Seeder
                 "title" => "It Takes Two",
                 "description" => "A co-op puzzle adventure game",
                 "genres" => [5] // Puzzle
+            ],
+            [
+                "title" => "Borderlands 3",
+                "description" => "An action-adventure game with a unique story",
+                "genres" => [1, 2] // Action, Adventure
+            ],
+            [
+                "title" => "Final Fantasy VII",
+                "description" => "An RPG game with a classic story",
+                "genres" => [3] // RPG
+            ],
+            [
+                "title" => "The Witcher 3: Wild Hunt",
+                "description" => "An RPG game with a classic story",
+                "genres" => [2, 1] // Adventure, Action
+            ],
+            [
+                "title" => "The Legend of Zelda: Breath of the Wild",
+                "description" => "An open-world adventure game",
+                "genres" => [2] // Adventure
+            ],
+            [
+                "title" => "Grand Theft Auto V",
+                "description" => "An open-world action-adventure game",
+                "genres" => [1, 2] // Action, Adventure
+            ],
+            [
+                "title" => "Portal 2",
+                "description" => "An adventure/puzzle game with great voice acting",
+                "genres" => [2, 5] // Adventure, RPG
+            ],
+            [
+                "title" => "Civilization VI",
+                "description" => "A classic strategy game",
+                "genres" => [4] // RPG, Action
             ]
         ];
         // för att skapa och koppla genrer
