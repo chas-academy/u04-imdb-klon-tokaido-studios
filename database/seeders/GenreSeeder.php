@@ -9,19 +9,37 @@ class GenreSeeder extends Seeder
 {
     public function run(): void
     {
-        $genres = [
-            'Action',
-            'Adventure',
-            'RPG',
-            'Strategy',
-            'Puzzle'
-        ];
+        //definera genrer
+    $genres = [
+        [
+            "genreID" => 1,
+            "name" => "Action"
+        ],
+        [
+            "genreID" => 2,
+            "name" => "Adventure"
+        ],
+        [
+            "genreID" => 3,
+            "name" => "RPG"
+        ],
+        [
+            "genreID" => 4,
+            "name" => "Strategy"
+        ],
+        [
+            "genreID" => 5,
+            "name" => "Puzzle"
+        ]
+    ];
 
-        foreach ($genres as $genreName) {
-            Genre::create([
-                'name' => $genreName,
-                'description' => "Games in the {$genreName} genre"
-            ]);
+    foreach ($genres as $genre) {
+        Genre::create([
+            'genreID' => $genre['genreID'],
+            'name' => $genre['name'],
+            'description' => "Games in the {$genre['name']} genre"
+
+        ]);
         }
     }
 }
