@@ -2,22 +2,22 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Game;
+use App\Models\Genre;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
-        // User::factory(10)->create();
+        $this->call(GenreSeeder::class);
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        $genres = Genre::all();
+
+        Game::factory(20)->create()->each(function ($game) use ($genres) {
+            $game->genres()->attach(
+                $genres->random(rand(1, 2))->pluck('genreID')->toArray()
+            );
+        });
     }
 }
