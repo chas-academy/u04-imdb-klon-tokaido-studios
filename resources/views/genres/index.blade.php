@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>genres</title>
+    <title>Genres</title>
+    @vite('resources/css/app.css')
 </head>
 <body>
+    @include('partials.header')
 
     <h1 class="text-h1">Genres</h1>
 
@@ -22,7 +24,6 @@
         <li><a href="/genres/5/games">Strategy</a></li>
         
     </ul>
-
     <!-- DYNAMISK LOGIK -->
     
     <!-- <ul>
@@ -33,8 +34,10 @@
                 <a href="{{ url('/genres/' . $varibal->id) }}">
                     {{ $variabel->name }}
                 </a>
-                 
+                
             </li>
     </ul> -->
+
+    @include('partials.footer')
 </body>
 </html>
