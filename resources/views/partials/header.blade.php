@@ -41,11 +41,11 @@
 
             <!-- Hamburgermeny för Auth länkar -->
             <div class="sm:hidden">
-                <button id="menu-button" class="flex items-center text-sm px-2 py-1 border rounded focus:outline-none">
+                <x-button-styles id="menu-button" class="flex items-center text-sm px-2 py-1 border rounded focus:outline-none">
                     <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
-                </button>
+                </x-button-styles>
             </div>
 
             <!-- Auth länkar -->
@@ -53,7 +53,7 @@
                 @if (Auth::check())
                     <!-- Om inloggad -->
                     <span class="text-sm">{{ Auth::user()->name }}</span>
-                    <form method="POST" action="{{ route('logout') }}">
+                    <form method="POST" action="">
                         @csrf
                         <button type="submit" class="text-sm hover:underline">Logga ut</button>
                     </form>
