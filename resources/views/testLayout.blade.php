@@ -8,24 +8,9 @@
 </head>
 <body>
 
-    <x-button-styles size="large">
+    @include('partials.header')
 
-        <p class="text-p font-body">Large</p>
 
-    </x-button-styles>
-
-    <x-button-styles>
-
-        <p class="text-p font-body">Default</p>
-
-    </x-button-styles>
-        
-
-    <x-button-styles size="small">
-
-        <p class="text-p font-body">Small</p>
-
-    </x-button-styles>
 
     <x-form-styles>
     {{-- Lägg till fält och innehåll här --}}
@@ -37,6 +22,7 @@
 
     </x-content-styles>
 
+    @include('partials.footer')
 
 </body>
 </html>

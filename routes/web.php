@@ -7,6 +7,10 @@ Route::get('/header', function () {
     return view('layouts/header');
 });
 
+Route::get('/footer', function () {
+    return view('layouts/footer');
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
