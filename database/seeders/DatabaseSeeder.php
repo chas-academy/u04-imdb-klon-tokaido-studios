@@ -9,15 +9,41 @@ use Illuminate\Database\Seeder;
 class DatabaseSeeder extends Seeder
 {
     public function run(): void
-    {
+    {// anropar seeders
         $this->call(GenreSeeder::class);
+        $this->call(GameSeeder::class);
+        // skapar realtioner
+        $this->seedGameGenres();
 
-        $genres = Genre::all();
-
-        Game::factory(20)->create()->each(function ($game) use ($genres) {
-            $game->genres()->attach(
-                $genres->random(rand(1, 2))->pluck('genreID')->toArray()
-            );
-        });
     }
+        private function seedGameGenres()
+        {// Definiera en koppling mellan spel och genrer
+           $gameGenres = [
+            'Elden Ring' => ['Action'],
+            'Skyrim' => ['Adventure'],
+            'Baldur\'s Gate 3' => ['RPG'],
+            'Factorio' => ['Strategy'],
+            'It Takes Two' => ['Puzzle']
+        ];
+
+    // Hämta alla genrer som redan finns i databasen
+    $genres = Genre::all()->keyBy('name');
+
+    // Hämta alla spel som redan finns i databasen
+    $games = Game::all();
+
+    // Koppla genrer till spel
+    foreach ($games as $game) {
+        // Om spelet finns i $gameGenres
+        if (isset($gameGenres[$game->title])) {
+            // Hämta genrer för spelet
+            $genreNames = $gameGenres[$game->title];
+
+            // Hitta motsvarande genreID från genreNames och koppla till spelet
+            $game->genres()->attach(
+                collect($genreNames)->map(fn($name) => $genres[$name]->genreID)->toArray()
+            );
+        }
+    }
+}   
 }
