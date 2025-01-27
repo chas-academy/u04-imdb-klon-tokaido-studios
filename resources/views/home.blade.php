@@ -1,6 +1,6 @@
 <div>
     <form action="{{ route('search') }}" method="GET">
-        <input type="text" name="title" placeholder="Search games...">
+        <input type="text" name="title" placeholder="Search games..." required>
         <button type="submit">Search</button>
     </form>
     <a href="/games">View all games</a><br>

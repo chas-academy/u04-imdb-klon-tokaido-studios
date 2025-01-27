@@ -6,33 +6,24 @@ use App\Http\Controllers\GameController;
 use App\Http\Controllers\GenreController;
 
 
-// Hem- och söksida
-Route::get('/', [GameController::class, 'home'])->name('home');
-Route::get('/search', [GameController::class, 'search'])->name('search');
-
-// Spel-relaterade routes
-Route::get('/games', [GameController::class, 'index'])->name('games.index');
-
-// Genre-relaterade routes
-Route::get('/genres', [GenreController::class, 'index'])->name('genres.index');
-Route::get('/genres/{id}/games', [GenreController::class, 'showGames'])->name('genres.games');
-
-/*
+// Förstasidan där sökfältet och länkar till 3 första routes nedan kan finnas
 Route::get('/', function () {
     return view('home');
 });
 
-// Lista alla spel och sök efter spel baserat på titel
-Route::get('/games', [GameController::class, 'index']);
+// visar en sida där spelen som matchar sökresultatet kan visas upp
+Route::get('/search', [GameController::class, 'search'])->name('search');
 
-// Lista alla genrer
-Route::get('/genres', [GenreController::class, 'index']);
+// visar en sida där alla spel kan visas upp
+Route::get('/games', [GameController::class, 'index'])->name('games.index');
 
-Route::get('/search', [GameController::class, 'search']);
+// Visar en sida där alla genres kan visas upp
+Route::get('/genres', [GenreController::class, 'index'])->name('genres.index');
 
-// Lista spel som tillhör en viss genre
-Route::get('/genres/{id}/games', [GenreController::class, 'games']);
+// Visar en sida där alla spel i en genre kan visas
+Route::get('/genres/{id}/games', [GenreController::class, 'showGames'])->name('genres.games');
 
+/*
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -44,4 +35,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php'; */
+require __DIR__.'/auth.php'; 
+
+*/

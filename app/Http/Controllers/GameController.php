@@ -8,11 +8,6 @@ use App\Models\Game;
 class GameController extends Controller
 {
     
-    
-    public function home()
-    {
-        return view('home');
-    }
     public function index()
     {
         $games = Game::all();
@@ -20,9 +15,9 @@ class GameController extends Controller
     }
 
     public function search(Request $request)
-{
-    $title = $request->input('title');
-    $games = Game::where('title', 'like', '%' . $title . '%')->get();
-    return view('games.search', ['games' => $games]);
-}
+    {
+        $title = $request->input('title');
+        $games = Game::where('title', 'like', '%' . $title . '%')->get();
+        return view('games.search', ['games' => $games]);
+    }
 }
