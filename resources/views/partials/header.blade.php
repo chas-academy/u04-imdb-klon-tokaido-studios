@@ -16,22 +16,22 @@
                 IGDb
             </a>
 
-        <!-- Sök och dropdown -->
-        <div class="flex items-center space-x-2 flex-grow sm:flex-grow-0">
-            <form action="{{ route('search') }}" method="GET" class="flex items-center space-x-2">
-                <input 
-                    type="text" 
-                    name="title" 
-                    placeholder="Search games..." 
-                    class="w-full sm:w-64 px-4 py-2 rounded-md text-sm focus:ring focus:border">
-                <x-button-styles 
-                    type="submit" 
-                    class="px-4 py-2 rounded-md">
-                    Search</x-button-styles>
-            </form>
-        </div>
+            <!-- Sök och dropdown -->
+            <div class="flex items-center space-x-2 flex-grow sm:flex-grow-0">
+                <form action="{{ route('search') }}" method="GET" class="flex items-center space-x-2">
+                    <input 
+                        type="text" 
+                        name="title" 
+                        placeholder="Search games..." 
+                        class="w-full sm:w-64 px-4 py-2 rounded-md text-sm focus:ring focus:border">
+                    <x-button-styles 
+                        type="submit" 
+                        class="px-4 py-2 rounded-md">
+                        Search</x-button-styles>
+                </form>
+            </div>
 
-            <!-- Hamburgermeny för Auth länkar -->
+            <!-- Hamburgermeny för små skärmar -->
             <div class="md:hidden">
                 <x-button-styles id="menu-button" class="flex items-center text-sm px-2 py-1 border rounded focus:outline-none">
                     <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -40,8 +40,8 @@
                 </x-button-styles>
             </div>
 
-            <!-- Auth länkar -->
-            <div id="menu" class="hidden md:flex items-center space-x-4 mt-4 md:mt-0 flex-col md:flex-row">
+            <!-- Auth länkar för större skärmar -->
+            <div id="menu-desktop" class="hidden md:flex items-center space-x-4">
                 <x-button-styles>
                     <a href="/games" class="text-sm hover:underline">Games</a>
                 </x-button-styles>
@@ -49,14 +49,12 @@
                     <a href="/genres" class="text-sm hover:underline">Genres</a>
                 </x-button-styles>
                 @if (Auth::check())
-                    <!-- Om inloggad -->
                     <span class="text-sm">{{ Auth::user()->name }}</span>
                     <form method="POST" action="">
                         @csrf
                         <button type="submit" class="text-sm hover:underline">Logga ut</button>
                     </form>
                 @else
-                    <!-- Om inte inloggad -->
                     <x-button-styles>
                         <a href="#" class="text-sm hover:underline">Logga in</a>
                     </x-button-styles>
@@ -68,13 +66,37 @@
         </div>
     </header>
 
+    <!-- Auth länkar för små skärmar -->
+    <div id="menu-mobile" class="hidden flex items-center justify-center space-x-4 py-4 md:hidden">
+        <x-button-styles>
+            <a href="/games" class="text-sm hover:underline">Games</a>
+        </x-button-styles>
+        <x-button-styles>
+            <a href="/genres" class="text-sm hover:underline">Genres</a>
+        </x-button-styles>
+        @if (Auth::check())
+            <span class="text-sm">{{ Auth::user()->name }}</span>
+            <form method="POST" action="">
+                @csrf
+                <button type="submit" class="text-sm hover:underline">Logga ut</button>
+            </form>
+        @else
+            <x-button-styles>
+                <a href="#" class="text-sm hover:underline">Logga in</a>
+            </x-button-styles>
+            <x-button-styles>
+                <a href="#" class="text-sm hover:underline">Registrera</a>
+            </x-button-styles>
+        @endif
+    </div>
+
     <!-- Script för hamburgermeny -->
     <script>
         const menuButton = document.getElementById('menu-button');
-        const menu = document.getElementById('menu');
+        const menuMobile = document.getElementById('menu-mobile');
 
         menuButton.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
+            menuMobile.classList.toggle('hidden');
         });
     </script>
 </body>
