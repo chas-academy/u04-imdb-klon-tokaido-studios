@@ -41,3 +41,11 @@ För att komma igång med projektet, följ dessa steg:
 [Länk till Persona](https://www.figma.com/design/czdV9BmHyxK8182M49fo40/Persona?t=61YPz58jiXIW0uXl-0)<br>
 [Länk till ER-Diagram](https://www.figma.com/board/Vm57pOkwmrsDaM94NxQhll/ER-Diagram?t=OLlyAw6hys9wndCH-0)<br>
 [Länk till Wireframe](https://www.figma.com/design/qyunZ8Fkymk6JJh32Dk83Q/Figma-Skisser?t=OLlyAw6hys9wndCH-0)<br>
+<<<<<<<<< Temporary merge branch 1
+[Länk till Github Strategi](./GITHUB_STRATEGY.md)
+[Länk till sitemap](https://www.figma.com/board/kOnpcHG2OSlIcbdZhhWiHx/Sitemap?node-id=0-1&t=FE719OdLxpFqbsIf-1) <br>
+
+[Länk till Github Strategi](./GITHUB_STRATEGY.md)<br>
+[Länk till Design Strategi](./DESIGN_GUIDE.md)<br>
+[Länk till Scenarios](./documentation/scenarios.md)<br>
+>>>>>>>>> Temporary merge branch 2
