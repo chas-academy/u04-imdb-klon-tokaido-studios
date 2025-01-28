@@ -74,12 +74,12 @@ class GameSeeder extends Seeder
                 "genres" => [4] // RPG, Action
             ]
         ];
-        // för att skapa och koppla genrer
         foreach ($games as $game) {
-            $newGame = Game::create([
-                'title' => $game['title'],
-                'description' => $game['description'],
-            ]);
+            // Skapa spelet om det inte redan finns med samma titel, annars hämta det
+            $newGame = Game::firstOrCreate(
+                ['title' => $game['title']], // Kontrollera om spelet med samma titel redan finns
+                ['description' => $game['description']] // Om spelet inte finns, skapa med beskrivningen
+            );
 
             // Koppla spelet till genrer
             $newGame->genres()->sync($game['genres']);
