@@ -48,6 +48,8 @@ För att vi ska kunna samarbeta smidigt i projektet är det viktigt att vi har e
 
 - Mergea inte kod som har kända problem eller som inte är klar.
 
+- Hela gruppen ska kontrollera koden och godkänna innan merge på ett gruppmöte.
+
 ### Arbetsflöde
 
 1. Skapa en ny branch för varje funktion eller ändring.
