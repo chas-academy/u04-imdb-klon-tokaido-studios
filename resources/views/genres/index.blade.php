@@ -7,13 +7,9 @@
     @vite('resources/css/app.css')
 </head>
 <body>
-    
 @include('partials.header')
-
 <x-content-styles>
-
 <h1>Genres</h1>
-
 <ul>
 @foreach ($genres as $genre)
     <li>
@@ -21,12 +17,8 @@
     </li>
 @endforeach
 </ul>
-
 <a href="{{ route('genres.index') }}">Back to genres</a>
-
 </x-content-styles>
-
 @include('partials.footer')
-
 </body>
 </html>

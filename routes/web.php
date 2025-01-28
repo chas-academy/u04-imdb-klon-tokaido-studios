@@ -10,7 +10,6 @@ Route::get('/', function () {
     return view('home');
 });
 
-// visar en sida där alla spel kan visas upp
 Route::get('/games', [GameController::class, 'index'])->name('games.index');
 
 Route::get('/genres', [GenreController::class, 'index'])->name('genres.index');
