@@ -1,3 +1,5 @@
+@include ('partials.header')
+
 <div>
     <form action="{{ route('search') }}" method="GET">
         <input type="text" name="title" placeholder="Search games..." required>

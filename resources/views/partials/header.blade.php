@@ -16,31 +16,23 @@
                 IGDb
             </a>
 
-            <!-- Sök och dropdown -->
-            <div class="flex items-center space-x-2 flex-grow sm:flex-grow-0">
-                <div class="relative">
-                    <label for="category" class="sr-only">Välj kategori</label>
-                    <select 
-                        id="category" 
-                        class="text-sm rounded-md px-3 py-2 focus:ring focus:border w-40">
-                        <option value="all">Alla kategorier</option>
-                        <option value="genre">Genrer</option>
-                        <option value="platform">Plattformar</option>
-                    </select>
-                </div>
-                <div class="flex-grow sm:flex-grow-0">
-                    <label for="search" class="sr-only">Sök</label>
-                    <input 
-                        id="search"
-                        type="text" 
-                        placeholder="Sök spel, plattformar..." 
-                        class="w-full sm:w-64 px-4 py-2 rounded-md text-sm focus:ring focus:border"
-                    />
-                </div>
-            </div>
+        <!-- Sök och dropdown -->
+        <div class="flex items-center space-x-2 flex-grow sm:flex-grow-0">
+            <form action="{{ route('search') }}" method="GET" class="flex items-center space-x-2">
+                <input 
+                    type="text" 
+                    name="title" 
+                    placeholder="Search games..." 
+                    class="w-full sm:w-64 px-4 py-2 rounded-md text-sm focus:ring focus:border">
+                <x-button-styles 
+                    type="submit" 
+                    class="px-4 py-2 rounded-md">
+                    Search</x-button-styles>
+            </form>
+        </div>
 
             <!-- Hamburgermeny för Auth länkar -->
-            <div class="sm:hidden">
+            <div class="md:hidden">
                 <x-button-styles id="menu-button" class="flex items-center text-sm px-2 py-1 border rounded focus:outline-none">
                     <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -49,7 +41,13 @@
             </div>
 
             <!-- Auth länkar -->
-            <div id="menu" class="hidden sm:flex items-center space-x-4 mt-4 sm:mt-0 flex-col sm:flex-row">
+            <div id="menu" class="hidden md:flex items-center space-x-4 mt-4 md:mt-0 flex-col md:flex-row">
+                <x-button-styles>
+                    <a href="/games" class="text-sm hover:underline">Games</a>
+                </x-button-styles>
+                <x-button-styles>
+                    <a href="/genres" class="text-sm hover:underline">Genres</a>
+                </x-button-styles>
                 @if (Auth::check())
                     <!-- Om inloggad -->
                     <span class="text-sm">{{ Auth::user()->name }}</span>
