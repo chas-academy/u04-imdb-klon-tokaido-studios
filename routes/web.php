@@ -33,3 +33,5 @@ Route::get('/genres', function () {
 Route::get('/genres/{id}/games', function ($id) {
     return view('genres.show');
 });
+
+Route::get('/search', [SearchController::class, 'index'])->name('search');
