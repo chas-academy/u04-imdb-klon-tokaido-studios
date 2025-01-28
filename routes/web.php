@@ -9,13 +9,3 @@ use App\Http\Controllers\GenreController;
 Route::get('/', function () {
     return view('home');
 });
-
-// visar en sida där alla spel kan visas upp
-Route::get('/games', [GameController::class, 'index'])->name('games.index');
-
-Route::get('/genres', [GenreController::class, 'index'])->name('genres.index');
-
-Route::get('/genres/{id}/games', [GenreController::class, 'showGames'])->name('genres.games');
-
-Route::get('/search', [GameController::class, 'index'])->name('search');
-
