@@ -8,7 +8,7 @@ use App\Http\Controllers\GenreController;
 // Förstasidan där sökfältet och länkar till 3 första routes nedan kan finnas
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
 Route::get('/games', [GameController::class, 'index'])->name('games.index');
 

@@ -10,16 +10,11 @@
 
 @include('partials.header')
 
-<x-content-styles>
+<x-content-styles class="flex flex-col max-w-lg">
 
-<div>
-    <form action="{{ route('search') }}" method="GET">
-        <input type="text" name="title" placeholder="Search games..." required>
-        <button type="submit">Search</button>
-    </form>
-    <a href="/games" >View all games</a><br>
-    <a href="/genres">View all genres</a><br>
-</div>
+<h1 class="text-h1">Startsida</h1>
+
+<p class="tex-p">Klicka på Genre eller Games för att hitta spel</p>
 </x-content-styles>
 
 @include('partials.footer')

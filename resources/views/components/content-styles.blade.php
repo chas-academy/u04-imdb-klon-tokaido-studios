@@ -6,8 +6,10 @@
                 text-contentBox-text
                 shadow-content-box   
                 p-8 rounded-lg  
-                border-2 flex 
-                w-80% h-auto 
+                border-2 flex
+                w-full 
+                h-auto
+                mx-auto 
                 m-4" 
     
     ]) }}>
