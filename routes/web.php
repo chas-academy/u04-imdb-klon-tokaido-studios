@@ -1,14 +1,14 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+//use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GameController;
+use App\Http\Controllers\GenreController;
 
+
+// Förstasidan där sökfältet och länkar till 3 första routes nedan kan finnas
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/testLayout', function () {
-    return view('testLayout');
+    return view('home');
 });
 
 Route::get('/dashboard', function () {
@@ -21,7 +21,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__.'/auth.php'; 
+
+*/
 
 
 Route::get('/genres', function () {
