@@ -10,6 +10,8 @@
 </head>
 <body>
 
+<div class="page-container"></div>
+
 @include('partials.header')
 
 <x-content-styles class="flex flex-col max-w-lg">
@@ -31,6 +33,8 @@
 </x-content-styles>
 
 @include('partials.footer')
+
+</div>
 
 </body>
 </html>

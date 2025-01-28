@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<div class="page-container">
+
 @include('partials.header')
 
 <x-content-styles class="flex flex-col max-w-lg">
@@ -17,7 +19,10 @@
 <p class="tex-p">Klicka på Genre eller Games för att hitta spel</p>
 </x-content-styles>
 
+
 @include('partials.footer')
-    
+
+</div>
+
 </body>
 </html>
