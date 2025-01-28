@@ -18,6 +18,7 @@
     </form>
     <a href="/games" >View all games</a><br>
     <a href="/genres">View all genres</a><br>
+</div>
 </x-content-styles>
 
 @include('partials.footer')
