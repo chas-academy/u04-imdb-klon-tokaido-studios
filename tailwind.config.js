@@ -49,6 +49,11 @@ export default {
                 p: ['1rem', '1.6'],    // 16px
 
             },
+
+            // Max bredd
+            maxWidth: {
+                'screen-1920': '1920px',
+            },
         },
     },
 

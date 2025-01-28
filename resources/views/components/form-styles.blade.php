@@ -6,7 +6,7 @@
 
         {{-- Inputfält --}}
         <div class="flex flex-col">
-            <label for="name" class="text-xs font-medium text-gray-600">Name</label>
+            <label for="name" class="text-lg font-medium text-gray-600">Name</label>
             <input 
                 type="text" 
                 id="name" 
@@ -17,7 +17,7 @@
         </div>
 
         <div class="flex flex-col">
-            <label for="email" class="text-xs font-medium text-gray-600">Email</label>
+            <label for="email" class="text-lg font-medium text-gray-600">Email</label>
             <input 
                 type="email" 
                 id="email" 
@@ -28,7 +28,7 @@
         </div>
 
         {{-- Skicka-knapp --}}
-        <x-button-styles size="small" class="" type="submit">
+        <x-button-styles size="small" class="mt-4" type="submit">
             Skicka
         </x-button-styles>
     </form>

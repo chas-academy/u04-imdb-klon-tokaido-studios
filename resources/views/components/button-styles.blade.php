@@ -5,9 +5,9 @@
 
     $sizeClasses = match($size)
     {
-        'large' => 'px-5 py-2 text-lg font-bold',
-        'small' => 'px-1 py-0 text-xs font-light',
-        'default' => 'px-2 py-1 text-base',
+        'large' => 'px-4 sm:px-6 lg:px-8 py-3 sm:py-4 lg:py-5 text-lg sm:text-xl font-bold',
+        'small' => 'px-2 sm:px-3 py-1 sm:py-2 text-sm sm:text-base font-light',
+        'default' => 'px-3 sm:px-4 py-2 sm:py-3 text-base sm:text-lg',
     };
 
 @endphp

@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="sv">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IGDb - Din spelguide</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
-    <!-- Header -->
+
     <header>
         <div class="py-4 px-6 flex items-center justify-between">
             <!-- Logo -->
@@ -48,24 +38,22 @@
                     </form>
                 @else
                     <!-- Om inte inloggad -->
-                    <x-button-styles size="large">
+                    <x-button-styles size="large" class="ml-4">
                         <a href="#" class="text-sm hover:underline">Logga in</a>
                     </x-button-styles>
                     <x-button-styles size="large">
-                        <a href="#" class="text-sm hover:underline">Registera</a>
+                        <a href="#" class="text-sm hover:underline">Knapp 2</a>
                     </x-button-styles>
                     <x-button-styles size="large">
-                        <a href="#" class="text-sm hover:underline">Registera</a>
+                        <a href="#" class="text-sm hover:underline">Knapp 3</a>
                     </x-button-styles>
                     <x-button-styles size="large">
-                        <a href="#" class="text-sm hover:underline">Registera</a>
+                        <a href="#" class="text-sm hover:underline">Knapp 4</a>
                     </x-button-styles>
                     <x-button-styles size="large">
-                        <a href="#" class="text-sm hover:underline">Registera</a>
+                        <a href="#" class="text-sm hover:underline">Knapp 5</a>
                     </x-button-styles>
                 @endif
             </div>
         </div>
     </header>
-</body>
-</html>

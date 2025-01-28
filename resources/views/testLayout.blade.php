@@ -8,22 +8,17 @@
 </head>
 <body>
 
+    <div class="page-container">
+
     @include('partials.header')
 
-
-
-    
     <x-form-styles>
         {{-- Lägg till fält och innehåll här --}}
     </x-form-styles>
 
-    <x-content-styles class="justify-center">
-
-        <h1 class="text-h1">Hallå Eller</h1>
-
-    </x-content-styles>
-
     @include('partials.footer')
+
+</div>
 
 </body>
 </html>

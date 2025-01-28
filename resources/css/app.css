@@ -2,15 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-    body {
-        @apply bg-gradient-diagonal
-        justify-center
-        max-w-7xl
+@layer components {
+    .page-container {
+        @apply 
+        max-w-screen-1920
+        bg-gradient-diagonal
+        flex
+        flex-col
+        items-center
         box-content
         min-h-screen
-        mt-4
-        pl-8
-        pr-8
+        p-2
     }
 }

@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer</title>
+</head>
+<body>
+
+
 <footer class="bg-gray-800 text-gray-200">
     <div class="max-w-7xl mx-auto py-6 px-6">
         <div class="flex flex-col md:flex-row justify-between items-center">
@@ -14,3 +24,7 @@
         </div>
     </div>
 </footer>
+
+    
+</body>
+</html>
