@@ -3,13 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>genres</title>
-    @vite('resources/css/app.css')
+    <title>Genres</title>
 </head>
 <body>
-    <div class="page-container">
-
-    @include('partials.header')
 
     <x-content-styles class="flex flex-col">
     <h1 class="text-h1">Genres</h1><br>
@@ -31,11 +27,19 @@
         <li><a href="/genres/5/games">Strategy</a></li>
         
     </ul>
-</x-content-styles>
 
-@include('partials.footer')
+    <!-- DYNAMISK LOGIK -->
+    
+    <!-- <ul>
+        @foreach($variabel as $variabel)
 
-</div>
+            <li>
 
+                <a href="{{ url('/genres/' . $varibal->id) }}">
+                    {{ $variabel->name }}
+                </a>
+                 
+            </li>
+    </ul> -->
 </body>
 </html>
