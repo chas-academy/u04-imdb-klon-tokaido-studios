@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $genre->name }} - Games</title>
+    @vite('resources/css/app.css')
 </head>
 <body>
+    @include ('partials.header')
     <h1>Spel i {{ $genre->name }}</h1>
 
     <ul>
@@ -40,6 +42,7 @@
     </ul> -->
 --}}
     <a href="{{ url(/'genres') }}">Tillbaka</a>
-
+    
+    @include ('partials.footer')
 </body>
 </html>

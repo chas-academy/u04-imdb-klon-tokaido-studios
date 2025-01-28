@@ -7,7 +7,7 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-gray-100">
     <!-- Header -->
     <header>
         <div class="max-w-7xl mx-auto py-4 px-6 flex items-center justify-between">
@@ -59,24 +59,25 @@
                     </form>
                 @else
                     <!-- Om inte inloggad -->
-                    <x-button-styles size="large">
+                    <x-button-styles>
                         <a href="#" class="text-sm hover:underline">Logga in</a>
                     </x-button-styles>
-                    <x-button-styles size="large">
-                        <a href="#" class="text-sm hover:underline">Registera</a>
-                    </x-button-styles>
-                    <x-button-styles size="large">
-                        <a href="#" class="text-sm hover:underline">Registera</a>
-                    </x-button-styles>
-                    <x-button-styles size="large">
-                        <a href="#" class="text-sm hover:underline">Registera</a>
-                    </x-button-styles>
-                    <x-button-styles size="large">
-                        <a href="#" class="text-sm hover:underline">Registera</a>
+                    <x-button-styles>
+                        <a href="#" class="text-sm hover:underline">Registrera</a>
                     </x-button-styles>
                 @endif
             </div>
         </div>
     </header>
+
+    <!-- Script för hamburgermeny -->
+    <script>
+        const menuButton = document.getElementById('menu-button');
+        const menu = document.getElementById('menu');
+
+        menuButton.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>

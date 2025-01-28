@@ -6,6 +6,7 @@
     <title>Genres</title>
 </head>
 <body>
+    @include('partials.header')
 
     <x-content-styles class="flex flex-col">
     <h1 class="text-h1">Genres</h1><br>
@@ -27,7 +28,6 @@
         <li><a href="/genres/5/games">Strategy</a></li>
         
     </ul>
-
     <!-- DYNAMISK LOGIK -->
     
     <!-- <ul>
@@ -38,8 +38,10 @@
                 <a href="{{ url('/genres/' . $varibal->id) }}">
                     {{ $variabel->name }}
                 </a>
-                 
+                
             </li>
     </ul> -->
+
+    @include('partials.footer')
 </body>
 </html>
