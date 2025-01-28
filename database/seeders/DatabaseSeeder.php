@@ -35,22 +35,22 @@ class DatabaseSeeder extends Seeder
 
     // Hämta alla genrer som redan finns i databasen
     $genres = Genre::all()->keyBy('name');
+    $games = Game::all()->keyBy('title');
 
-    // Hämta alla spel som redan finns i databasen
-    $games = Game::all();
-
-    // Koppla genrer till spel
-    foreach ($games as $game) {
-        // Om spelet finns i $gameGenres
-        if (isset($gameGenres[$game->title])) {
-            // Hämta genrer för spelet
-            $genreNames = $gameGenres[$game->title];
-
-            // Hitta motsvarande genreID från genreNames och koppla till spelet
-            $game->genres()->attach(
-                collect($genreNames)->map(fn($name) => $genres[$name]->genreID)->toArray()
-            );
+    foreach ($gameGenres as $gameTitle => $genreNames) {
+        if (!isset($games[$gameTitle])) {
+            continue; // Hoppa över om spelet inte finns i databasen
+        }
+        $game = $games[$gameTitle];
+            foreach ($genreNames as $genreName) {
+                if (!isset($genres[$genreName])) {
+                    continue; // Hoppa över om genren inte finns i databasen
+                }
+                $genre = $genres[$genreName];
+                // Kontrollera om relationen redan existerar innan den skapas
+                if (!$game->genres->contains($genre->genreID)) {
+                    $game->genres()->attach($genre->genreID);
         }
     }
-}   
+}   }
 }
