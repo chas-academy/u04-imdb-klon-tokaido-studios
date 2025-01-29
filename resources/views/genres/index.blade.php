@@ -3,40 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Genre - Index</title>
+
     @vite('resources/css/app.css')
+
 </head>
 <body>
 
 <div class="page-container">
 
-@include('partials.header')
+    @include('partials.header')
 
-<x-content-styles class="flex flex-col max-w-lg">
+    <x-content-styles class="flex flex-col max-w-lg">
 
-    <h2 class="text-h2">Genres</h2><br>
+        <h2 class="text-h2">Genres</h2><br>
 
-    <ul class="list-disc pl-6 space-y-2 border-buttonStyle-border">
 
-    @foreach ($genres as $genre)
-        <li class="text-gray800 hover:text-blue-500 text-xl mb-2 font-bold">
+        <ul class="list-disc pl-6 space-y-2 border-buttonStyle-border">
 
-            <a href="{{ route('genres.games', ['id' => $genre->genreID]) }}">{{ $genre->name }}</a>
+        @foreach ($genres as $genre)
+    
+            <li class="text-gray-800 hover:text-blue-500 text-xl mb-2 font-bold">
 
-        </li>
-    @endforeach
+                <a href="{{ route('genres.games', ['id' => $genre->genreID]) }}">{{ $genre->name }}</a>
 
-    </ul>
-    <x-button-styles size="small" class="max-w-xs mt-6">
-    <a href="{{ route('home') }}">Back To Homepage</a>
-    </x-button-styles>
-</x-content-styles>
+            </li>
 
-@include('partials.footer')
+        @endforeach
+
+        </ul>
+
+
+        <x-button-styles size="small" class="max-w-xs mt-6">
+        <a href="{{ route('home') }}">Back To Homepage</a>
+        </x-button-styles>
+
+        </x-content-styles>
+
+    @include('partials.footer')
 
 </div>
-
-
 
 </body>
 </html>

@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Games - Index</title>
+
     @vite('resources/css/app.css')
+
 </head>
 <body>
 
-<div class="page-container"></div>
+<div class="page-container">
 
 @include('partials.header')
 
@@ -17,7 +19,7 @@
   <ul class="list-disc pl-6 space-y-2">
 
   @foreach ($games as $game)
-      <li class="text-gray800 hover:text-blue-500 text-xl mb-2 font-bold">
+      <li class="text-gray-800 hover:text-blue-500 text-xl mb-2 font-bold">
         Gametitle: {{ $game->title }} | Game description: {{ $game->description }}</li>
   @endforeach
 
