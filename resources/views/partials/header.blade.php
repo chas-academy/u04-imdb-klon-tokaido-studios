@@ -12,7 +12,7 @@
     <header>
         <div class="max-w-7xl mx-auto py-4 px-6 flex items-center justify-between">
             <!-- Logo -->
-            <a href="/" class="mr-4 text-7xl font-bold flex-shrink-0">
+            <a href="/" class="mr-4 text-2xl font-bold flex-shrink-0">
                 IGDb
             </a>
 
@@ -43,23 +43,23 @@
             <!-- Auth länkar för större skärmar -->
             <div id="menu-desktop" class="hidden md:flex items-center space-x-4">
                 <x-button-styles>
-                    <a href="/games" class="text-sm hover:underline">Games</a>
+                    <a href="/games" class="hover:underline">Games</a>
                 </x-button-styles>
                 <x-button-styles>
-                    <a href="/genres" class="text-sm hover:underline">Genres</a>
+                    <a href="/genres" class="hover:underline">Genres</a>
                 </x-button-styles>
                 @if (Auth::check())
                     <span class="text-sm">{{ Auth::user()->name }}</span>
                     <form method="POST" action="">
                         @csrf
-                        <button type="submit" class="text-sm hover:underline">Logga ut</button>
+                        <button type="submit" class="hover:underline">Logga ut</button>
                     </form>
                 @else
                     <x-button-styles>
-                        <a href="#" class="text-sm hover:underline">Logga in</a>
+                        <a href="#" class="hover:underline">Logga in</a>
                     </x-button-styles>
                     <x-button-styles>
-                        <a href="#" class="text-sm hover:underline">Registrera</a>
+                        <a href="#" class="hover:underline">Registrera</a>
                     </x-button-styles>
                 @endif
             </div>

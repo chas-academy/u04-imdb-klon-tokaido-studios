@@ -7,6 +7,11 @@ export default {
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
+        './resources/**/*.css',
+        './resources/**/*.blade.php',
+        './resources/**/*.js',
+        './resources/**/*.vue',
+
     ],
 
     theme: {
@@ -42,19 +47,14 @@ export default {
                 body: ['"Roboto"', 'sans-serif'],   // Brödtext
             },
 
-            // Textstorlekar
-            fontSize: {
-                h1: ['2.5rem', '1.2'], // 40px
-                h2: ['2rem', '1.3'],   // 32px
-                p: ['1rem', '1.6'],    // 16px
-
-            },
-
             // Max bredd
             maxWidth: {
                 'screen-1920': '1920px',
             },
         },
+        safelist: [
+    'btn', 'btn-default', 'btn-large', 'btn-small'
+    ],
     },
 
     plugins: [forms],

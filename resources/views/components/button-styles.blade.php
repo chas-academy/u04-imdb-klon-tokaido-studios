@@ -14,7 +14,8 @@
 @endphp
 
 <button {{ $attributes->merge([
-    'class'=>  "bg-buttonStyle-background 
+    'class'=>  "btn
+                bg-buttonStyle-background 
                 text-buttonStyle-text 
                 border-buttonStyle-border 
                 shadow-content-box 
