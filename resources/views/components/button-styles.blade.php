@@ -22,6 +22,7 @@
                 hover:bg-buttonStyle-hooverOn
                 cursor-pointer 
                 border
+                btn 
                 $sizeClasses"
             ])
         }}>       
