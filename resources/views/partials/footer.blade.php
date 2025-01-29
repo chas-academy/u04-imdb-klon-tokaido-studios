@@ -9,12 +9,8 @@
                 <a href="" class="hover:text-white">Kontakta Oss</a>
             </nav>
 
-                        <!-- Footer text -->
-                        <p class="text-sm">&copy; {{ date('Y') }} IGDb. All rights reserved.</p>
+            <!-- Footer text -->
+            <p class="text-sm">&copy; {{ date('Y') }} IGDb. All rights reserved.</p>
         </div>
     </div>
-</footer>
-
-    
-</body>
-</html>
+</footer> 
