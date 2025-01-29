@@ -1,22 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search</title>
 
-    @vite('resources/css/app.css')
+@extends('layouts.app')
 
-</head>
-<body>
+@section('title', 'Games')
 
-<div class="page-container">
+@section('content')
 
-    @include('partials.header')
-
-    <x-content-styles class="flex flex-col max-w-lg">
-
-    <ul class="list-disc pl-6 space-y-2 border-buttonStyle-border">
+<ul class="list-disc pl-6 space-y-2 border-buttonStyle-border">
 
     @if ($games->isEmpty())
         <li class="text-red-600 italic text-xl">Inga spel hittades.</li>
@@ -27,19 +16,11 @@
         @endforeach
     @endif
 
-    </ul>
+</ul>
 
-    <x-button-styles size="small" class="max-w-xs mt-6">
-    <a href="{{ route('home') }}">Back To Homepage</a>
-    </x-button-styles>
+<x-button-styles size="small" class="max-w-xs mt-6">
+<a href="{{ route('home') }}">Back To Homepage</a>
+</x-button-styles>
 
-    </x-content-styles>
-
-    @include('partials.footer')
-
-</div>
-    
-</body>
-</html>
-
+@endsection
 

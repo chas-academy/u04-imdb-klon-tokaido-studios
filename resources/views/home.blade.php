@@ -1,30 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
 
-    @vite('resources/css/app.css')
+@extends('layouts.app')
 
-</head>
-<body>
+@section('title', 'Home')
 
-<div class="page-container">
+@section('content')
 
-@include('partials.header')
+    <h1 class="text-h1">Startsida</h1>
 
-<x-content-styles class="flex flex-col max-w-lg">
+    <p class="text-p mt-4">Klicka på Genre eller Games för att hitta spel</p>
 
-<h1 class="text-h1">Startsida</h1>
-
-<p class="tex-p mt-4">Klicka på Genre eller Games för att hitta spel</p>
-</x-content-styles>
-
-
-@include('partials.footer')
-
-</div>
-
-</body>
-</html>
+@endsection

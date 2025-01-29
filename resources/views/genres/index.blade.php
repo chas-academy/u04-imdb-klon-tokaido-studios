@@ -1,48 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Genre - Index</title>
 
-    @vite('resources/css/app.css')
+@extends('layouts.app')
 
-</head>
-<body>
+@section('title', 'Genre')
 
-<div class="page-container">
-
-    @include('partials.header')
-
-    <x-content-styles class="flex flex-col max-w-lg">
-
-        <h2 class="text-h2">Genres</h2><br>
+@section('content')
 
 
-        <ul class="list-disc pl-6 space-y-2 border-buttonStyle-border">
+<h2 class="text-h2">Genres</h2><br>
 
-        @foreach ($genres as $genre)
-    
-            <li class="text-gray-800 hover:text-blue-500 text-xl mb-2 font-bold">
+<ul class="list-disc pl-6 space-y-2 border-buttonStyle-border">
 
-                <a href="{{ route('genres.games', ['id' => $genre->genreID]) }}">{{ $genre->name }}</a>
+@foreach ($genres as $genre)
 
-            </li>
+    <li class="text-gray-800 hover:text-blue-500 text-xl mb-2 font-bold">
 
-        @endforeach
+        <a href="{{ route('genres.games', ['id' => $genre->genreID]) }}">{{ $genre->name }}</a>
 
-        </ul>
+    </li>
 
+@endforeach
 
-        <x-button-styles size="small" class="max-w-xs mt-6">
-        <a href="{{ route('home') }}">Back To Homepage</a>
-        </x-button-styles>
+</ul>
+<x-button-styles size="small" class="max-w-xs mt-6">
+<a href="{{ route('genres.index') }}">Go Back</a>
+</x-button-styles>
 
-        </x-content-styles>
-
-    @include('partials.footer')
-
-</div>
-
-</body>
-</html>
+@endsection
