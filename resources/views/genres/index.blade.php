@@ -13,6 +13,9 @@
 @include('partials.header')
 
 <x-content-styles class="flex flex-col max-w-7xl"> 
+
+<h1 class="text-h1"><strong>Games</strong></h1><br>
+
     <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         @foreach ($genres as $genre)
         <li class="bg-white shadow-md rounded-lg p-4 flex flex-col items-center space-y-4 border-2 border-orange-500">
