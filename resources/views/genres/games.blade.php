@@ -23,7 +23,7 @@
     <li class="bg-white shadow-md rounded-lg p-4 flex flex-col items-center justify-between border-2 border-orange-500 h-[350px]">
         <img src="https://via.placeholder.com/200" 
         alt="Placeholder image"
-        class="w-48 h-48 object-cover rounded-lg">
+        class="w-64 h-64 object-cover rounded-lg">
         <h2 class="text-gray-800 hover:text-blue-500 text-xl font-bold text-center">
             <a href="">{{ $game->title }}</a>
         </h2>
