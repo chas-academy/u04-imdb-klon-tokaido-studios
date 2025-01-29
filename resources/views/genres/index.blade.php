@@ -13,13 +13,14 @@
 
         <li class="bg-white shadow-md rounded-lg p-4 flex flex-col items-center space-y-4 border-2 border-orange-500">
 
+            <h2 class="text-gray-800 hover:text-blue-500 text-xl font-bold text-center">
+                <a href="{{ route('genres.games', ['id' => $genre->genreID]) }}">{{ $genre->name }}</a>
+            </h2>
+
             <img src="https://via.placeholder.com/200" 
             alt="Placeholder image" 
             class="w-64 h-64 object-cover rounded-lg">
 
-            <h2 class="text-gray-800 hover:text-blue-500 text-xl font-bold text-center">
-                <a href="{{ route('genres.games', ['id' => $genre->genreID]) }}">{{ $genre->name }}</a>
-            </h2>
         </li>
         @endforeach
     </ul>

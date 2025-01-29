@@ -5,17 +5,17 @@
 
 @section('content')
 
-  <h1><strong>Games</strong></h1><br>
+  <h1 class="text-4xl"><strong>Games</strong></h1><br>
     <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         @foreach ($games as $game)
-        <li class="bg-white shadow-md rounded-lg p-4 flex flex-col items-center justify-between border-2 border-orange-500 h-[350px]">
-          <h2 class="text-gray-800 hover:text-blue-500 font-bold text-center">
+        <li class="bg-white shadow-md rounded-lg p-4 flex flex-col items-center justify-between border-2 border-orange-500">
+          <h2 class="text-lg text-gray-800 hover:text-blue-500 font-bold text-center">
             {{ $game->title }}
           </h2>
           <img src="https://via.placeholder.com/200" 
           alt="Placeholder image"
           class="w-64 h-64 object-cover rounded-lg">
-          <p class="text-gray-600">
+          <p class="text-sm text-gray-600">
             {{ $game->description }}
           </p>
         </li>
