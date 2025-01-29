@@ -18,22 +18,24 @@
 
     <ul class="list-disc pl-6 space-y-2 border-buttonStyle-border">
 
-    @foreach ($games as $game)
+    @if ($games->isEmpty())
+        <li class="text-red-600 italic text-xl">Inga spel hittades.</li>
+    @else
 
-        <li class="text-gray-800 hover:text-blue-500 text-xl mb-2 font-bold">{{ $game->title }}</li>
-
-    @endforeach
+        @foreach ($games as $game)
+            <li class="text-gray-800 hover:text-blue-500 text-xl mb-2 font-bold">{{ $game->title }}</li>
+        @endforeach
+    @endif
 
     </ul>
-
-    </x-content-styles>
-
-    @include('partials.footer')
 
     <x-button-styles size="small" class="max-w-xs mt-6">
     <a href="{{ route('home') }}">Back To Homepage</a>
     </x-button-styles>
 
+    </x-content-styles>
+
+    @include('partials.footer')
 
 </div>
     
