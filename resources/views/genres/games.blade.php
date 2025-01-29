@@ -14,7 +14,7 @@
 
 <x-content-styles class="flex flex-col max-w-lg">
 
-<h2 class="text-h2">Game in genre: {{ $genre->name }}</h2><br>
+<h1 class="text-h1"><strong>Genre:</strong> {{ $genre->name }}</h1><br>
     
 @if($games->count() > 0)
         <ul class="list-disc pl-6 space-y-2">
