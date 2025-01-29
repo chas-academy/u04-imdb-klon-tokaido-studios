@@ -12,7 +12,7 @@
     <header>
         <div class="max-w-7xl mx-auto py-4 px-6 flex items-center justify-between">
             <!-- Logo -->
-            <a href="/" class="mr-4 text-2xl font-bold flex-shrink-0">
+            <a href="/" class="mr-4 text-7xl font-bold flex-shrink-0">
                 IGDb
             </a>
 
