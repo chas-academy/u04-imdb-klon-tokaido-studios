@@ -89,15 +89,5 @@
             </x-button-styles>
         @endif
     </div>
-
-    <!-- Script för hamburgermeny -->
-    <script>
-        const menuButton = document.getElementById('menu-button');
-        const menuMobile = document.getElementById('menu-mobile');
-
-        menuButton.addEventListener('click', () => {
-            menuMobile.classList.toggle('hidden');
-        });
-    </script>
 </body>
 </html>
