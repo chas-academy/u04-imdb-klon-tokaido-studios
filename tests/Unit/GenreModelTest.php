@@ -6,15 +6,12 @@ use Tests\TestCase;
 use App\Models\Genre;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class GenreTest extends TestCase {
+class GenreModelTest extends TestCase {
     use RefreshDatabase; //Detta återställer databasen inför varje test i försäkran att det är en ren miljö
 
-    public function testGetAllGenres () {
-        Genre::factory()->count(3)->create(); //Skapar tre genre-poster mha en factory
-
-        $response = $this->get('/api/genres'); //Skickar GET-förfrågan, hämtar alla genrer
-
-        $response->assertStatus(200) // Kontrollerar att svaret har status 200 (OK)...
-                ->assertJsonCount(3); // ...och innehåller exakt 3 genrer
+    public function testCreateGenres () {
+        $genre = Genre::create(['name' => 'Action']); // Skapar en ny genre med namnet 'Action' och sparar den i databasen
+        
+        $this->assertDatabaseHas('genres', ['name' => 'Action']); // Verifierar att databasen innehåller en post med namnet 'Action'
     }
 }
