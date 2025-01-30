@@ -7,6 +7,7 @@ use App\Models\Genre;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class GenreModelTest extends TestCase {
+    
     use RefreshDatabase; //Detta återställer databasen inför varje test i försäkran att det är en ren miljö
 
     public function testCreateGenres () {
