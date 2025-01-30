@@ -1,0 +1,7 @@
+
+   PASS  Tests\Feature\GenreTest
+  ✓ get all genres                                                       0.08s  
+
+  Tests:    1 passed (4 assertions)
+  Duration: 0.11s
+
