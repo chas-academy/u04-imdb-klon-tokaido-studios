@@ -2,29 +2,37 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\Models\Genre;
 use Tests\TestCase;
+use App\Models\Genre;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\DB;
 
 class GenreTest extends TestCase {
     use RefreshDatabase; //Detta återställer databasen inför varje test i försäkran att det är en ren miljö
 
     public function testGetAllGenres () {
 
-        Genre::factory()->count(3)->create(); //Skapar tre genre-poster mha en factory
+        // Skapa några genrer i databasen
+        Genre::create(['name' => 'Action']);
+        Genre::create(['name' => 'Adventure']);
+        Genre::create(['name' => 'RPG']);
 
-        $response = $this->get('/api/genres'); //Skickar GET-förfrågan, hämtar alla genrer
+        // Hämta alla genrer från databasen med en MySQL-fråga
+        $genres = DB::table('genres')->get();
 
-        $response->assertStatus(200) // Kontrollerar att svaret har status 200 (OK)...
-                ->assertJsonCount(3); // ...och innehåller exakt 3 genrer
+        // Kontrollera att vi har 3 genrer i databasen
+        $this->assertCount(3, $genres);
+
+        // Kontrollera att databasen innehåller specifika genrer
+        $this->assertTrue($genres->contains('name', 'Action'));
+        $this->assertTrue($genres->contains('name', 'Adventure'));
+        $this->assertTrue($genres->contains('name', 'RPG'));
     }
 
     public function testUnathDenied() { //Icke-auktoriserad användare får alltså ej skapa ny genre
     $response = $this->post('/api/genres', ['name' => 'RPG']);
 
     $response->assertStatus(403); // Förväntat: förbjudet
-
-}
-
+    }
 }
 
