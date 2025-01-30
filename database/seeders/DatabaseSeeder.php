@@ -9,9 +9,10 @@ use Illuminate\Database\Seeder;
 class DatabaseSeeder extends Seeder
 {
     public function run(): void
-    {// anropar seeders
+    {   // anropar seeders
         $this->call(GenreSeeder::class);
         $this->call(GameSeeder::class);
+        $this->call(AdminSeeder::class);
         // skapar realtioner
         $this->seedGameGenres();
     }

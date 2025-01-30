@@ -7,23 +7,21 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
+   // Kör funktion
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) 
+        {
             $table->boolean('isAdmin')->default(false)->after('password');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
+    // Rollback funktion
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
+        Schema::table('users', function (Blueprint $table) 
+        {
+            $table->dropColumn('isAdmin');
         });
     }
 };
