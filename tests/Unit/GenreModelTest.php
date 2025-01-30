@@ -1,16 +1,20 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests\Feature;
 
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
+use App\Models\Genre;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class GenreModelTest extends TestCase
-{
-    /**
-     * A basic unit test example.
-     */
-    public function test_example(): void
-    {
-        $this->assertTrue(true);
+class GenreTest extends TestCase {
+    use RefreshDatabase; //Detta återställer databasen inför varje test i försäkran att det är en ren miljö
+
+    public function testGetAllGenres () {
+        Genre::factory()->count(3)->create(); //Skapar tre genre-poster mha en factory
+
+        $response = $this->get('/api/genres'); //Skickar GET-förfrågan, hämtar alla genrer
+
+        $response->assertStatus(200) // Kontrollerar att svaret har status 200 (OK)...
+                ->assertJsonCount(3); // ...och innehåller exakt 3 genrer
     }
 }
