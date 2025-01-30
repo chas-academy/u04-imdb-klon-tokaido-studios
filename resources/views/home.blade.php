@@ -1,8 +1,12 @@
-<div>
-    <form action="{{ route('search') }}" method="GET">
-        <input type="text" name="title" placeholder="Search games..." required>
-        <button type="submit">Search</button>
-    </form>
-    <a href="/games">View all games</a><br>
-    <a href="/genres">View all genres</a><br>
-</div>
+
+@extends('layouts.app')
+
+@section('title', 'Home')
+
+@section('content')
+
+    <h1 class="text-h1">Startsida</h1>
+
+    <p class="text-p mt-4">Klicka på Genre eller Games för att hitta spel</p>
+
+@endsection
