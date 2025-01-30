@@ -30,7 +30,8 @@ class DatabaseSeeder extends Seeder
             'The Legend of Zelda: Breath of the Wild' => ['Adventure'],
             'Grand Theft Auto V' => ['Action', 'Adventure'],
             'Portal 2' => ['Action', 'Puzzle'],
-            'Civilization VI' => ['Strategy']
+            'Civilization VI' => ['Strategy'],
+            'COD' => ['Action']
         ];
 
     // Hämta alla genrer som redan finns i databasen
