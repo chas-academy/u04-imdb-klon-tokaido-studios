@@ -1,8 +1,4 @@
-@extends('layouts.app')
 
-@section('title', 'Login Form')
-
-@section('content')
 
 <form action="{{ route('login') }}" method="POST">
     @csrf <!-- Skydd mot CSRF-attacker -->
@@ -20,4 +16,3 @@
 
     <button type="submit">Logga in</button>
 </form>
-@endsection

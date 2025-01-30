@@ -49,14 +49,13 @@
                     <a href="/genres" class="hover:underline">Genres</a>
                 </x-button-styles>
                 @if (Auth::check())
-                    <span class="text-sm">{{ Auth::user()->name }}</span>
-                    <form method="POST" action="">
+                    <form method="{{ route('logout') }}" action="POST">
                         @csrf
                         <button type="submit" class="hover:underline">Logga ut</button>
                     </form>
                 @else
                     <x-button-styles>
-                        <a href="#" class="hover:underline w-full md:w-auto">Logga in</a>
+                        <a href="{{ route('showLoginForm') }}" class="hover:underline w-full md:w-auto">Logga in</a>
                     </x-button-styles>
                     <x-button-styles>
                         <a href="#" class="hover:underline w-full md:w-auto">Registrera</a>
