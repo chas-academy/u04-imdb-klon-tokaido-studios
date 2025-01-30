@@ -36,3 +36,12 @@ Route::get('/genres/{id}/games', [GenreController::class, 'showGames'])->name('g
 
 // Route för search
 Route::get('/search', [GameController::class, 'search'])->name('search');
+
+// Route för att bli omdirigerad till login.blade.php
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+
+// Skicka formuläret med POST metod till publik funktion login
+Route::post('/login', [AuthController::class, 'login']);
+
+// Skicka formuläret med POT metod till publik funktion logout
+Route::post('/login', [AuthController::class, 'logout'])->name('logout');
