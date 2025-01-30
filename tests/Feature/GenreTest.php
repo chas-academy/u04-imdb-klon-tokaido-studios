@@ -18,5 +18,13 @@ class GenreTest extends TestCase {
         $response->assertStatus(200) // Kontrollerar att svaret har status 200 (OK)...
                 ->assertJsonCount(3); // ...och innehåller exakt 3 genrer
     }
+
+    public function testUnathDenied() { //Icke-auktoriserad användare får alltså ej skapa ny genre
+    $response = $this->post('/api/genres', ['name' => 'RPG']);
+
+    $response->assertStatus(403); // Förväntat: förbjudet
+
+}
+
 }
 
