@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Requests\LoginRequest;
+use App\Http\Requests\LoginRequest; //Standardiserad validering för formulär 
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
