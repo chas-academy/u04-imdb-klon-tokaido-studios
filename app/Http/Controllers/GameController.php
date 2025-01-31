@@ -20,4 +20,5 @@ class GameController extends Controller
         $games = Game::where('title', 'like', '%' . $title . '%')->get();
         return view('games.search', ['games' => $games]);
     }
+    
 }

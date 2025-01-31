@@ -12,11 +12,28 @@
           <h2 class="text-lg text-gray-800 hover:text-blue-500 font-bold text-center">
             {{ $game->title }}
           </h2>
-          <img src="https://via.placeholder.com/200" 
+          <img src="{{ asset($game->image) }}" 
           alt="Placeholder image"
           class="w-64 h-64 object-cover rounded-lg">
           <p class="text-sm text-gray-600">
             {{ $game->description }}
+          </p>
+          <p class="mt-3">
+            @php
+                $videoId = str_replace('https://youtu.be/', '', $game->trailer);
+            @endphp
+            <h2 class="text-lg text-gray-800 hover:text-blue-500 font-bold text-center">
+                Watch Trailer
+            </h2>
+            <iframe 
+                width="280" 
+                height="158" 
+                src="https://www.youtube.com/embed/{{ $videoId }}" 
+                frameborder="0" 
+                allow="autoplay; encrypted-media" 
+                allowfullscreen
+                class="w-32 h-32 object-cover rounded-lg">
+            </iframe>
           </p>
         </li>
         @endforeach
