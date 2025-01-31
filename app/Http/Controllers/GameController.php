@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Game;
+use App\Models\Genre;
 
 class GameController extends Controller
 {
@@ -23,7 +24,8 @@ class GameController extends Controller
 
     public function createGame()
     {
-        return view('games.create');
+        $genres = Genre::all();
+        return view('games.create', compact('genres'));
     }
 
     public function storeGame(Request $request)
@@ -33,17 +35,27 @@ class GameController extends Controller
             'description' => 'required',
             'image' => 'nullable|url',
             'trailer' => 'nullable|url',
+            'genres' => 'required|array',
+            'genres.*' => 'exists:genres,genreID',
         ]);
 
-        $game = Game::create($validatedData);
+        $game = Game::create([
+            'title' => $validatedData['title'],
+            'description' => $validatedData['description'],
+            'image' => $validatedData['image'],
+            'trailer' => $validatedData['trailer'],
+        ]);
 
-        return redirect()->route('games.index')->with('success', 'Spelet har skapats!');
+        $game->genres()->attach($validatedData['genres']);
+
+        return redirect()->route('games.index')->with('success', 'Spelet har skapats och kopplats till valda genrer!');
     }
 
     public function editGame($gameID)
     {
         $game = Game::findOrFail($gameID);
-        return view('games.edit', ['game' => $game]);
+        $genres = Genre::all();
+        return view('games.edit', compact('game', 'genres'));
     }
 
     public function updateGame(Request $request, $gameID)
@@ -53,12 +65,21 @@ class GameController extends Controller
             'description' => 'required',
             'image' => 'nullable|url',
             'trailer' => 'nullable|url',
+            'genres' => 'required|array',
+            'genres.*' => 'exists:genres,genreID',
         ]);
 
         $game = Game::findOrFail($gameID);
-        $game->update($validatedData);
+        $game->update([
+            'title' => $validatedData['title'],
+            'description' => $validatedData['description'],
+            'image' => $validatedData['image'],
+            'trailer' => $validatedData['trailer'],
+        ]);
 
-        return redirect()->route('games.index')->with('success', 'Spelet har uppdaterats!');
+        $game->genres()->sync($validatedData['genres']);
+
+        return redirect()->route('games.index')->with('success', 'Spelet har uppdaterats och genrer har synkroniserats!');
     }
 
     public function deleteGame($gameID)
