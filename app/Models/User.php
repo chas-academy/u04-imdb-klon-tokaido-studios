@@ -10,17 +10,27 @@ class User extends Authenticatable
     use Notifiable;
 
     protected $primaryKey = 'userID';
+    public $incrementing = true;
+    protected $keyType = 'int';
 
-    protected $fillable = [
-        'username', 'email', 'password', 'country', 'is_admin',
+    protected $fillable =
+    [
+        'username', 
+        'email', 
+        'password', 
+        'country', 
+        'isAdmin',
     ];
 
-    protected $hidden = [
-        'password', 'remember_token',
+    protected $hidden =
+    [
+        'password', 
+        'remember_token',
     ];
 
-    protected $casts = [
-        'is_admin' => 'boolean',
+    protected $casts = 
+    [
+        'isAadmin' => 'boolean',
     ];
 
     public function lists()

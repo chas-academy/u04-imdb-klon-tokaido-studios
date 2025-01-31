@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\SignupController;
 
 /* LÄMNAS UT KOMMENTERAT FÖR FRAMTIDA IMPELEMENTERING */
 /*
@@ -26,6 +27,14 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
+// SIGNUP
+
+Route::get('/signup', function () {
+    return view('signup.signup'); // Motsvarar resources/views/signup/signup.blade.php
+})->name('signup');
+
+Route::post('/signup', [SignupController::class, 'registerUser'])->name('registerUser');
+
 // Route till games sidan
 Route::get('/games', [GameController::class, 'index'])->name('games.index');
 
@@ -39,16 +48,15 @@ Route::get('/genres/{id}/games', [GenreController::class, 'showGames'])->name('g
 Route::get('/search', [GameController::class, 'search'])->name('search');
 
 // Route för att bli omdirigerad till login.blade.php
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('showloginForm');
+Route::view('/login', 'login.login')->name('login');
 
-// Skicka formuläret med POST metod till funktion login
-Route::post('/login', [AuthController::class, 'login'])->name('login');
+
 
 // Skicka formuläret med POST metod till funktion logout
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+// Skicka formuläret med POST metod till funktion login
+Route::post('/login', [AuthController::class, 'login'])->name('login');
+
 // Skickar Admin användaren till admin.dashboard
 Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard')->middleware('auth', 'admin');
-
-// Skickar inloggad användare till user.dashboard
-Route::get('/user/dashboard', [UserController::class, 'dashboard'])->name('user.dashboard');

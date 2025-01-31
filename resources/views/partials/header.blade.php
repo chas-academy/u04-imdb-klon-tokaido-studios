@@ -55,7 +55,7 @@
                     </form>
                 @else
                     <x-button-styles>
-                        <a href="{{ route('showLoginForm') }}" class="hover:underline w-full md:w-auto">Logga in</a>
+                        <a href="{{ route('login') }}" class="hover:underline w-full md:w-auto">Logga in</a>
                     </x-button-styles>
                     <x-button-styles>
                         <a href="#" class="hover:underline w-full md:w-auto">Registrera</a>

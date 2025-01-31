@@ -6,10 +6,6 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    public function showLoginForm()
-    {
-        return view('login.login');
-    }
 
     public function login (LoginRequest $request)
     {
@@ -22,24 +18,23 @@ class AuthController extends Controller
             if($user->isAdmin)
             {
                 session(['user_role' => 'admin']);
-                session()->flash('success', 'inloggningen lyckades som admin!');
-                return redirect()->route('admin.dashboard');
+                session()->put('success', 'inloggad som admin!');
+                return redirect()->route('home');
             } else 
             {
                 session(['user_role' => 'user']);
-                session()->flash('success', 'inloggningen lyckades som användare!');
-                return redirect()->route('user.dashboard');
+                session()->put('success', 'inloggad som användare!');
+                return redirect()->route('home');
             }
         }
 
-        return back()->withErrors(['email' => 'Ange en giltig epost', 
-                                    'password' => 'Felaktigt lösenord']);
+        return back()->withErrors(['login' => 'Felaktiga inloggningsuppgifter.']);
     }
 
     public function logout()
     {
 
-        if (session('user_role') == 'admin' || session('user_role') == 'user')
+        if (session('user_role') === 'admin' || session('user_role') === 'user')
         {
             session()->flash('success', 'Du är utloggad');
             session()->forget('user_role');
