@@ -14,7 +14,6 @@ class DatabaseSeeder extends Seeder
         $this->call(GameSeeder::class);
         // skapar realtioner
         $this->seedGameGenres();
-
     }
         private function seedGameGenres()
         {// Definiera en koppling mellan spel och genrer
@@ -30,18 +29,16 @@ class DatabaseSeeder extends Seeder
             'The Legend of Zelda: Breath of the Wild' => ['Adventure'],
             'Grand Theft Auto V' => ['Action', 'Adventure'],
             'Portal 2' => ['Action', 'Puzzle'],
-            'Civilization VI' => ['Strategy']
+            'Civilization VI' => ['Strategy'],
+            'COD' => ['Action']
         ];
-
-    // Hämta alla genrer som redan finns i databasen
-    $genres = Genre::all()->keyBy('name');
-    $games = Game::all()->keyBy('title');
-
-    foreach ($gameGenres as $gameTitle => $genreNames) {
-        if (!isset($games[$gameTitle])) {
-            continue; // Hoppa över om spelet inte finns i databasen
-        }
-        $game = $games[$gameTitle];
+        $genres = Genre::all()->keyBy('name');
+        $games = Game::all()->keyBy('title');
+        foreach ($gameGenres as $gameTitle => $genreNames) {
+            if (!isset($games[$gameTitle])) {
+                continue; // Hoppa över om spelet inte finns i databasen
+            }
+            $game = $games[$gameTitle];
             foreach ($genreNames as $genreName) {
                 if (!isset($genres[$genreName])) {
                     continue; // Hoppa över om genren inte finns i databasen
@@ -50,7 +47,8 @@ class DatabaseSeeder extends Seeder
                 // Kontrollera om relationen redan existerar innan den skapas
                 if (!$game->genres->contains($genre->genreID)) {
                     $game->genres()->attach($genre->genreID);
+                }
+            }
         }
     }
-}   }
 }

@@ -36,13 +36,19 @@ För att vi ska kunna samarbeta smidigt i projektet är det viktigt att vi har e
 
 - Beskriv kort vad du har gjort i PR:n.
 
+<<<<<<<<< Temporary merge branch 1
 - Visa din branch på möte för gruppen för godkännande innan PR:n mergeas till main.
+
+- Koden kontrolleras av samtliga gruppmedlemmar på möte, vid godkännande så mergas branch till main under mötets gång.
+>>>>>>>>> Temporary merge branch 2
 
 ### Merge-strategi
 
 - Använd **squash and merge** för att hålla historiken enkel och ren.
 
 - Mergea inte kod som har kända problem eller som inte är klar.
+
+- Hela gruppen ska kontrollera koden och godkänna innan merge på ett gruppmöte.
 
 ### Arbetsflöde
 
