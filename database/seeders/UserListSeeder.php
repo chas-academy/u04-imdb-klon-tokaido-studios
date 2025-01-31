@@ -22,15 +22,15 @@ class UserListSeeder extends Seeder
             ],
         "listID" => 2,
             [
-                "listname" => "My Favrites",
-                "description" => "My favrites games list"
+                "listname" => "My favourites",
+                "description" => "My favourites games list"
                 "userID" => 4,
                 "games" => [1,3,5,8]
             ],
         "listID" => 3,
         [
             "listname" => "Top 20 games", // lägger till fler games när det finns mer spel
-            "description" => "A list of games I want to buy"
+            "description" => "Top 20 games to play"
             "userID" => null // ingen User
             "games" = [7,9,11,12] // lägger till 4st sålänge till lägger till fler spel i db
         ]
