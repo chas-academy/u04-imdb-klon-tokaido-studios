@@ -54,23 +54,10 @@ Route::get('/games/{gameID}/edit', [GameController::class, 'editGame'])->name('g
 Route::put('/games/{gameID}', [GameController::class, 'updateGame'])->name('games.update');
 Route::delete('/games/{gameID}', [GameController::class, 'deleteGame'])->name('games.destroy');
 
-/* LÄMNAS UT KOMMENTERAT FÖR FRAMTIDA IMPELEMENTERING */
-/*
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-require __DIR__.'/auth.php';
-*/
+
 
 // Route för att bli omdirigerad till login.blade.php
 Route::view('/login', 'login.login')->name('login');
-
-
 
 // Skicka formuläret med POST metod till funktion logout
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
