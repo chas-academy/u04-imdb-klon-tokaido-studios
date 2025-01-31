@@ -23,6 +23,16 @@
             <label for="trailer" class="block text-gray-700 text-sm font-bold mb-2">Trailer URL:</label>
             <input type="url" id="trailer" name="trailer" value="{{ $game->trailer }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
         </div>
+        <div class="mb-4">
+            <label for="genres" class="block text-gray-700 text-sm font-bold mb-2">Genres:</label>
+            <select name="genres[]" id="genres" multiple class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                @foreach($genres as $genre)
+                    <option value="{{ $genre->genreID }}" {{ $game->genres->contains('genreID', $genre->genreID) ? 'selected' : '' }}>
+                        {{ $genre->name }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
         <x-button-styles size="small" type="submit">
             Update Game
         </x-button-styles>
