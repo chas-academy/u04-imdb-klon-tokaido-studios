@@ -69,7 +69,7 @@ class UserSeeder extends Seeder
                     [
                         'userID' => $user['userID'],
                         'username' => $user['username'],
-                        'password' => bcrypt($user['password']), // Hasha lösenordet
+                        'password' => $user['password'],
                         'country' => $user['country'],
                         'is_admin' => $user['is_admin']
                     ]
