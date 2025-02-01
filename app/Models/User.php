@@ -25,7 +25,7 @@ class User extends Authenticatable
 
     public function lists()
     {
-        return $this->hasMany(UserList::class, 'userId');
+        return $this->hasMany(UserList::class, 'userID');
     }
 
     public function reviews()

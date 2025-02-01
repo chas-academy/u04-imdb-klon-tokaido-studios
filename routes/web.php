@@ -4,6 +4,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\GenreController;
+use App\Http\Controllers\ReviewController;
 
 // Förstasidan där sökfältet och länkar till 3 första routes nedan kan finnas
 Route::get('/', function () {
@@ -28,6 +29,11 @@ Route::post('/games', [GameController::class, 'storeGame'])->name('games.store')
 Route::get('/games/{gameID}/edit', [GameController::class, 'editGame'])->name('games.edit');
 Route::put('/games/{gameID}', [GameController::class, 'updateGame'])->name('games.update');
 Route::delete('/games/{gameID}', [GameController::class, 'deleteGame'])->name('games.destroy');
+
+Route::resource('reviews', ReviewController::class)->except(['index', 'show']);
+Route::get('/games/{game}/reviews', [ReviewController::class, 'showForGame'])->name('reviews.all_reviews');
+Route::get('/games/{game}/review', [ReviewController::class, 'showReview'])->name('reviews.game_review');
+Route::get('/games/{game}/review/create', [ReviewController::class, 'create'])->name('reviews.create');
 
 /* LÄMNAS UT KOMMENTERAT FÖR FRAMTIDA IMPELEMENTERING */
 /*

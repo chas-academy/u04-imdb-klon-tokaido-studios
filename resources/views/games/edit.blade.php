@@ -3,6 +3,10 @@
 @section('title', 'Edit Game')
 
 @section('content')
+
+
+    <!-- admin på hela sidan -->
+    
     <h1 class="text-4xl"><strong>Edit Game</strong></h1><br>
     <form action="{{ route('games.update', $game->gameID) }}" method="POST" class="max-w-md mx-auto">
         @csrf
