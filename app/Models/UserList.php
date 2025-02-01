@@ -9,12 +9,12 @@ class UserList extends Model
     protected $primaryKey = 'listID';
 
     protected $fillable = [
-        'listname', 'description', 'userId',
+        'listname', 'description', 'userID',
     ];
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'userId');
+        return $this->belongsTo(User::class, 'userID');
     }
 
     public function games()
