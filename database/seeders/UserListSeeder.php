@@ -39,10 +39,11 @@ class UserListSeeder extends Seeder
                     // Skapa eller uppdatera listor i databasen
         foreach ($lists as $list) {
             $userList = UserList::updateOrCreate(
-                ['listname' => $list['listname']], // Söker på listname för att identifiera dubbletter
+                ['listID' => $list['listID']],
                 [
+                    'listname' => $list['listname'],
                     'description' => $list['description'],
-                    'userID' => $list['userID'], // Kan vara null
+                    'userID' => $list['userID'],
                 ]
             );
 
