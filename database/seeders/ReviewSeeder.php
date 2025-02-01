@@ -30,7 +30,7 @@ class ReviewSeeder extends Seeder
             // Elden Ring, User 4
             [
                 'title' => 'An Epic Fantasy Journey',
-                'description' => 'Elden Ring is a masterpiece that draws you into its vast, haunting world. The thrill of exploration, the challenge of tough bosses, and the sense of freedom you get to carve your own path—it's one of those games that stays with you long after you\'ve put the controller down.',
+                'description' => "Elden Ring is a masterpiece that draws you into its vast, haunting world. The thrill of exploration, the challenge of tough bosses, and the sense of freedom you get to carve your own path—it's one of those games that stays with you long after you\'ve put the controller down.",
                 'gameID' => 1,
                 'userID' => 4,
             ],
