@@ -4,6 +4,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\GenreController;
+use App\Http\Controllers\UserListController;
 
 // Förstasidan där sökfältet och länkar till 3 första routes nedan kan finnas
 Route::get('/', function () {
@@ -41,3 +42,23 @@ Route::middleware('auth')->group(function () {
 });
 require __DIR__.'/auth.php';
 */
+
+// routs till listor
+Route::middleware(['auth'])->group(function () {
+    // Visa alla listor för den inloggade användaren
+    Route::get('/user/lists', [UserListController::class, 'index'])->name('user.lists');
+    
+    // Skapa en ny lista
+    Route::get('/user/list/create', [UserListController::class, 'createList'])->name('user.createList');
+    Route::post('/user/list', [UserListController::class, 'storeList'])->name('user.storeList');
+    
+    // Redigera en lista
+    Route::get('/user/list/{listID}/edit', [UserListController::class, 'editList'])->name('user.editList');
+    Route::put('/user/list/{listID}', [UserListController::class, 'updateList'])->name('user.updateList');
+    
+    // Ta bort en lista
+    Route::delete('/user/list/{listID}', [UserListController::class, 'deleteList'])->name('user.deleteList');
+    
+    // Visa listor för en viss användare via userID
+    Route::get('/user/{userID}/lists', [UserListController::class, 'showlists'])->name('user.showlists');
+});
