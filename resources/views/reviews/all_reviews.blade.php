@@ -6,10 +6,9 @@
     <div class="container mx-auto px-4 py-8">
         <h1 class="text-4xl font-bold mb-6">All Reviews for {{ $game->title }}</h1>
         
-        <div class="mb-8">
+        <div class="flex mb-8">
             <img src="{{ asset($game->image) }}" alt="{{ $game->title }}" class="w-64 h-64 object-cover rounded-lg mb-4">
-            <h2 class="text-2xl font-semibold mb-2">{{ $game->title }}</h2>
-            <p class="text-gray-600">{{ $game->description }}</p>
+            <p class="text-gray-600 ml-5">{{ $game->description }}</p>
         </div>
 
         @if($reviews->count() > 0)
@@ -29,3 +28,4 @@
         </x-button-styles>
     </div>
 @endsection
+

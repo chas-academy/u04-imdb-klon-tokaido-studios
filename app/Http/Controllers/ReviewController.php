@@ -50,7 +50,7 @@ class ReviewController extends Controller
 
         $review->update($validatedData);
 
-        return redirect()->route('reviews.game_review', $review->gameID)->with('success', 'Review updated successfully');
+        return redirect()->route('users.reviews', $review->gameID)->with('success', 'Review updated successfully');
     }
 
 
@@ -59,7 +59,7 @@ class ReviewController extends Controller
         $gameID = $review->gameID;
         $review->delete();
 
-        return redirect()->route('reviews.game_review', $gameID)->with('success', 'Review deleted successfully');
+        return redirect()->route('users.reviews', $gameID)->with('success', 'Review deleted successfully');
     }
 
     // Visar alla recensioner för ett spel

@@ -19,6 +19,6 @@ class UserList extends Model
 
     public function games()
     {
-        return $this->belongsToMany(Game::class, 'game_list', 'listID', 'gameID');
+        return $this->belongsToMany(Game::class, 'game_lists', 'listID', 'gameID');
     }
 }

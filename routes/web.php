@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
 
 // Förstasidan där sökfältet och länkar till 3 första routes nedan kan finnas
 Route::get('/', function () {
@@ -34,6 +36,17 @@ Route::resource('reviews', ReviewController::class)->except(['index', 'show']);
 Route::get('/games/{game}/reviews', [ReviewController::class, 'showForGame'])->name('reviews.all_reviews');
 Route::get('/games/{game}/review', [ReviewController::class, 'showReview'])->name('reviews.game_review');
 Route::get('/games/{game}/review/create', [ReviewController::class, 'create'])->name('reviews.create');
+
+// testa för inkompletta UserController
+Route::middleware(['simulate.auth'])->group(function () {
+    Route::get('/profile', [UserController::class, 'showProfile'])->name('users.profile');
+    Route::get('/profile/reviews', [UserController::class, 'showReviews'])->name('users.reviews');
+    Route::get('/profile/lists', [UserController::class, 'showLists'])->name('users.lists');
+    Route::delete('/profile', [UserController::class, 'destroy'])->name('users.destroy');
+    Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+    Route::get('/login', [LoginController::class, 'login'])->name('login');
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+});
 
 /* LÄMNAS UT KOMMENTERAT FÖR FRAMTIDA IMPELEMENTERING */
 /*

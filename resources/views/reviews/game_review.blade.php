@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="container mx-auto px-4 py-8">
-        <h1 class="text-4xl font-bold mb-6">Reviews for {{ $game->title }}</h1>
+        <h1 class="text-4xl font-bold mb-6">All Reviews for {{ $game->title }}</h1>
         
         <div class="flex mb-8">
             <img src="{{ asset($game->image) }}" alt="{{ $game->title }}" class="w-64 h-64 object-cover rounded-lg mr-8">
