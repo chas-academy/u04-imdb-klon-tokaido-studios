@@ -73,7 +73,7 @@
                         <a href="{{ route('login') }}" class="hover:underline w-full md:w-auto">Logga in</a>
                     </x-button-styles>
                     <x-button-styles>
-                        <a href="#" class="hover:underline w-full md:w-auto">Registrera</a>
+                        <a href="{{ route('signup') }}" class="hover:underline w-full md:w-auto">Registrera</a>
                     </x-button-styles>
                 @endguest
             </div>
@@ -81,7 +81,7 @@
     </header>
 
     <!-- Auth länkar för små skärmar -->
-    <div id="menu-mobile" class="hidden flex items-center justify-center space-x-4 py-4 md:hidden">
+    <!-- <div id="menu-mobile" class="hidden flex items-center justify-center space-x-4 py-4 md:hidden">
         <x-button-styles>
             <a href="/games" class="text-sm hover:underline">Games</a>
         </x-button-styles>
@@ -99,9 +99,9 @@
             </form>
         @else
             <x-button-styles>
-                <a href="#" class="text-sm hover:underline">Register</a>
+                <a href="{{ route('signup') }}" class="text-sm hover:underline">Register</a>
             </x-button-styles>
         @endif
-    </div>
+    </div> -->
 </body>
 </html>

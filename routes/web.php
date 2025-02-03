@@ -23,7 +23,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-require __DIR__.'/auth.php';
+
 */
 
 
@@ -38,6 +38,10 @@ Route::get('/signup', function () {
     return view('signup.signup'); // Motsvarar resources/views/signup/signup.blade.php
 })->name('signup');
 Route::post('/signup', [SignupController::class, 'registerUser'])->name('registerUser');
+
+
+// Route för att bli omdirigerad till login.blade.php
+Route::view('/login', 'auth.login')->name('login');
 
 
 // Nya routes för GameController
@@ -68,11 +72,9 @@ Route::get('/search', [GameController::class, 'search'])->name('search');
 
 
 
-// Route för att bli omdirigerad till login.blade.php
-Route::view('/login', 'login.login')->name('login');
 
 // Skicka formuläret med POST metod till funktion logout
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+// Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::resource('reviews', ReviewController::class)->except(['index', 'show']);
 Route::get('/games/{game}/review', [ReviewController::class, 'showReview'])->name('reviews.game_review');
@@ -90,7 +92,7 @@ Route::middleware([UserMiddleware::class])->group(function () {
     // Route::get('/login', [LoginController::class, 'login'])->name('login');
    // Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 });
-
+/*
 // routs till listor
 Route::middleware(['auth'])->group(function () {
     // Visa alla listor för den inloggade användaren
@@ -118,16 +120,14 @@ Route::middleware(['auth'])->group(function () {
     // Visa listor för en viss användare via userID
     Route::get('/user/{userID}/lists', [UserListController::class, 'showlists'])
     ->name('user.showlists');
-});
+});*/
 
-// Skicka formuläret med POST metod till funktion login
-Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 // Skickar Admin användaren till admin.dashboard
 Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])
 ->name('admin.dashboard')
 ->middleware('auth', AdminMiddleware::class);
-
+/*
 // routs till listor
 Route::middleware(['auth'])->group(function () {
     // Visa alla listor för den inloggade användaren
@@ -155,4 +155,6 @@ Route::middleware(['auth'])->group(function () {
     // Visa listor för en viss användare via userID
     Route::get('/user/{userID}/lists', [UserListController::class, 'showlists'])
     ->name('user.showlists');
-});
+});*/
+
+require __DIR__.'/auth.php';
