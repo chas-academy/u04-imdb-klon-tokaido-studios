@@ -10,6 +10,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
+use App\Http\Middleware\UserMiddleware;
+use App\Http\Middleware\AdminMiddleware;
 
 /* LÄMNAS UT KOMMENTERAT FÖR FRAMTIDA IMPELEMENTERING */
 /*
@@ -41,7 +43,7 @@ Route::post('/signup', [SignupController::class, 'registerUser'])->name('registe
 // Nya routes för GameController
 Route::get('/games/create', [GameController::class, 'createGame'])
 ->name('games.create')
-->middleware('auth', \App\Http\Middleware\AdminMiddleware::class);
+->middleware('auth', AdminMiddleware::class);
 
 Route::post('/games', [GameController::class, 'storeGame'])->name('games.store');
 Route::get('/games/{gameID}/edit', [GameController::class, 'editGame'])->name('games.edit');
@@ -77,7 +79,7 @@ Route::get('/games/{game}/review', [ReviewController::class, 'showReview'])->nam
 Route::get('/games/{game}/review/create', [ReviewController::class, 'create'])->name('reviews.create');
 
 // testa för inkompletta UserController
-Route::middleware(['simulate.auth'])->group(function () {
+Route::middleware([UserMiddleware::class])->group(function () {
     Route::get('/profile', [UserController::class, 'showProfile'])->name('users.profile');
     Route::get('/profile/reviews', [UserController::class, 'showReviews'])->name('users.reviews');
     Route::get('/profile/lists', [UserController::class, 'showLists'])->name('users.lists');
@@ -92,21 +94,30 @@ Route::middleware(['simulate.auth'])->group(function () {
 // routs till listor
 Route::middleware(['auth'])->group(function () {
     // Visa alla listor för den inloggade användaren
-    Route::get('/user/lists', [UserListController::class, 'index'])->name('user.lists');
+    Route::get('/user/lists', [UserListController::class, 'index'])
+    ->name('user.lists');
     
     // Skapa en ny lista
-    Route::get('/user/list/create', [UserListController::class, 'createList'])->name('user.createList');
-    Route::post('/user/list', [UserListController::class, 'storeList'])->name('user.storeList');
+    Route::get('/user/list/create', [UserListController::class, 'createList'])
+    ->name('user.createList');
+
+    Route::post('/user/list', [UserListController::class, 'storeList'])
+    ->name('user.storeList');
     
     // Redigera en lista
-    Route::get('/user/list/{listID}/edit', [UserListController::class, 'editList'])->name('user.editList');
-    Route::put('/user/list/{listID}', [UserListController::class, 'updateList'])->name('user.updateList');
+    Route::get('/user/list/{listID}/edit', [UserListController::class, 'editList'])
+    ->name('user.editList');
+
+    Route::put('/user/list/{listID}', [UserListController::class, 'updateList'])
+    ->name('user.updateList');
     
     // Ta bort en lista
-    Route::delete('/user/list/{listID}', [UserListController::class, 'deleteList'])->name('user.deleteList');
+    Route::delete('/user/list/{listID}', [UserListController::class, 'deleteList'])
+    ->name('user.deleteList');
     
     // Visa listor för en viss användare via userID
-    Route::get('/user/{userID}/lists', [UserListController::class, 'showlists'])->name('user.showlists');
+    Route::get('/user/{userID}/lists', [UserListController::class, 'showlists'])
+    ->name('user.showlists');
 });
 
 // Skicka formuläret med POST metod till funktion login
@@ -115,24 +126,33 @@ Route::post('/login', [AuthController::class, 'login'])->name('login');
 // Skickar Admin användaren till admin.dashboard
 Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])
 ->name('admin.dashboard')
-->middleware('auth', \App\Http\Middleware\AdminMiddleware::class);
+->middleware('auth', AdminMiddleware::class);
 
 // routs till listor
 Route::middleware(['auth'])->group(function () {
     // Visa alla listor för den inloggade användaren
-    Route::get('/user/lists', [UserListController::class, 'index'])->name('user.lists');
+    Route::get('/user/lists', [UserListController::class, 'index'])
+    ->name('user.lists');
     
     // Skapa en ny lista
-    Route::get('/user/list/create', [UserListController::class, 'createList'])->name('user.createList');
-    Route::post('/user/list', [UserListController::class, 'storeList'])->name('user.storeList');
+    Route::get('/user/list/create', [UserListController::class, 'createList'])
+    ->name('user.createList');
+
+    Route::post('/user/list', [UserListController::class, 'storeList'])
+    ->name('user.storeList');
     
     // Redigera en lista
-    Route::get('/user/list/{listID}/edit', [UserListController::class, 'editList'])->name('user.editList');
-    Route::put('/user/list/{listID}', [UserListController::class, 'updateList'])->name('user.updateList');
+    Route::get('/user/list/{listID}/edit', [UserListController::class, 'editList'])
+    ->name('user.editList');
+
+    Route::put('/user/list/{listID}', [UserListController::class, 'updateList'])
+    ->name('user.updateList');
     
     // Ta bort en lista
-    Route::delete('/user/list/{listID}', [UserListController::class, 'deleteList'])->name('user.deleteList');
+    Route::delete('/user/list/{listID}', [UserListController::class, 'deleteList'])
+    ->name('user.deleteList');
     
     // Visa listor för en viss användare via userID
-    Route::get('/user/{userID}/lists', [UserListController::class, 'showlists'])->name('user.showlists');
+    Route::get('/user/{userID}/lists', [UserListController::class, 'showlists'])
+    ->name('user.showlists');
 });

@@ -20,12 +20,12 @@ class AuthController extends Controller
             {
                 session(['user_role' => 'admin']);
                 session()->put('success', 'inloggad som admin!');
-                return redirect()->route('admin.dashboard');
+                return redirect()->route('users.profile');
             } else 
             {
                 session(['user_role' => 'user']);
                 session()->put('success', 'inloggad som användare!');
-                return redirect()->route('home');
+                return redirect()->route('users.profile');
             }
         }
 
