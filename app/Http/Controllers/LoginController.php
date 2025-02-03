@@ -1,5 +1,5 @@
 <?php
-
+/*
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -19,4 +19,4 @@ class LoginController extends Controller
         session()->forget('logged_in');
         return redirect('/');
     }
-}
+}*/

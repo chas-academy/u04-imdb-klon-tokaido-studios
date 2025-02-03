@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Http\Requests\Auth\LoginRequest; //Standardiserad validering för formulär 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -19,7 +20,7 @@ class AuthController extends Controller
             {
                 session(['user_role' => 'admin']);
                 session()->put('success', 'inloggad som admin!');
-                return redirect()->route('home');
+                return redirect()->route('admin.dashboard');
             } else 
             {
                 session(['user_role' => 'user']);
@@ -36,7 +37,7 @@ class AuthController extends Controller
 
         if (session('user_role') === 'admin' || session('user_role') === 'user')
         {
-            session()->flash('success', 'Du är utloggad');
+            session()->put('success', 'Du är utloggad');
             session()->forget('user_role');
             Auth::logout();
             return redirect('/');

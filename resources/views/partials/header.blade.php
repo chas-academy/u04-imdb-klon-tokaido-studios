@@ -15,6 +15,13 @@
             <a href="/" class="mr-4 text-2xl font-bold flex-shrink-0">
                 IGDb
             </a>
+            @auth
+                <div>Du är inloggad som: {{ Auth::user()->username }}</div>
+            @endauth
+            
+            @guest
+                <div>Du är inte inloggad</div>
+            @endguest
 
             <!-- Sök och dropdown -->
             <div class="mr-4 flex items-center space-x-2 flex-grow sm:flex-grow-0">
@@ -47,13 +54,12 @@
                 <x-button-styles class="w-full md:w-auto">
                     <a href="/games" class="hover:underline">Games</a>
                 </x-button-styles>
+
                 <x-button-styles class="w-full md:w-auto">
                     <a href="/genres" class="hover:underline">Genres</a>
                 </x-button-styles>
-                <x-button-styles>
-                        <a href="{{ route('login') }}" class="hover:underline w-full md:w-auto">Log in</a>
-                </x-button-styles>
-                @if (Auth::check())
+
+                @auth
                     <form method="POST" action="{{ route('logout') }}" class="inline">
                         @csrf
                         <x-button-styles type="submit" class="hover:underline">Log out</x-button-styles>
@@ -61,14 +67,15 @@
                     <x-button-styles class="w-full md:w-auto">
                         <a href="{{ route('users.profile') }}" class="btn btn-primary">My Profile</a>
                     </x-button-styles>
-                @else
+                @endauth
+                @guest
                     <x-button-styles>
                         <a href="{{ route('login') }}" class="hover:underline w-full md:w-auto">Logga in</a>
                     </x-button-styles>
                     <x-button-styles>
                         <a href="#" class="hover:underline w-full md:w-auto">Registrera</a>
                     </x-button-styles>
-                @endif
+                @endguest
             </div>
         </div>
     </header>
@@ -82,7 +89,7 @@
             <a href="/genres" class="text-sm hover:underline">Genres</a>
         </x-button-styles>
         <x-button-styles>
-                <a href="#" class="text-sm hover:underline">Log in</a>
+                <a href="{{ route('login') }}" class="text-sm hover:underline">Log in</a>
         </x-button-styles>
         @if (Auth::check())
             <span class="text-sm">{{ Auth::user()->name }}</span>

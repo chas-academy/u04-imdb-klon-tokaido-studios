@@ -6,6 +6,10 @@ use App\Http\Controllers\GameController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SignupController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
 
 /* LÄMNAS UT KOMMENTERAT FÖR FRAMTIDA IMPELEMENTERING */
 /*
@@ -19,9 +23,7 @@ Route::middleware('auth')->group(function () {
 });
 require __DIR__.'/auth.php';
 */
-use App\Http\Controllers\ReviewController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\LoginController;
+
 
 // Förstasidan där sökfältet och länkar till 3 första routes nedan kan finnas
 Route::get('/', function () {
@@ -37,7 +39,10 @@ Route::post('/signup', [SignupController::class, 'registerUser'])->name('registe
 
 
 // Nya routes för GameController
-Route::get('/games/create', [GameController::class, 'createGame'])->name('games.create');
+Route::get('/games/create', [GameController::class, 'createGame'])
+->name('games.create')
+->middleware('auth', \App\Http\Middleware\AdminMiddleware::class);
+
 Route::post('/games', [GameController::class, 'storeGame'])->name('games.store');
 Route::get('/games/{gameID}/edit', [GameController::class, 'editGame'])->name('games.edit');
 Route::put('/games/{gameID}', [GameController::class, 'updateGame'])->name('games.update');
@@ -77,9 +82,11 @@ Route::middleware(['simulate.auth'])->group(function () {
     Route::get('/profile/reviews', [UserController::class, 'showReviews'])->name('users.reviews');
     Route::get('/profile/lists', [UserController::class, 'showLists'])->name('users.lists');
     Route::delete('/profile', [UserController::class, 'destroy'])->name('users.destroy');
-    Route::post('/logout', [UserController::class, 'logout'])->name('logout');
-    Route::get('/login', [LoginController::class, 'login'])->name('login');
-    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+   // Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+
+    /* BORTTAGNA */
+    // Route::get('/login', [LoginController::class, 'login'])->name('login');
+   // Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 });
 
 // routs till listor
@@ -106,7 +113,9 @@ Route::middleware(['auth'])->group(function () {
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 // Skickar Admin användaren till admin.dashboard
-Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard')->middleware('auth', 'admin');
+Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])
+->name('admin.dashboard')
+->middleware('auth', \App\Http\Middleware\AdminMiddleware::class);
 
 // routs till listor
 Route::middleware(['auth'])->group(function () {

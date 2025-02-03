@@ -27,7 +27,6 @@ class SignupController extends Controller
             'country' => 'Sweden',
         ]);
 
-
         return redirect()->route('login')->with('success', 'Kontot har skapats!');
         
     }
