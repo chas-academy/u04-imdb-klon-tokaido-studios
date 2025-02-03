@@ -20,20 +20,27 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 */
 
-
-
 // Förstasidan där sökfältet och länkar till 3 första routes nedan kan finnas
 Route::get('/', function () {
     return view('home');
 })->name('home');
 
-// SIGNUP
 
+// SIGNUP
 Route::get('/signup', function () {
     return view('signup.signup'); // Motsvarar resources/views/signup/signup.blade.php
 })->name('signup');
-
 Route::post('/signup', [SignupController::class, 'registerUser'])->name('registerUser');
+
+
+// Nya routes för GameController
+Route::get('/games/create', [GameController::class, 'createGame'])->name('games.create');
+Route::post('/games', [GameController::class, 'storeGame'])->name('games.store');
+Route::get('/games/{gameID}/edit', [GameController::class, 'editGame'])->name('games.edit');
+Route::put('/games/{gameID}', [GameController::class, 'updateGame'])->name('games.update');
+Route::delete('/games/{gameID}', [GameController::class, 'deleteGame'])->name('games.destroy');
+
+
 
 // Route till games sidan
 Route::get('/games', [GameController::class, 'index'])->name('games.index');
@@ -47,12 +54,7 @@ Route::get('/genres/{id}/games', [GenreController::class, 'showGames'])->name('g
 // Route för search
 Route::get('/search', [GameController::class, 'search'])->name('search');
 
-// Nya routes för GameController
-Route::get('/games/create', [GameController::class, 'createGame'])->name('games.create');
-Route::post('/games', [GameController::class, 'storeGame'])->name('games.store');
-Route::get('/games/{gameID}/edit', [GameController::class, 'editGame'])->name('games.edit');
-Route::put('/games/{gameID}', [GameController::class, 'updateGame'])->name('games.update');
-Route::delete('/games/{gameID}', [GameController::class, 'deleteGame'])->name('games.destroy');
+
 
 
 

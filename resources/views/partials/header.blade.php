@@ -19,11 +19,13 @@
             <!-- Sök och dropdown -->
             <div class="mr-4 flex items-center space-x-2 flex-grow sm:flex-grow-0">
                 <form action="{{ route('search') }}" method="GET" class="flex items-center space-x-2">
+
                     <input class="w-full sm:w-48 md:w-64"
                         type="text" 
                         name="title" 
                         placeholder="Search games..." 
                         class="w-full sm:w-64 px-4 py-2 rounded-md text-sm focus:ring focus:border">
+
                     <x-button-styles class="w-full md:w-auto"
                         type="submit" 
                         class="px-4 py-2 rounded-md">
@@ -49,7 +51,7 @@
                     <a href="/genres" class="hover:underline">Genres</a>
                 </x-button-styles>
                 @if (Auth::check())
-                    <form method="{{ route('logout') }}" action="POST">
+                    <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button type="submit" class="hover:underline">Logga ut</button>
                     </form>

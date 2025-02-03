@@ -10,6 +10,7 @@ class SignupController extends Controller
 {
     public function registerUser(Request $request)
     {
+
         $request->validate 
         ([
             'email' => 'required|email|unique:users',
@@ -17,12 +18,13 @@ class SignupController extends Controller
             'username' => 'required|min:5|max:15',
         ]);
 
-        $users = User::create
+        $user = User::create
         ([
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'username' => $request->username,
             'isAdmin' => false,
+            'country' => 'Sweden',
         ]);
 
 
