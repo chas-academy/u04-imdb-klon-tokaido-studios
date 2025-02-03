@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
+use Illuminate\Database\Eloquent\Model;
 
-class User extends Authenticatable
+class User extends Model implements Authenticatable
 {
-    use Notifiable;
+
+    use AuthenticatableTrait;
 
     protected $primaryKey = 'userID';
     public $incrementing = true;
@@ -22,10 +24,8 @@ class User extends Authenticatable
         'isAdmin',
     ];
 
-    protected $hidden =
-    [
-        'password', 
-        'remember_token',
+    protected $hidden = [
+        'password',
     ];
 
     protected $casts = 
@@ -35,7 +35,7 @@ class User extends Authenticatable
 
     public function lists()
     {
-        return $this->hasMany(UserList::class, 'userId');
+        return $this->hasMany(UserList::class, 'userID');
     }
 
     public function reviews()

@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id('listID');
             $table->string('listname', 255)->unique();
             $table->text('description')->nullable();
-            $table->unsignedBigInteger('userId');
-            $table->foreign('userId')->references('userID')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('userID');
+            $table->foreign('userID')->references('userID')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
