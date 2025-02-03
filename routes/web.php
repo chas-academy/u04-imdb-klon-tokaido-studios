@@ -33,7 +33,6 @@ Route::put('/games/{gameID}', [GameController::class, 'updateGame'])->name('game
 Route::delete('/games/{gameID}', [GameController::class, 'deleteGame'])->name('games.destroy');
 
 Route::resource('reviews', ReviewController::class)->except(['index', 'show']);
-Route::get('/games/{game}/reviews', [ReviewController::class, 'showForGame'])->name('reviews.all_reviews');
 Route::get('/games/{game}/review', [ReviewController::class, 'showReview'])->name('reviews.game_review');
 Route::get('/games/{game}/review/create', [ReviewController::class, 'create'])->name('reviews.create');
 

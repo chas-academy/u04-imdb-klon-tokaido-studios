@@ -63,21 +63,15 @@ class ReviewController extends Controller
     }
 
     // Visar alla recensioner för ett spel
-    public function showForGame($gameID)
-    {
-        $game = Game::findOrFail($gameID);
-        $reviews = Review::where('gameID', $gameID)->with('user')->get();
-        
-        return view('reviews.all_reviews', compact('game', 'reviews'));
-    }
 
     public function showReview($gameID)
     {
         $game = Game::findOrFail($gameID);
-        $review = Review::where('gameID', $gameID)
-                        ->where('userID', 1)
-                        ->first();
+        $userReview = Review::where('gameID', $gameID)
+                            ->where('userID', 1)
+                            ->first();
+        $allReviews = Review::where('gameID', $gameID)->with('user')->get();
         
-        return view('reviews.game_review', compact('game', 'review'));
+        return view('reviews.game_review', compact('game', 'userReview', 'allReviews'));
     }
 }
