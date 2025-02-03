@@ -15,9 +15,10 @@ class AdminSeeder extends Seeder
         DB::table('users')->updateOrInsert
         (   ['email' => 'admin@igdb.se'], //Primärt villkor
             [
-                'name' => 'Admin',
+                'username' => 'Admin',
                 'password' => Hash::make('loggain123'),
                 'isAdmin' => true,
+                'country' => 'Sweden',
                 'created_at' => now(),
                 'updated_at' => now(),
             ]

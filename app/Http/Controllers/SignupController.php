@@ -25,7 +25,6 @@ class SignupController extends Controller
             'isAdmin' => false,
         ]);
 
-        d($users);
 
         return redirect()->route('login')->with('success', 'Kontot har skapats!');
         
