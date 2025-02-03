@@ -43,13 +43,13 @@
             <!-- Auth länkar för större skärmar -->
             <div id="menu-desktop" class="hidden md:flex items-center space-x-4">
                 <x-button-styles class="w-full md:w-auto">
-                    <a href="{{ route('users.profile') }}" class="btn btn-primary">My Profile</a>
-                </x-button-styles>
-                <x-button-styles class="w-full md:w-auto">
                     <a href="/games" class="hover:underline">Games</a>
                 </x-button-styles>
                 <x-button-styles class="w-full md:w-auto">
                     <a href="/genres" class="hover:underline">Genres</a>
+                </x-button-styles>
+                <x-button-styles>
+                        <a href="{{ route('login') }}" class="hover:underline w-full md:w-auto">Log in</a>
                 </x-button-styles>
                 @if (Auth::check())
                     <span class="text-sm">{{ Auth::user()->name }}</span>
@@ -57,8 +57,8 @@
                         @csrf
                         <x-button-styles type="submit" class="hover:underline">Log out</x-button-styles>
                     </form>
-                    <x-button-styles>
-                        <a href="{{ route('login') }}" class="hover:underline w-full md:w-auto">Log in</a>
+                    <x-button-styles class="w-full md:w-auto">
+                        <a href="{{ route('users.profile') }}" class="btn btn-primary">My Profile</a>
                     </x-button-styles>
                 @else
                     <x-button-styles>

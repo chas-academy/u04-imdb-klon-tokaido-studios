@@ -28,7 +28,7 @@
         </form>
         
         <x-button-styles size="small" class="mt-4">
-            <a href="{{ route('reviews.game_review', $game->gameID) }}">Back to Game Review</a>
+            <a href="{{ route('users.reviews', $game->gameID) }}">Back to Game Review</a>
         </x-button-styles>
     </div>
 @endsection
