@@ -34,12 +34,14 @@ class GenreSeeder extends Seeder
     ];
 
     foreach ($genres as $genre) {
-        Genre::create([
-            'genreID' => $genre['genreID'],
-            'name' => $genre['name'],
-            'description' => "Games in the {$genre['name']} genre"
+        Genre::updateOrCreate(
+            ['genreID' => $genre['genreID']], // Kontrollera om genreID redan finns
+            [
+                'name' => $genre['name'],
+                'description' => "Games in the {$genre['name']} genre"
+            ]
 
-        ]);
+        );
         }
     }
 }

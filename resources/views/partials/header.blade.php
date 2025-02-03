@@ -48,18 +48,21 @@
                 <x-button-styles class="w-full md:w-auto">
                     <a href="/genres" class="hover:underline">Genres</a>
                 </x-button-styles>
+                <x-button-styles>
+                        <a href="{{ route('login') }}" class="hover:underline w-full md:w-auto">Log in</a>
+                </x-button-styles>
                 @if (Auth::check())
                     <span class="text-sm">{{ Auth::user()->name }}</span>
-                    <form method="POST" action="">
+                    <form method="POST" action="{{ route('logout') }}" class="inline">
                         @csrf
-                        <button type="submit" class="hover:underline">Logga ut</button>
+                        <x-button-styles type="submit" class="hover:underline">Log out</x-button-styles>
                     </form>
+                    <x-button-styles class="w-full md:w-auto">
+                        <a href="{{ route('users.profile') }}" class="btn btn-primary">My Profile</a>
+                    </x-button-styles>
                 @else
                     <x-button-styles>
-                        <a href="#" class="hover:underline w-full md:w-auto">Logga in</a>
-                    </x-button-styles>
-                    <x-button-styles>
-                        <a href="#" class="hover:underline w-full md:w-auto">Registrera</a>
+                        <a href="" class="hover:underline w-full md:w-auto">Register</a>
                     </x-button-styles>
                 @endif
             </div>
@@ -74,18 +77,18 @@
         <x-button-styles>
             <a href="/genres" class="text-sm hover:underline">Genres</a>
         </x-button-styles>
+        <x-button-styles>
+                <a href="#" class="text-sm hover:underline">Log in</a>
+        </x-button-styles>
         @if (Auth::check())
             <span class="text-sm">{{ Auth::user()->name }}</span>
             <form method="POST" action="">
                 @csrf
-                <button type="submit" class="text-sm hover:underline">Logga ut</button>
+                <button type="submit" class="text-sm hover:underline">Log out</button>
             </form>
         @else
             <x-button-styles>
-                <a href="#" class="text-sm hover:underline">Logga in</a>
-            </x-button-styles>
-            <x-button-styles>
-                <a href="#" class="text-sm hover:underline">Registrera</a>
+                <a href="#" class="text-sm hover:underline">Register</a>
             </x-button-styles>
         @endif
     </div>

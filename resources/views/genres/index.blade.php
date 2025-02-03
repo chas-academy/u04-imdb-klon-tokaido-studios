@@ -16,9 +16,18 @@
             <h2 class="text-gray-800 hover:text-blue-500 text-xl font-bold text-center">
                 <a href="{{ route('genres.games', ['id' => $genre->genreID]) }}">{{ $genre->name }}</a>
             </h2>
-
-            <img src="https://via.placeholder.com/200" 
-            alt="Placeholder image" 
+            @php
+                $genreImages = [
+                    'Action' => 'baldurs_gate_3.jpg',
+                    'Adventure' => 'breath_of_the_wild.jpg',
+                    'RPG' => 'final_fantasy_vii.jpg',
+                    'Strategy' => 'civilization_6.jpg',
+                    'Puzzle' => 'factorio.jpg',
+                ];
+                $imageName = $genreImages[$genre->name] ?? 'skyrim.jpg';
+            @endphp
+            <img src="{{ asset('images/games/' . $imageName) }}" 
+            alt="Genre image" 
             class="w-64 h-64 object-cover rounded-lg">
 
         </li>
