@@ -7,7 +7,7 @@ use Tests\TestCase;
 use App\Models\User;
 use App\Models\UserList;
 
-class UserTest extends TestCase
+class ProfileTest extends TestCase
 {
     use RefreshDatabase;
 
