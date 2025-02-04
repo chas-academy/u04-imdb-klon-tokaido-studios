@@ -15,7 +15,7 @@ use App\Http\Middleware\AdminMiddleware;
 
 
 
-// STARTSIDA
+
 // STARTSIDA
 Route::get('/', function () {
     return view('home');
@@ -72,15 +72,14 @@ Route::prefix('genres')->group(function()
 
 });
 
-
+// FÖR ATT VISA RECENSION
+Route::get('/games/{game}/review', [ReviewController::class, 'showReview'])
+->name('reviews.game_review');
 
 // INLOGGAD ANVÄNDARE BEHÖRIGHETER
 Route::middleware(UserMiddleware::class)->group(function ()
 {
     Route::resource('reviews', ReviewController::class)->except(['index', 'show']);
-
-    Route::get('/games/{game}/review', [ReviewController::class, 'showReview'])
-    ->name('reviews.game_review');
 
     Route::get('/games/{game}/review/create', [ReviewController::class, 'create'])
     ->name('reviews.create');

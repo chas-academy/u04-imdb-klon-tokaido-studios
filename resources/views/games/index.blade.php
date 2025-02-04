@@ -53,15 +53,19 @@
             <x-button-styles size="small">
                 <a href="{{ route('games.edit', $game->gameID) }}">Edit</a>
             </x-button-styles>
+
             <form action="{{ route('games.destroy', $game->gameID) }}" method="POST">
-                @csrf
+                
+            @csrf
                 @method('DELETE')
                 <x-button-styles size="small" type="submit" onclick="return confirm('Are you sure you want to delete this game?')">
                     Delete
                 </x-button-styles>
+
             </form>
+
             @endif
-            <!-- slut på admin --> 
+            <!-- slut på admin -->
             
             <x-button-styles size="small">
             <a href="{{ route('reviews.game_review', $game->gameID) }}">Review</a>
@@ -70,6 +74,7 @@
         </li>
         
         @endforeach
+        
     </ul>
     
   <x-button-styles size="small" class="max-w-xs mt-6">
