@@ -16,6 +16,7 @@ use App\Http\Middleware\AdminMiddleware;
 
 
 // STARTSIDA
+// STARTSIDA
 Route::get('/', function () {
     return view('home');
 })->name('home');
@@ -30,6 +31,9 @@ Route::prefix('auth')->group(function()
         return view('auth.register'); 
     })->name('registerNewUser');
 
+    // REGISTRERA NY ANVÄNDARE
+    Route::post('/registerNewUser', [RegisterController::class, 'registerUser'])
+    ->name('registerUser');
     // REGISTRERA NY ANVÄNDARE
     Route::post('/registerNewUser', [RegisterController::class, 'registerUser'])
     ->name('registerUser');

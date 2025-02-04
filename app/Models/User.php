@@ -30,7 +30,7 @@ class User extends Model implements Authenticatable
 
     protected $casts = 
     [
-        'isAadmin' => 'boolean',
+        'isAdmin' => 'boolean',
     ];
 
     public function lists()
