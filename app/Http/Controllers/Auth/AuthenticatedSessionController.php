@@ -28,12 +28,16 @@ class AuthenticatedSessionController extends Controller
         if($user->isAdmin)
         {
             session()->put('user_role', 'admin');
+
             session()->put('success', 'Inloggad som Admin');
+
             return redirect()->route('users.profile');
         }
 
         session()->put('user_role', 'user');
+
         session()->put('success', 'Inloggad som användare!');
+        
         return redirect()->route('users.profile');
     
     }
