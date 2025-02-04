@@ -52,11 +52,11 @@
             <!-- Auth länkar för större skärmar -->
             <div id="menu-desktop" class="hidden md:flex items-center space-x-4">
                 <x-button-styles class="w-full md:w-auto">
-                    <a href="/games" class="hover:underline">Games</a>
+                    <a href="{{ route('games.index') }}" class="hover:underline">Games</a>
                 </x-button-styles>
 
                 <x-button-styles class="w-full md:w-auto">
-                    <a href="/genres" class="hover:underline">Genres</a>
+                    <a href="{{ route('genres.index') }}" class="hover:underline">Genres</a>
                 </x-button-styles>
 
                 @auth

@@ -15,47 +15,60 @@ use App\Http\Middleware\AdminMiddleware;
 
 
 
-// Förstasidan där sökfältet och länkar till 3 första routes nedan kan finnas
+// STARTSIDA
 Route::get('/', function () {
     return view('home');
 })->name('home');
 
 
-// SIGNUP
-Route::get('/registerNewUser', function () {
-    return view('auth.register'); // Motsvarar resources/views/signup/signup.blade.php
-})->name('registerNewUser');
+// AUTH PATH
+Route::prefix('auth')->group(function()
+{
+    // TILL FORMULÄRETS SIDA
+    Route::get('/registerNewUser', function () {
+        return view('auth.register'); 
+    })->name('registerNewUser');
 
-Route::post('/registerNewUser', [RegisterController::class, 'registerUser'])->name('registerUser');
+    // REGISTRERA NY ANVÄNDARE
+    Route::post('/registerNewUser', [RegisterController::class, 'registerUser'])
+    ->name('registerUser');
 
-// LOGIN
-// Route för att bli omdirigerad till login.blade.php
-Route::view('/login', 'auth.login')->name('login');
-
-// Skickar Admin användaren till admin.dashboard
-Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])
-->name('admin.dashboard')
-->middleware('auth', AdminMiddleware::class);
-
-// GAMECONTROLLER
-// Nya routes för GameController
-Route::get('/games/create', [GameController::class, 'createGame'])
-->name('games.create')
-->middleware('auth', AdminMiddleware::class);
-Route::post('/games', [GameController::class, 'storeGame'])->name('games.store');
-Route::get('/games/{gameID}/edit', [GameController::class, 'editGame'])->name('games.edit');
-Route::put('/games/{gameID}', [GameController::class, 'updateGame'])->name('games.update');
-Route::delete('/games/{gameID}', [GameController::class, 'deleteGame'])->name('games.destroy');
-// Route till games sidan
-Route::get('/games', [GameController::class, 'index'])->name('games.index');
-// Route till genres sidan
-Route::get('/genres', [GenreController::class, 'index'])->name('genres.index');
-// Route till gamessidan baserat på vilken genre användaren har valt
-Route::get('/genres/{id}/games', [GenreController::class, 'showGames'])->name('genres.games');
-// Route för search
-Route::get('/search', [GameController::class, 'search'])->name('search');
+    // LOGIN
+    Route::view('/login', 'auth.login')->name('login');
+});
 
 
+
+// DELAR AV SIDAN: SPEL : KAN VISAS AV GÄST
+Route::prefix('games')->group(function()
+{
+    // Route till games sidan
+    Route::get('/index', [GameController::class, 'index'])
+    ->name('games.index');
+
+    // Route för search
+    Route::get('/search', [GameController::class, 'search'])
+    ->name('search');
+
+});
+
+
+
+// DELAR AV SIDAN: GENRE : KAN VISAS AV GÄST
+Route::prefix('genres')->group(function()
+    {
+        // Route till genres sidan
+        Route::get('/', [GenreController::class, 'index'])
+        ->name('genres.index');
+
+        // Route till gamessidan baserat på vilken genre användaren har valt
+        Route::get('/{id}/games', [GenreController::class, 'showGames'])
+        ->name('genres.games');
+
+});
+
+
+// INLOGGAD ANVÄNDARE BEHÖRIGHETER
 Route::middleware(UserMiddleware::class)->group(function ()
 {
     Route::resource('reviews', ReviewController::class)->except(['index', 'show']);
@@ -65,22 +78,47 @@ Route::middleware(UserMiddleware::class)->group(function ()
 
     Route::get('/games/{game}/review/create', [ReviewController::class, 'create'])
     ->name('reviews.create');
+
+    Route::prefix('profile')->group(function()
+    {
+        Route::get('/', [UserController::class, 'showProfile'])
+        ->name('users.profile');
+    
+        Route::get('/reviews', [UserController::class, 'showReviews'])
+        ->name('users.reviews');
+    
+        Route::get('/lists', [UserController::class, 'showLists'])
+        ->name('users.lists');
+    
+        Route::delete('/', [UserController::class, 'destroy'])
+        ->name('users.destroy');
+    });
 });
 
+// ADMIN BEHÖRIGHETER
+Route::middleware(['auth', AdminMiddleware::class])->group(function()
+{
+    Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])
+    ->name('admin.dashboard');
 
+    Route::prefix('games')->group(function()
+    {
+        Route::get('/', [GameController::class, 'createGame'])
+        ->name('games.create');
 
-// USERCONTROLLER
-// testa för inkompletta UserController
-Route::middleware([UserMiddleware::class])->group(function () {
-    Route::get('/profile', [UserController::class, 'showProfile'])->name('users.profile');
-    Route::get('/profile/reviews', [UserController::class, 'showReviews'])->name('users.reviews');
-    Route::get('/profile/lists', [UserController::class, 'showLists'])->name('users.lists');
-    Route::delete('/profile', [UserController::class, 'destroy'])->name('users.destroy');
-   
+        Route::post('/', [GameController::class, 'storeGame'])
+        ->name('games.store');
+
+        Route::get('/{gameID}/edit', [GameController::class, 'editGame'])
+        ->name('games.edit');
+
+        Route::put('/{gameID}', [GameController::class, 'updateGame'])
+        ->name('games.update');
+
+        Route::delete('/{gameID}', [GameController::class, 'deleteGame'])
+        ->name('games.destroy');
+    });
 });
-
-
-
 
 /*
 // routs till listor
