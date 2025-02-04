@@ -89,4 +89,10 @@ class UserListController extends Controller
         $lists = $user->lists;
         return view("userlist.index", ["lists" => $lists]);
     }
+
+    public function showAllLists()
+    {
+        $allLists = UserList::with('user', 'games')->get();
+        return view("userlist.all", ["lists" => $allLists]);
+    }
 }

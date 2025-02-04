@@ -1,37 +1,57 @@
 @extends('layouts.app')
 
-@section('content')
-    <h1>Mina Listor</h1>
-    <a href="{{ route('user.lists.create') }}" class="btn btn-primary">Skapa ny lista</a>
+@section('title', 'Mina Listor')
 
-    @if($lists->isEmpty())
-        <p class="mt-3">Du har inga listor än. Skapa din första lista nu!</p>
-    @else
-        @foreach ($lists as $list)
-            <div class="card mt-3">
-                <div class="card-body">
-                    <h5 class="card-title">{{ $list->listname }}</h5>
-                    <p class="card-text">{{ $list->description }}</p>
+@section('content')
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold mb-6">Mina Listor</h1>
+        
+        <x-button-styles size="small" class="mb-6">
+            <a href="{{ route('user.lists.create') }}">Create New List</a>
+        </x-button-styles>
+
+        @if($lists->isEmpty())
+            <p class="text-gray-600 text-lg">You have no lists yet. Create your first list now!</p>
+        @else
+            @foreach ($lists as $list)
+                <div class="bg-white shadow-md rounded-lg p-6 mb-8">
+                    <h2 class="flex items-center text-2xl font-semibold mb-6">
+                        <span>{{ $list->listname }}</span>
+                    </h2>
+                    <p class="text-gray-600 text-lg mb-4">{{ $list->description }}</p>
                     
                     @if($list->games->isNotEmpty())
-                        <h6>Spel i listan:</h6>
-                        <ul>
+                        <h3 class="text-xl font-semibold mb-2">Game List:</h3>
+                        <div class="space-y-2">
                             @foreach($list->games as $game)
-                                <li>{{ $game->title }}</li>
+                                <div class="flex items-center">
+                                    <img 
+                                        src="{{ asset($game->image) }}" 
+                                        alt="{{ $game->title }}" 
+                                        class="w-12 h-12 object-cover rounded-lg mr-4"
+                                    >
+                                    <span class="text-gray-600">{{ $game->title }}</span>
+                                </div>
                             @endforeach
-                        </ul>
+                        </div>
                     @else
-                        <p>Inga spel tillagda i denna lista.</p>
+                        <p class="text-gray-600 mb-4">No games in this list.</p>
                     @endif
 
-                    <a href="{{ route('user.lists.edit', ['listID' => $list->listID]) }}" class="btn btn-secondary">Redigera</a>
-                    <form action="{{ route('user.lists.delete', ['listID' => $list->listID]) }}" method="POST" style="display: inline;">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger" onclick="return confirm('Är du säker?')">Radera</button>
-                    </form>
+                    <div class="flex space-x-4 mt-4">
+                        <x-button-styles size="small">
+                            <a href="{{ route('user.lists.edit', ['listID' => $list->listID]) }}">Edit List</a>
+                        </x-button-styles>
+                        <form action="{{ route('user.lists.delete', ['listID' => $list->listID]) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <x-button-styles size="small" type="submit" onclick="return confirm('Är du säker?')">
+                                Delete List
+                            </x-button-styles>
+                        </form>
+                    </div>
                 </div>
-            </div>
-        @endforeach
-    @endif
+            @endforeach
+        @endif
+    </div>
 @endsection

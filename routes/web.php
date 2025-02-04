@@ -56,6 +56,7 @@ Route::get('/lists/{listID}/edit', [UserListController::class, 'editList'])->nam
 Route::put('/lists/{listID}', [UserListController::class, 'updateList'])->name('user.lists.update');
 Route::delete('/lists/{listID}', [UserListController::class, 'deleteList'])->name('user.lists.delete');
 Route::get('/lists/{listID}', [UserListController::class, 'showList'])->name('user.lists.show');
+Route::get('/all-lists', [UserListController::class, 'showAllLists'])->name('all.lists');
 
 /* LÄMNAS UT KOMMENTERAT FÖR FRAMTIDA IMPELEMENTERING */
 /*
