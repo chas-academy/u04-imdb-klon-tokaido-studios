@@ -44,7 +44,7 @@ class GameTest extends TestCase
 
         $response->assertStatus(200);
         $response->assertViewIs('genres.index');
-        $response->assertSee($genre->name);
+        $response->assertSee($genre->name); // Kontrollerar om t.ex. "Action" finns i svaret
     }
 
     public function testShowGenres()
