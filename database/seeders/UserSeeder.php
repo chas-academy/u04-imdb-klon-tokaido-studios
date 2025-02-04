@@ -4,6 +4,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
@@ -17,7 +18,7 @@ class UserSeeder extends Seeder
                 "email" => "pixelwarrior@example.com",
                 "password" => "pixel",
                 "country" => "USA",
-                "is_admin" => false
+                "isAdmin" => false
             ],
             [
                 "userID" => 2,
@@ -25,7 +26,7 @@ class UserSeeder extends Seeder
                 "email" => "xp_explorer@example.com",
                 "password" => "xp",
                 "country" => "Sweden",
-                "is_admin" => false
+                "isAdmin" => false
             ],
             [
                 "userID" => 3,
@@ -33,7 +34,7 @@ class UserSeeder extends Seeder
                 "email" => "vortexplayer@example.com",
                 "password" => "vortex",
                 "country" => "USA",
-                "is_admin" => false
+                "isAdmin" => false
             ],
             [
                 "userID" => 4,
@@ -41,7 +42,7 @@ class UserSeeder extends Seeder
                 "email" => "questmasterx@example.com",
                 "password" => "quest",
                 "country" => "Australia",
-                "is_admin" => false
+                "isAdmin" => false
             ],
             [
                 "userID" => 5,
@@ -49,7 +50,7 @@ class UserSeeder extends Seeder
                 "email" => "manamancer@example.com",
                 "password" => "mana",
                 "country" => "USA",
-                "is_admin" => true
+                "isAdmin" => true
             ],
             [
                 "userID" => 6,
@@ -57,7 +58,7 @@ class UserSeeder extends Seeder
                 "email" => "adamwarlock@example.com",
                 "password" => "adam", 
                 "country" => "UK", 
-                "is_admin" => true
+                "isAdmin" => true
             ]
             ];
             foreach ($users as $user) {
@@ -67,9 +68,9 @@ class UserSeeder extends Seeder
                     [
                         'userID' => $user['userID'],
                         'username' => $user['username'],
-                        'password' => $user['password'],
+                        'password' => Hash::make($user['password']),
                         'country' => $user['country'],
-                        'is_admin' => $user['is_admin']
+                        'isAdmin' => $user['isAdmin']
                     ]
                 );
             }
