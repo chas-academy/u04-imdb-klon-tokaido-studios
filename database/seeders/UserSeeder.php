@@ -13,7 +13,6 @@ class UserSeeder extends Seeder
     {
         $users = [
             [
-                "userID" => 1,
                 "username" => "PixelWarrior",
                 "email" => "pixelwarrior@example.com",
                 "password" => "pixel",
@@ -21,7 +20,6 @@ class UserSeeder extends Seeder
                 "isAdmin" => false
             ],
             [
-                "userID" => 2,
                 "username" => "XP_Explorer",
                 "email" => "xp_explorer@example.com",
                 "password" => "xp",
@@ -29,7 +27,6 @@ class UserSeeder extends Seeder
                 "isAdmin" => false
             ],
             [
-                "userID" => 3,
                 "username" => "VortexPlayer",
                 "email" => "vortexplayer@example.com",
                 "password" => "vortex",
@@ -37,7 +34,6 @@ class UserSeeder extends Seeder
                 "isAdmin" => false
             ],
             [
-                "userID" => 4,
                 "username" => "QuestMasterX",
                 "email" => "questmasterx@example.com",
                 "password" => "quest",
@@ -45,7 +41,6 @@ class UserSeeder extends Seeder
                 "isAdmin" => false
             ],
             [
-                "userID" => 5,
                 "username" => "ManaMancer",
                 "email" => "manamancer@example.com",
                 "password" => "mana",
@@ -53,7 +48,6 @@ class UserSeeder extends Seeder
                 "isAdmin" => true
             ],
             [
-                "userID" => 6,
                 "username" => "AdamWarlock", 
                 "email" => "adamwarlock@example.com",
                 "password" => "adam", 
@@ -66,9 +60,8 @@ class UserSeeder extends Seeder
                 User::updateOrCreate(
                     ['email' => $user['email']], // Kontrollera på e-post
                     [
-                        'userID' => $user['userID'],
                         'username' => $user['username'],
-                        'password' => Hash::make($user['password']),
+                        'password' => Hash::make($user['password']), // hashar lösen
                         'country' => $user['country'],
                         'isAdmin' => $user['isAdmin']
                     ]
