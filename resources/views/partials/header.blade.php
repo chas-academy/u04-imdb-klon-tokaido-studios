@@ -70,7 +70,7 @@
     </header>
 
     <!-- Auth länkar för små skärmar -->
-    <div id="menu-mobile" class="hidden flex items-center justify-center space-x-4 py-4 md:hidden">
+    <div id="menu-mobile" class="flex items-center justify-center space-x-4 py-4 md:hidden">
         <x-button-styles>
             <a href="/games" class="text-sm hover:underline">Games</a>
         </x-button-styles>
