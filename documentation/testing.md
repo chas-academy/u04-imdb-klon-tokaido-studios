@@ -33,7 +33,7 @@
 | **GameTest**  | Integrationstest | Testar att spel/genrer kan skapas, uppdateras och raderas via controllern.  | ⏳ Pågår |
 | **ProfileTest**            | Enhetstest  | Testar att en användare kan skapas och sparas i databasen. | ⏳ Pågår |
 | **ReviewTest**         | Enhetstest  | Verifierar att en recension kan kopplas till ett spel och en användare. | ⏳ Pågår |
-| **UserTest**            | Enhetstest  | Testar att en användare kan skapas och sparas i databasen. | ⏳ Pågår |
+| **UserTest**            | Enhetstest  | Testar att en användare/användarlistor kan skapas och sparas i databasen. | ⏳ Pågår |
 
 ---
 
