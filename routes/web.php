@@ -21,6 +21,7 @@ Route::get('/', function () {
 })->name('home');
 
 
+
 // AUTH PATH
 Route::prefix('auth')->group(function()
 {
@@ -68,6 +69,7 @@ Route::prefix('genres')->group(function()
 });
 
 
+
 // INLOGGAD ANVÄNDARE BEHÖRIGHETER
 Route::middleware(UserMiddleware::class)->group(function ()
 {
@@ -95,6 +97,8 @@ Route::middleware(UserMiddleware::class)->group(function ()
     });
 });
 
+
+
 // ADMIN BEHÖRIGHETER
 Route::middleware(['auth', AdminMiddleware::class])->group(function()
 {
@@ -119,89 +123,5 @@ Route::middleware(['auth', AdminMiddleware::class])->group(function()
         ->name('games.destroy');
     });
 });
-
-/*
-// routs till listor
-Route::middleware(['auth'])->group(function () {
-    // Visa alla listor för den inloggade användaren
-    Route::get('/user/lists', [UserListController::class, 'index'])
-    ->name('user.lists');
-    
-    // Skapa en ny lista
-    Route::get('/user/list/create', [UserListController::class, 'createList'])
-    ->name('user.createList');
-
-    Route::post('/user/list', [UserListController::class, 'storeList'])
-    ->name('user.storeList');
-    
-    // Redigera en lista
-    Route::get('/user/list/{listID}/edit', [UserListController::class, 'editList'])
-    ->name('user.editList');
-
-    Route::put('/user/list/{listID}', [UserListController::class, 'updateList'])
-    ->name('user.updateList');
-    
-    // Ta bort en lista
-    Route::delete('/user/list/{listID}', [UserListController::class, 'deleteList'])
-    ->name('user.deleteList');
-    
-    // Visa listor för en viss användare via userID
-    Route::get('/user/{userID}/lists', [UserListController::class, 'showlists'])
-    ->name('user.showlists');
-});*/
-
-/* LÄMNAS UT KOMMENTERAT FÖR FRAMTIDA IMPELEMENTERING */
-/*
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
-
-/*
-// routs till listor
-Route::middleware(['auth'])->group(function () {
-    // Visa alla listor för den inloggade användaren
-    Route::get('/user/lists', [UserListController::class, 'index'])
-    ->name('user.lists');
-    
-    // Skapa en ny lista
-    Route::get('/user/list/create', [UserListController::class, 'createList'])
-    ->name('user.createList');
-
-    Route::post('/user/list', [UserListController::class, 'storeList'])
-    ->name('user.storeList');
-    
-    // Redigera en lista
-    Route::get('/user/list/{listID}/edit', [UserListController::class, 'editList'])
-    ->name('user.editList');
-
-    Route::put('/user/list/{listID}', [UserListController::class, 'updateList'])
-    ->name('user.updateList');
-    
-    // Ta bort en lista
-    Route::delete('/user/list/{listID}', [UserListController::class, 'deleteList'])
-    ->name('user.deleteList');
-    
-    // Visa listor för en viss användare via userID
-    Route::get('/user/{userID}/lists', [UserListController::class, 'showlists'])
-    ->name('user.showlists');
-});*/
-
-// Route::post('/logout', [UserController::class, 'logout'])->name('logout');
-
-    /* BORTTAGNA */
-    // Route::get('/login', [LoginController::class, 'login'])->name('login');
-   // Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-
-   
-// Skicka formuläret med POST metod till funktion logout
-// Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-
-
 
 require __DIR__.'/auth.php';

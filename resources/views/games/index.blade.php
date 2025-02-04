@@ -61,17 +61,14 @@
                 </x-button-styles>
             </form>
             @endif
-            <!-- slut på admin -->
+            <!-- slut på admin --> 
             
-            
-            
-            @if (auth()->check() && (auth()->user()->isAdmin || !auth()->user()->isAdmin))
             <x-button-styles size="small">
             <a href="{{ route('reviews.game_review', $game->gameID) }}">Review</a>
             </x-button-styles>
           </div>
         </li>
-        @endif
+        
         @endforeach
     </ul>
     

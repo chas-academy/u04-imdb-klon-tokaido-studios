@@ -14,6 +14,8 @@
             </div>
         </div>
 
+        @if (auth()->check() && (auth()->user()->isAdmin || !auth()->user()->isAdmin))
+            
             @if(!$userReview)
 
                 <p class="text-xl font-semibold mb-4">You haven't reviewed this game yet.</p>
@@ -23,6 +25,7 @@
                 </x-button-styles>
 
             @endif
+        @endauth
 
         <h2 class="text-2xl font-semibold mb-4 mt-12">All Reviews</h2>
 
