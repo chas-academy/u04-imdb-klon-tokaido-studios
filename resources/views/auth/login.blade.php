@@ -3,6 +3,9 @@
 @section('title', 'Login')
 
 @section('content')
+
+<h1 class="text-h1 mb-4">Log In</h1>
+
 <form action="{{ route('login') }}" method="POST">
     @csrf <!-- Skydd mot CSRF-attacker -->
     <label for="email">E-post:</label>
