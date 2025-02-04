@@ -15,7 +15,7 @@
 
 📌 **Hur man kör tester:**  
 - Tester körs med `php artisan test`.  
-- Specifika tester kan köras med `php artisan test --filter test_namn`.
+- Specifika testfiler kan köras med t.ex. `php artisan test tests/Feature/AuthTest.php`.
 
 ---
 
