@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Signup')
+@section('title', 'Register')
 
 @section('content')
 
-<form action="{{ route('signup') }}" method="POST">
+<form action="{{ route('registerNewUser') }}" method="POST">
 @CSRF
 <label for="email">Email:</label>
 <input type="email" name="email" for="email" class="mt-2"><br>

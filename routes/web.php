@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\SignupController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\UserController;
@@ -22,11 +22,11 @@ Route::get('/', function () {
 
 
 // SIGNUP
-Route::get('/signup', function () {
+Route::get('/registerNewUser', function () {
     return view('auth.register'); // Motsvarar resources/views/signup/signup.blade.php
-})->name('signup');
+})->name('registerNewUser');
 
-Route::post('/signup', [SignupController::class, 'registerUser'])->name('registerUser');
+Route::post('/registerNewUser', [RegisterController::class, 'registerUser'])->name('registerUser');
 
 // LOGIN
 // Route för att bli omdirigerad till login.blade.php
@@ -55,11 +55,18 @@ Route::get('/genres/{id}/games', [GenreController::class, 'showGames'])->name('g
 // Route för search
 Route::get('/search', [GameController::class, 'search'])->name('search');
 
-Route::resource('reviews', ReviewController::class)->except(['index', 'show']);
 
-Route::get('/games/{game}/review', [ReviewController::class, 'showReview'])->name('reviews.game_review');
+Route::middleware(UserMiddleware::class)->group(function ()
+{
+    Route::resource('reviews', ReviewController::class)->except(['index', 'show']);
 
-Route::get('/games/{game}/review/create', [ReviewController::class, 'create'])->name('reviews.create');
+    Route::get('/games/{game}/review', [ReviewController::class, 'showReview'])
+    ->name('reviews.game_review');
+
+    Route::get('/games/{game}/review/create', [ReviewController::class, 'create'])
+    ->name('reviews.create');
+});
+
 
 
 // USERCONTROLLER

@@ -20,7 +20,7 @@
             </x-button-styles>
             
             <x-button-styles size="small">
-                <a href="{{ route('user.lists') }}">View all lists</a>
+                <a href="{{ route('users.lists') }}">View all lists</a>
             </x-button-styles>
         </div>
 

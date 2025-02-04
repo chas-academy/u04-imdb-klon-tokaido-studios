@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
-class SignupController extends Controller
+class RegisterController extends Controller
 {
     public function registerUser(Request $request)
     {
