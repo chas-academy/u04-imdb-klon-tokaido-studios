@@ -20,7 +20,7 @@
             </x-button-styles>
             
             <x-button-styles size="small">
-                <a href="">View all lists</a> <!-- Lägg till {{ route('users.lists') }} när ListController skapats -->
+                <a href="{{ route('user.lists') }}">View all lists</a>
             </x-button-styles>
         </div>
 
