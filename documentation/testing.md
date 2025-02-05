@@ -27,6 +27,8 @@
 ---
 
 ## ✅ **Tester och status:**
+
+### Utförelsedatum: 4 feb 2025
 | Testnamn                 | Typ av test  | Syfte | Status |
 |--------------------------|-------------|--------------------------------------------------|---------|
 | **AuthTest**            | Funktionstest | Säkerställer att inloggning, registrering och autentisering fungerar. | ❌ Misslyckat |
