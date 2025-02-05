@@ -41,9 +41,14 @@ class ProfileTest extends TestCase
         $response->assertSee($list->listname); // Säkerställer att listnamnet visas
     }
 
-    // REGISTERINGSTEST
+    /**
+     * REGISTERINGSTEST 
+     * */
 
-    public function test_user_can_register_successfully()
+    /**
+     * Testar att en användare kan registrera sig korrekt.
+     */
+    public function testUserRegistration()
     {
         $userData = [
             'email' => 'test@example.com',
@@ -62,7 +67,10 @@ class ProfileTest extends TestCase
         ]);
     }
 
-    public function test_registration_requires_valid_email()
+    /**
+     * Testar att e-postadressen måste vara i rätt format.
+     */
+    public function testValidEmail()
     {
         $userData = [
             'email' => 'invalid-email',
@@ -75,7 +83,10 @@ class ProfileTest extends TestCase
         $response->assertSessionHasErrors('email');
     }
 
-    public function test_registration_requires_unique_email()
+    /**
+     * Testar att en e-postadress måste vara unik.
+     */
+    public function testEmailUnique()
     {
         User::factory()->create(['email' => 'test@example.com']);
 
@@ -90,7 +101,10 @@ class ProfileTest extends TestCase
         $response->assertSessionHasErrors('email');
     }
 
-    public function test_registration_requires_password_min_length()
+    /**
+     * Testar att lösenordet måste vara minst 8 tecken långt.
+     */
+    public function testRegPassMinLength()
     {
         $userData = [
             'email' => 'test@example.com',
@@ -103,7 +117,10 @@ class ProfileTest extends TestCase
         $response->assertSessionHasErrors('password');
     }
 
-    public function test_registration_requires_username_length()
+    /**
+     * Testar att användarnamnet måste vara minst 5 tecken.
+     */
+    public function testRegUsernameMinLength()
     {
         $userData = [
             'email' => 'test@example.com',
@@ -116,7 +133,10 @@ class ProfileTest extends TestCase
         $response->assertSessionHasErrors('username');
     }
 
-    public function test_password_is_hashed_correctly()
+    /**
+     * Testar att lösenordet är korrekt hashat.
+     */
+    public function testPassCorrectHash()
     {
         $userData = [
             'email' => 'test@example.com',
