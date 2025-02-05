@@ -6,17 +6,6 @@
 
   <h1 class="text-4xl"><strong>Games</strong></h1><br>
     
-  
-  
-    <!-- admin -->
-    @if (auth()->check() && auth()->user()->isAdmin)
-    <x-button-styles size="small" class="max-w-xs mb-6">
-        <a href="{{ route('games.create') }}">Create New Game</a>
-    </x-button-styles>
-    @endif  
-    <!-- slut på admin -->
-
-
 
     <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         @foreach ($games as $game)
@@ -80,5 +69,13 @@
   <x-button-styles size="small" class="max-w-xs mt-6">
     <a href="{{ route('home') }}">Back To Homepage</a>
   </x-button-styles>
+
+
+  @if (auth()->check() && auth()->user()->isAdmin)
+    <x-button-styles size="small" class="max-w-xs mt-4">
+        <a href="{{ route('games.create') }}">Create New Game</a>
+    </x-button-styles>
+    @endif  
+
 
 @endsection

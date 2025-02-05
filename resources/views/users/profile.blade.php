@@ -28,17 +28,20 @@
         
         @auth
 
-        <p class="text-p"> Maybe more to come here?</p>
+            @if(!Auth::user()->isAdmin)
+            <form action="{{ route('users.destroy') }}" method="POST" class="mt-4">
+                @csrf
+                @method('DELETE')
 
-        @if(!Auth::user()->isAdmin)
-        <form action="{{ route('users.destroy') }}" method="POST" class="mt-4">
-            @csrf
-            @method('DELETE')
-            <x-button-styles size="small" type="submit">
-                Delete Account
-            </x-button-styles>
-        </form>
-        @endif
+                <input type="hidden" name="confirm" value="yes">
+
+                <x-button-styles size="small" type="submit">
+                    Delete Account
+                </x-button-styles>
+                
+            </form>
+
+            @endif
         @endauth
     </div>
 @endsection

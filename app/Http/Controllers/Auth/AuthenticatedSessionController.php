@@ -70,7 +70,7 @@ class AuthenticatedSessionController extends Controller
 
         $user->delete();
 
-        Auth::logut();
+        Auth::logout();
 
         $request->session()->invalidate();
 
