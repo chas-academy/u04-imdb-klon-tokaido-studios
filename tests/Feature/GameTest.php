@@ -36,6 +36,10 @@ class GameTest extends TestCase
         // Söker efter spel med search() och verifierar att sökresultatet är korrekt.
     }
 
+    /**
+     * GENRE-TESTER
+     */
+
     public function testDisplayGenres()
     {
         $genre = Genre::factory()->create();
