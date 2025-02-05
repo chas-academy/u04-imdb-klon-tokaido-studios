@@ -10,7 +10,10 @@ class UserController extends Controller
     public function showProfile()
 {
     $user = auth()->user();
-    return view('users.profile', compact('user'));
+
+    $reviews = $user->reviews;
+
+    return view('users.profile', compact('user', 'reviews'));
 }
 
 public function showReviews()
