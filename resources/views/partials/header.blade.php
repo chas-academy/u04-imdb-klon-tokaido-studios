@@ -15,15 +15,24 @@
             <a href="/" class="mr-4 text-2xl font-bold flex-shrink-0">
                 IGDb
             </a>
+            @auth
+                <div>Du är inloggad som: {{ Auth::user()->username }}</div>
+            @endauth
+            
+            @guest
+                <div>Du är inte inloggad</div>
+            @endguest
 
             <!-- Sök och dropdown -->
             <div class="mr-4 flex items-center space-x-2 flex-grow sm:flex-grow-0">
                 <form action="{{ route('search') }}" method="GET" class="flex items-center space-x-2">
+
                     <input class="w-full sm:w-48 md:w-64"
                         type="text" 
                         name="title" 
                         placeholder="Search games..." 
                         class="w-full sm:w-64 px-4 py-2 rounded-md text-sm focus:ring focus:border">
+
                     <x-button-styles class="w-full md:w-auto"
                         type="submit" 
                         class="px-4 py-2 rounded-md">
@@ -43,16 +52,14 @@
             <!-- Auth länkar för större skärmar -->
             <div id="menu-desktop" class="hidden md:flex items-center space-x-4">
                 <x-button-styles class="w-full md:w-auto">
-                    <a href="/games" class="hover:underline">Games</a>
+                    <a href="{{ route('games.index') }}" class="hover:underline">Games</a>
                 </x-button-styles>
+
                 <x-button-styles class="w-full md:w-auto">
-                    <a href="/genres" class="hover:underline">Genres</a>
+                    <a href="{{ route('genres.index') }}" class="hover:underline">Genres</a>
                 </x-button-styles>
-                <x-button-styles>
-                        <a href="{{ route('login') }}" class="hover:underline w-full md:w-auto">Log in</a>
-                </x-button-styles>
-                @if (Auth::check())
-                    <span class="text-sm">{{ Auth::user()->name }}</span>
+
+                @auth
                     <form method="POST" action="{{ route('logout') }}" class="inline">
                         @csrf
                         <x-button-styles type="submit" class="hover:underline">Log out</x-button-styles>
@@ -60,37 +67,17 @@
                     <x-button-styles class="w-full md:w-auto">
                         <a href="{{ route('users.profile') }}" class="btn btn-primary">My Profile</a>
                     </x-button-styles>
-                @else
+                @endauth
+                @guest
                     <x-button-styles>
-                        <a href="" class="hover:underline w-full md:w-auto">Register</a>
+                        <a href="{{ route('login') }}" class="hover:underline w-full md:w-auto">Logga in</a>
                     </x-button-styles>
-                @endif
+                    <x-button-styles>
+                        <a href="{{ route('registerNewUser') }}" class="hover:underline w-full md:w-auto">Registrera</a>
+                    </x-button-styles>
+                @endguest
             </div>
         </div>
     </header>
-
-    <!-- Auth länkar för små skärmar -->
-    <div id="menu-mobile" class="hidden flex items-center justify-center space-x-4 py-4 md:hidden">
-        <x-button-styles>
-            <a href="/games" class="text-sm hover:underline">Games</a>
-        </x-button-styles>
-        <x-button-styles>
-            <a href="/genres" class="text-sm hover:underline">Genres</a>
-        </x-button-styles>
-        <x-button-styles>
-                <a href="#" class="text-sm hover:underline">Log in</a>
-        </x-button-styles>
-        @if (Auth::check())
-            <span class="text-sm">{{ Auth::user()->name }}</span>
-            <form method="POST" action="">
-                @csrf
-                <button type="submit" class="text-sm hover:underline">Log out</button>
-            </form>
-        @else
-            <x-button-styles>
-                <a href="#" class="text-sm hover:underline">Register</a>
-            </x-button-styles>
-        @endif
-    </div>
 </body>
 </html>

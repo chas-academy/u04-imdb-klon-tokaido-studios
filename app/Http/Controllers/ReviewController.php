@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Review;
 use App\Models\Game;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Middleware\UserMiddleware;
 
 class ReviewController extends Controller
 {
+
     // Visar formulär för att skapa en recension
     public function create($gameID)
     {
@@ -28,7 +31,7 @@ class ReviewController extends Controller
             'Title' => $validatedData['Title'],
             'description' => $validatedData['description'],
             'gameID' => $validatedData['gameID'],
-            'userID' => 1,
+            'userID' => Auth::id(),
         ]);
 
         return redirect()->route('reviews.game_review', $review->gameID)->with('success', 'Recension skapad');
@@ -68,7 +71,7 @@ class ReviewController extends Controller
     {
         $game = Game::findOrFail($gameID);
         $userReview = Review::where('gameID', $gameID)
-                            ->where('userID', 1)
+                            ->where('userID', Auth::id())
                             ->first();
         $allReviews = Review::where('gameID', $gameID)->with('user')->get();
         

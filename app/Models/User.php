@@ -12,17 +12,25 @@ class User extends Model implements Authenticatable
     use AuthenticatableTrait;
 
     protected $primaryKey = 'userID';
+    public $incrementing = true;
+    protected $keyType = 'int';
 
-    protected $fillable = [
-        'username', 'email', 'password', 'country', 'is_admin',
+    protected $fillable =
+    [
+        'username', 
+        'email', 
+        'password', 
+        'country', 
+        'isAdmin',
     ];
 
     protected $hidden = [
         'password',
     ];
 
-    protected $casts = [
-        'is_admin' => 'boolean',
+    protected $casts = 
+    [
+        'isAdmin' => 'boolean',
     ];
 
     public function lists()
