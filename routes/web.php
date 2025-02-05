@@ -2,6 +2,7 @@
 
 //use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\AuthController;
@@ -9,7 +10,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\LoginController;
+
 use App\Http\Middleware\UserMiddleware;
 use App\Http\Middleware\AdminMiddleware;
 
@@ -76,6 +77,8 @@ Route::prefix('genres')->group(function()
 Route::get('/games/{game}/review', [ReviewController::class, 'showReview'])
 ->name('reviews.game_review');
 
+
+
 // INLOGGAD ANVÄNDARE BEHÖRIGHETER
 Route::middleware(UserMiddleware::class)->group(function ()
 {
@@ -105,12 +108,10 @@ Route::middleware(UserMiddleware::class)->group(function ()
 // ADMIN BEHÖRIGHETER
 Route::middleware(['auth', AdminMiddleware::class])->group(function()
 {
-    Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])
-    ->name('admin.dashboard');
-
+    
     Route::prefix('games')->group(function()
     {
-        Route::get('/', [GameController::class, 'createGame'])
+        Route::get('/create', [GameController::class, 'createGame'])
         ->name('games.create');
 
         Route::post('/', [GameController::class, 'storeGame'])
@@ -124,6 +125,15 @@ Route::middleware(['auth', AdminMiddleware::class])->group(function()
 
         Route::delete('/{gameID}', [GameController::class, 'deleteGame'])
         ->name('games.destroy');
+
+        Route::get('/admin/profile', [AdminController::class, 'showProfile'])
+        ->name('admin.profile');
+
+        Route::get('/admin/reviews', [AdminController::class, 'showAllReviews'])
+        ->name('admin.reviews');
+
+        Route::get('/admin/lists', [AdminController::class, 'showAllLists'])
+        ->name('admin.lists');
     });
 });
 

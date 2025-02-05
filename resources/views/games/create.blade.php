@@ -5,7 +5,7 @@
 @section('content')
     
 
-    <!-- admin på hela sidan -->
+    @auth
 
     <h1 class="text-4xl"><strong>Create New Game</strong></h1><br>
     <form action="{{ route('games.store') }}" method="POST" class="max-w-md mx-auto">
@@ -41,4 +41,6 @@
     <x-button-styles size="small" class="mt-4">
         <a href="{{ route('games.index') }}">Back to Games</a>
     </x-button-styles>
+    @endauth
+
 @endsection

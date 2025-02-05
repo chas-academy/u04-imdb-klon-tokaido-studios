@@ -14,8 +14,7 @@
             </div>
         </div>
 
-        @if (auth()->check() && (auth()->user()->isAdmin || !auth()->user()->isAdmin))
-            
+        @auth
             @if(!$userReview)
 
                 <p class="text-xl font-semibold mb-4">You haven't reviewed this game yet.</p>
