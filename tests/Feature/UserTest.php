@@ -48,4 +48,62 @@ class UserTest extends TestCase
         $response->assertViewIs('Userlist.index');
         $response->assertSee($list->listname);
     }
+
+    /**
+     * ADMIN-TESTER
+     */
+
+    /**
+     * Testar att adminpanelen är åtkomlig för en inloggad användare.
+     */
+    public function testAdminDashboardAccess()
+    {
+        $admin = User::factory()->create(['isAdmin' => true]);
+
+        $response = $this->actingAs($admin)->get(route('admin.dashboard'));
+
+        $response->assertStatus(200);
+        $response->assertViewIs('users.profile'); // Dubbelkolla att detta är rätt vy.
+    }
+
+    /**
+     * Testar att en admin kan se indexsidan med data.
+     */
+    public function testAdminViewIndex()
+    {
+        $admin = User::factory()->create(['isAdmin' => true]);
+
+        $response = $this->actingAs($admin)->get(route('admin.index'));
+
+        $response->assertStatus(200);
+        $response->assertViewIs('admin.index');
+    }
+
+    /**
+     * Testar att admin kan öppna skapa-sida.
+     */
+    public function testAdminAccessCreatePage()
+    {
+        $admin = User::factory()->create(['isAdmin' => true]);
+
+        $response = $this->actingAs($admin)->get(route('admin.create'));
+
+        $response->assertStatus(200);
+        $response->assertViewIs('admin.create');
+    }
+
+    /**
+     * Testar att admin kan skapa en ny post.
+     */
+    public function testAdminStoreNewPost()
+    {
+        $admin = User::factory()->create(['isAdmin' => true]);
+
+        $postData = ['name' => 'Test Post']; // Skapar testdata för en ny post
+
+        $response = $this->actingAs($admin)->post(route('admin.store'), $postData);
+
+        $response->assertRedirect(route('admin.dashboard'));
+        $response->assertSessionHas('success', 'Post skapades!');
+    }
 }
