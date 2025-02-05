@@ -16,6 +16,7 @@
 📌 **Hur man kör tester:**  
 - Tester körs med `php artisan test`.  
 - Specifika testfiler kan köras med t.ex. `php artisan test tests/Feature/AuthTest.php`.
+- För att spara felmeddelandet i en fil: `php artisan test > test_errors.txt`
 
 ---
 
@@ -29,6 +30,15 @@
 ## ✅ **Tester och status:**
 
 ### Utförelsedatum: 4 feb 2025
+| Testnamn                 | Typ av test  | Syfte | Status |
+|--------------------------|-------------|--------------------------------------------------|---------|
+| **AuthTest**            | Funktionstest | Säkerställer att inloggning, registrering och autentisering fungerar. | ❌ Misslyckat |
+| **GameTest**  | Integrationstest | Testar att spel/genrer kan skapas, uppdateras och raderas via controllern.  | ❌ Misslyckat |
+| **ProfileTest**            | Enhetstest  | Testar att en användare kan skapas och sparas i databasen. | ❌ Misslyckat |
+| **ReviewTest**         | Enhetstest  | Verifierar att en recension kan kopplas till ett spel och en användare. | ❌ Misslyckat |
+| **UserTest**            | Enhetstest  | Testar att en användare/användarlistor kan skapas och sparas i databasen. | ❌ Misslyckat |
+
+### Utförelsedatum: 5 feb 2025
 | Testnamn                 | Typ av test  | Syfte | Status |
 |--------------------------|-------------|--------------------------------------------------|---------|
 | **AuthTest**            | Funktionstest | Säkerställer att inloggning, registrering och autentisering fungerar. | ❌ Misslyckat |
