@@ -4,6 +4,13 @@
 @section('title', 'Home')
 
 @section('content')
+
+    @if(session('success'))
+    <div class="bg-green-500 text-white p-3 rounded-md mb-4">
+        {{ session('success') }}
+    </div>
+    @endif
+
     <h1 class="text-h1">Homepage</h1>
 
     <!-- Genre Section -->
@@ -20,10 +27,14 @@
                 ];
             @endphp
 
-            @foreach ($genreImages as $imageName)
-                <img src="{{ asset('images/games/' . $imageName) }}" 
-                     alt="Genre image" 
-                     class="w-1/4 h-40 object-cover">
+            @php
+                $genreImages = File::files(public_path('images/genres'));
+            @endphp
+
+            @foreach ($genreImages as $image)
+                <img src="{{ asset('images/genres/' . $image->getFilename()) }}" 
+                    alt="Genre image" 
+                    class="w-1/4 h-40 object-cover">
             @endforeach
         </div>
         <div class="mt-4">

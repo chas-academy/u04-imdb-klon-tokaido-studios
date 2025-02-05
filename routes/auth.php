@@ -52,8 +52,12 @@ Route::middleware('auth')->group(function () {
 
     Route::post('confirm-password', [ConfirmablePasswordController::class, 'store']);
 
-    Route::put('password', [PasswordController::class, 'update'])->name('password.update');
+    Route::put('password', [PasswordController::class, 'update'])
+    ->name('password.update');
 
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
+
+    Route::delete('delete-account', [AuthenticatedSessionController::class, 'destroyAccount'])
+        ->name('auth.deleteAccount');
 });

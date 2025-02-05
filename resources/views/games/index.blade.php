@@ -9,11 +9,11 @@
   
   
     <!-- admin -->
-  
+    @if (auth()->check() && auth()->user()->isAdmin)
     <x-button-styles size="small" class="max-w-xs mb-6">
         <a href="{{ route('games.create') }}">Create New Game</a>
     </x-button-styles>
-  
+    @endif  
     <!-- slut på admin -->
 
 
@@ -48,34 +48,35 @@
           <div class="mt-4 flex space-x-2">
             
           
-          
-          
-            <!-- admin -->
+            @if(auth()->check() && auth()->user()->isAdmin)
           
             <x-button-styles size="small">
                 <a href="{{ route('games.edit', $game->gameID) }}">Edit</a>
             </x-button-styles>
+
             <form action="{{ route('games.destroy', $game->gameID) }}" method="POST">
-                @csrf
+                
+            @csrf
                 @method('DELETE')
                 <x-button-styles size="small" type="submit" onclick="return confirm('Are you sure you want to delete this game?')">
                     Delete
                 </x-button-styles>
+
             </form>
-            
+
+            @endif
             <!-- slut på admin -->
-            
-            
-            
             
             <x-button-styles size="small">
             <a href="{{ route('reviews.game_review', $game->gameID) }}">Review</a>
             </x-button-styles>
           </div>
         </li>
+        
         @endforeach
+        
     </ul>
-
+    
   <x-button-styles size="small" class="max-w-xs mt-6">
     <a href="{{ route('home') }}">Back To Homepage</a>
   </x-button-styles>
