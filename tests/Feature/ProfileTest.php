@@ -86,19 +86,19 @@ class ProfileTest extends TestCase
     /**
      * Testar att en e-postadress måste vara unik.
      */
-    public function testEmailUnique()
+    public function testUniqueEmail()
     {
-        User::factory()->create(['email' => 'test@example.com']);
+        User::factory()->create(['email' => 'test@example.com']); // Skapar en användare med samma e-post
 
         $userData = [
-            'email' => 'test@example.com',
+            'email' => 'test@example.com', // Försöker registrera med en redan existerande e-post
             'password' => 'password123',
             'username' => 'testuser',
         ];
 
         $response = $this->post(route('register'), $userData);
 
-        $response->assertSessionHasErrors('email');
+        $response->assertSessionHasErrors('email'); // Kollar att det blir fel i valideringsprocessen
     }
 
     /**
@@ -108,7 +108,7 @@ class ProfileTest extends TestCase
     {
         $userData = [
             'email' => 'test@example.com',
-            'password' => 'short',
+            'password' => 'short', // Avsiktligt för kort lösenord på 5 tecken
             'username' => 'testuser',
         ];
 
@@ -125,7 +125,7 @@ class ProfileTest extends TestCase
         $userData = [
             'email' => 'test@example.com',
             'password' => 'password123',
-            'username' => 'abc',
+            'username' => 'abc', // Avsiktligt för kort användarnamn på 3 tecken
         ];
 
         $response = $this->post(route('register'), $userData);
@@ -144,11 +144,11 @@ class ProfileTest extends TestCase
             'username' => 'testuser',
         ];
 
-        $this->post(route('register'), $userData);
+        $this->post(route('register'), $userData); // Registrerar användaren
 
-        $user = User::where('email', 'test@example.com')->first();
+        $user = User::where('email', 'test@example.com')->first(); // Hämtar användaren från databasen
 
-        $this->assertTrue(Hash::check('password123', $user->password));
+        $this->assertTrue(Hash::check('password123', $user->password)); // Kontrollerar att lösenordet är hashat korrekt
     }
 }
 
