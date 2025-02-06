@@ -13,7 +13,7 @@ class PlatformController extends Controller
         return view("platforms.index", ["platforms" => $platforms]);
     }
 
-    public function showPlatforms($id)
+    public function showGames($id)
     {
         $platform = Platform::findOrFail($id);
         $games = $platform->games;

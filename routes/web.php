@@ -82,7 +82,7 @@ Route::prefix('platforms')->group(function()
         ->name('platform.index');
 
         // Route till gamessidan baserat på vilken platform användaren har valt
-        Route::get('/{id}/platforms', [PlatformController::class, 'showGames'])
+        Route::get('/{id}/games', [PlatformController::class, 'showGames'])
         ->name('platforms.games');
 
 });
