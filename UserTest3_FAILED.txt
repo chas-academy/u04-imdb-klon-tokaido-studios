@@ -1,0 +1,139 @@
+
+   FAIL  Tests\Feature\UserTest
+  ⨯ user create list                                                     0.08s  
+  ⨯ accessible profile
+  ⨯ user lists displayed
+  ⨯ admin dashboard access
+  ⨯ admin view index
+  ⨯ admin access create page
+  ⨯ admin store new post
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\UserTest > user create list   BadMethodCallException   
+  Call to undefined method App\Models\User::factory()
+
+  at vendor/laravel/framework/src/Illuminate/Support/Traits/ForwardsCalls.php:67
+     63▕      * @throws \BadMethodCallException
+     64▕      */
+     65▕     protected static function throwBadMethodCallException($method)
+     66▕     {
+  ➜  67▕         throw new BadMethodCallException(sprintf(
+     68▕             'Call to undefined method %s::%s()', static::class, $method
+     69▕         ));
+     70▕     }
+     71▕ }
+
+      [2m+4 vendor frames [22m
+  5   tests/Feature/UserTest.php:16
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\UserTest > accessible profi…  BadMethodCallException   
+  Call to undefined method App\Models\User::factory()
+
+  at vendor/laravel/framework/src/Illuminate/Support/Traits/ForwardsCalls.php:67
+     63▕      * @throws \BadMethodCallException
+     64▕      */
+     65▕     protected static function throwBadMethodCallException($method)
+     66▕     {
+  ➜  67▕         throw new BadMethodCallException(sprintf(
+     68▕             'Call to undefined method %s::%s()', static::class, $method
+     69▕         ));
+     70▕     }
+     71▕ }
+
+      [2m+4 vendor frames [22m
+  5   tests/Feature/UserTest.php:29
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\UserTest > user lists displ…  BadMethodCallException   
+  Call to undefined method App\Models\User::factory()
+
+  at vendor/laravel/framework/src/Illuminate/Support/Traits/ForwardsCalls.php:67
+     63▕      * @throws \BadMethodCallException
+     64▕      */
+     65▕     protected static function throwBadMethodCallException($method)
+     66▕     {
+  ➜  67▕         throw new BadMethodCallException(sprintf(
+     68▕             'Call to undefined method %s::%s()', static::class, $method
+     69▕         ));
+     70▕     }
+     71▕ }
+
+      [2m+4 vendor frames [22m
+  5   tests/Feature/UserTest.php:41
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\UserTest > admin dashboard…   BadMethodCallException   
+  Call to undefined method App\Models\User::factory()
+
+  at vendor/laravel/framework/src/Illuminate/Support/Traits/ForwardsCalls.php:67
+     63▕      * @throws \BadMethodCallException
+     64▕      */
+     65▕     protected static function throwBadMethodCallException($method)
+     66▕     {
+  ➜  67▕         throw new BadMethodCallException(sprintf(
+     68▕             'Call to undefined method %s::%s()', static::class, $method
+     69▕         ));
+     70▕     }
+     71▕ }
+
+      [2m+4 vendor frames [22m
+  5   tests/Feature/UserTest.php:61
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\UserTest > admin view index   BadMethodCallException   
+  Call to undefined method App\Models\User::factory()
+
+  at vendor/laravel/framework/src/Illuminate/Support/Traits/ForwardsCalls.php:67
+     63▕      * @throws \BadMethodCallException
+     64▕      */
+     65▕     protected static function throwBadMethodCallException($method)
+     66▕     {
+  ➜  67▕         throw new BadMethodCallException(sprintf(
+     68▕             'Call to undefined method %s::%s()', static::class, $method
+     69▕         ));
+     70▕     }
+     71▕ }
+
+      [2m+4 vendor frames [22m
+  5   tests/Feature/UserTest.php:74
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\UserTest > admin access cre…  BadMethodCallException   
+  Call to undefined method App\Models\User::factory()
+
+  at vendor/laravel/framework/src/Illuminate/Support/Traits/ForwardsCalls.php:67
+     63▕      * @throws \BadMethodCallException
+     64▕      */
+     65▕     protected static function throwBadMethodCallException($method)
+     66▕     {
+  ➜  67▕         throw new BadMethodCallException(sprintf(
+     68▕             'Call to undefined method %s::%s()', static::class, $method
+     69▕         ));
+     70▕     }
+     71▕ }
+
+      [2m+4 vendor frames [22m
+  5   tests/Feature/UserTest.php:87
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\UserTest > admin store new…   BadMethodCallException   
+  Call to undefined method App\Models\User::factory()
+
+  at vendor/laravel/framework/src/Illuminate/Support/Traits/ForwardsCalls.php:67
+     63▕      * @throws \BadMethodCallException
+     64▕      */
+     65▕     protected static function throwBadMethodCallException($method)
+     66▕     {
+  ➜  67▕         throw new BadMethodCallException(sprintf(
+     68▕             'Call to undefined method %s::%s()', static::class, $method
+     69▕         ));
+     70▕     }
+     71▕ }
+
+      [2m+4 vendor frames [22m
+  5   tests/Feature/UserTest.php:100
+
+
+  Tests:    7 failed (0 assertions)
+  Duration: 0.13s
+
