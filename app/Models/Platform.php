@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Platform extends Model
 {
     protected $primaryKey = "platformID";
-    protected $fillable = ["name"];
+    protected $fillable = ["name", 'image'];
 
     // Relation till Game-modellen (många till många)
     public function games()
