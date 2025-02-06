@@ -11,10 +11,10 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {   // anropar seeders
+        $this->call(PlatformSeeder::class);
         $this->call(GenreSeeder::class);
         $this->call(GameSeeder::class);
         $this->call(AdminSeeder::class);
-        $this->call(PlatformSeeder::class);
         // $this->call(UserSeeder::class);
         // $this->call(UserListSeeder::class);
         // $this->call(ReviewSeeder::class);

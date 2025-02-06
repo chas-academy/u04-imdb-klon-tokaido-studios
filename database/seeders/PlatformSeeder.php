@@ -15,38 +15,38 @@ class PlatformSeeder extends Seeder
     $platforms = [
         [
             "platformID" => 1,
-            "namn" => "PC"
+            "name" => "PC"
         ],
         [
             "platformID" => 2,
-            "namn" => "PlayStation 4"
+            "name" => "PlayStation 4"
         ],
         [
             "platformID" => 3,
-            "namn" => "PlayStation 5"
+            "name" => "PlayStation 5"
         ],
         [
             "platformID" => 4,
-            "namn" => "Xbox Series X/S"
+            "name" => "Xbox Series X/S"
         ],
         [
             "platformID" => 5,
-            "namn" => "Xbox One"
+            "name" => "Xbox One"
         ],
         [
             "platformID" => 6,
-            "namn" => "Nintendo Switch"
+            "name" => "Nintendo Switch"
         ],
         [
             "platformID" => 7,
-            "namn" => "Steam Deck"
+            "name" => "Steam Deck"
         ]
     ];
 
     foreach ($platforms as $platform) {
         Platform::updateOrCreate(
             ['platformID' => $platform['platformID']], //kolla om idet finns
-            ['name' => $platform['name'], 'description' => "Games for {$platform['name']}"]
+            ['name' => $platform['name']], // 'description' => "Games for {$platform['name']}"]
         );
     
     

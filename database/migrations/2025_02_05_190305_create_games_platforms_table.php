@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('games_platforms', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('gameID')->constrained()->onDelete('cascade');  // Skapar en kolumn för game_id och sätter en foreign key constraint till games-tabellen.
-            $table->foreignId('platformID')->constrained()->onDelete('cascade');  // Skapar en kolumn för platform_id och sätter en foreign key constraint till platforms-tabellen.
+            $table->foreignId('gameID')->constrained('games',"gameID")->onDelete('cascade');  // Skapar en kolumn för game_id och sätter en foreign key constraint till games-tabellen.
+            $table->foreignId('platformID')->constrained('platforms','platformID')->onDelete('cascade');  // Skapar en kolumn för platform_id och sätter en foreign key constraint till platforms-tabellen.
             $table->timestamps();  // Skapar created_at och updated_at kolumner.
         });
     }
