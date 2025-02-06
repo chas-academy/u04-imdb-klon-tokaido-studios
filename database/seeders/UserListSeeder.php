@@ -30,10 +30,10 @@ class UserListSeeder extends Seeder
         ],
         [
             "listID" => 3,
-            "listname" => "Top 20 games", // lägger till fler games när det finns mer spel
-            "description" => "Top 20 games to play",
+            "listname" => "Top 5 games", 
+            "description" => "Top 5 games to play",
             "userID" => 2, // ingen User
-            "games" => [7, 9, 11, 12] // lägger till 4st sålänge till lägger till fler spel i db
+            "games" => [7, 9, 11, 12, 3] 
         ],
     ];
                     // Skapa eller uppdatera listor i databasen
