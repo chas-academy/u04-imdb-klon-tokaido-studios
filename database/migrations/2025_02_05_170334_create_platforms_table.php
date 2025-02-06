@@ -15,6 +15,7 @@ return new class extends Migration
         Schema::create('platforms', function (Blueprint $table) {
             $table->id("platformID");
             $table->string("name")->unique();
+            $table->string('description', 255)->nullable();
             $table->timestamps();
         });
     }
