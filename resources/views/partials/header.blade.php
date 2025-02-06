@@ -59,6 +59,10 @@
                     <a href="{{ route('genres.index') }}" class="hover:underline">Genres</a>
                 </x-button-styles>
 
+                <x-button-styles class="w-full md:w-auto">
+                    <a href="{{ route('platforms.index') }}" class="hover:underline">Platforms</a>
+                </x-button-styles>
+
                 @auth
                     <form method="POST" action="{{ route('logout') }}" class="inline">
                         @csrf

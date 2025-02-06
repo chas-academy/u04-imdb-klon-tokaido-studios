@@ -18,16 +18,26 @@
 
             </h2>
             @php
-                $genreImages = [
-                    'Action' => 'action.jpg',
-                    'Adventure' => 'adventure.jpg',
-                    'RPG' => 'rpg.jpg',
-                    'Strategy' => 'strategy.jpg',
-                    'Puzzle' => 'puzzle.jpg',
-                ];
-                $imageName = $genreImages[$genre->name] ?? 'skyrim.jpg';
+                $platformImages = [
+                    "PC" => "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Desktop_personal_computer.jpg/200px-Desktop_personal_computer.jpg",
+                    "PlayStation 4" => "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/PS4-Console-wDS4.jpg/220px-PS4-Console-wDS4.jpg",
+                    "PlayStation 5"
+                    => "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Black_and_white_Playstation_5_base_edition_with_controller.png/220px-Black_and_white_Playstation_5_base_edition_with_controller.png",
+                    
+                    "Xbox Series X/S"
+                    => "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Xbox_Series_S_with_controller.jpg/130px-Xbox_Series_S_with_controller.jpg",
+
+                    "Xbox One"
+                    => "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Xbox_One_consoles_montage.png/453px-Xbox_One_consoles_montage.png",
+                    
+                    "Nintendo Switch"
+                    => "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Nintendo-Switch-wJoyCons-BlRd-Standing-FL.jpg/300px-Nintendo-Switch-wJoyCons-BlRd-Standing-FL.jpg",
+                    "Steam Deck"
+                    => "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Steam_Deck_%28front%29.png/220px-Steam_Deck_%28front%29.png"
+                    ];
+                $imageName = $platformImages[$platform->name] ?? 'skyrim.jpg';
             @endphp
-            <img src="{{ asset('images/genres/' . $imageName) }}" 
+            <img src="{{ asset('images/platform/' . $imageName) }}" 
             alt="platform image" 
             class="w-64 h-64 object-cover rounded-lg">
 
