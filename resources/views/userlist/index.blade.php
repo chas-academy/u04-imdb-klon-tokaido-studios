@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="container mx-auto px-4 py-8">
-        <h1 class="text-4xl font-bold mb-6">Mina Listor</h1>
+        <h1 class="text-4xl font-bold mb-6">My Lists</h1>
         
         <x-button-styles size="small" class="mb-6">
             <a href="{{ route('user.lists.create') }}">Create New List</a>

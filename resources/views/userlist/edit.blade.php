@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Redigera lista</h1>
+    <h1>Edit list</h1>
     <form action="{{ route('user.lists.update', ['listID' => $list->listID]) }}" method="POST">
         @csrf
         @method('PUT')
         <div class="form-group">
-            <label for="listname">Listnamn</label>
+            <label for="listname">Listname</label>
             <input type="text" class="form-control" id="listname" name="listname" value="{{ $list->listname }}" required>
         </div>
         <div class="form-group">
-            <label for="description">Beskrivning</label>
+            <label for="description">description</label>
             <textarea class="form-control" id="description" name="description">{{ $list->description }}</textarea>
         </div>
         <div class="form-group">
@@ -23,6 +23,6 @@
                 @endforeach
             </select>
         </div>
-        <button type="submit" class="btn btn-primary">Uppdatera lista</button>
+        <button type="submit" class="btn btn-primary">Update List</button>
     </form>
 @endsection
