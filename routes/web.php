@@ -8,6 +8,7 @@ use App\Http\Controllers\GenreController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PlatformController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\UserController;
 
@@ -70,6 +71,19 @@ Route::prefix('genres')->group(function()
         // Route till gamessidan baserat på vilken genre användaren har valt
         Route::get('/{id}/games', [GenreController::class, 'showGames'])
         ->name('genres.games');
+
+});
+
+// DELAR AV SIDAN: PLATFORM : KAN VISAS AV GÄST
+Route::prefix('platforms')->group(function()
+    {
+        // Route till platforms sidan
+        Route::get('/', [PlatformController::class, 'index'])
+        ->name('platform.index');
+
+        // Route till gamessidan baserat på vilken platform användaren har valt
+        Route::get('/{id}/platforms', [PlatformController::class, 'showGames'])
+        ->name('platforms.games');
 
 });
 

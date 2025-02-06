@@ -43,14 +43,13 @@ class PlatformSeeder extends Seeder
         ]
     ];
 
-        foreach ($platforms as $platform) {
-            Platform::updateOrCreate(
-                ['PlatformID' => $platform['PlatformID']], // Kontrollera om PlatformID redan finns
-                [
-                    'name' => $platform['name'],
-                    'description' => "Games in the {$platform['name']} Platform"
-                ]
+    foreach ($platforms as $platform) {
+        Platform::updateOrCreate(
+            ['platformID' => $platform['platformID']], //kolla om idet finns
+            ['name' => $platform['name'], 'description' => "Games for {$platform['name']}"]
+        );
     
-            );
-    }}
+    
+    }
+}
 }
