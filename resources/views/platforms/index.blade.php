@@ -15,6 +15,7 @@
 
             <h2 class="text-gray-800 hover:text-blue-500 text-xl font-bold text-center">
                 <a href="{{ route('platforms.games', ['id' => $platform->platformID]) }}">{{ $platform->name }}</a>
+
             </h2>
             @php
                 $genreImages = [
