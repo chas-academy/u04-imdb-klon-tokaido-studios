@@ -1,14 +1,28 @@
 #!/usr/bin/env bash
-echo "Running composer"
+
+set -e  # Avbryter skriptet vid första felet
+
+echo "🔄 Copying environment variables..."
 cp /etc/secrets/.env .env
-composer global require hirak/prestissimo
-composer install --no-dev --working-dir=/var/www/html
-echo "Caching config..."
+
+echo "🎵 Running Composer..."
+composer global require hirak/prestissimo || true
+composer install --no-dev --optimize-autoloader --working-dir=/var/www/html
+
+echo "🗑 Clearing caches..."
 php artisan cache:clear
+php artisan config:clear
+php artisan route:clear
+php artisan view:clear
+
+echo "⚡ Caching config & routes..."
 php artisan config:cache
-echo "Caching routes..."
 php artisan route:cache
-echo "Running migrations..."
-php artisan migrate --force
-echo "Seeding database..."
+
+echo "🛠 Running fresh migrations..."
+php artisan migrate:fresh --force
+
+echo "🌱 Seeding database (fresh)..."
 php artisan db:seed --force
+
+echo "✅ Deployment complete!"
