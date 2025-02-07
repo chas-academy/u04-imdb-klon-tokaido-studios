@@ -8,7 +8,15 @@ php artisan cache:clear
 php artisan config:cache
 echo "Caching routes..."
 php artisan route:cache
-echo "Running migrations..."
-php artisan migrate --force
-echo "Seeding database..."
+
+
+
+
+
+echo "🛠 Running fresh migrations..."
+php artisan migrate:fresh --force
+
+echo "🌱 Seeding database (fresh)..."
 php artisan db:seed --force
+
+echo "✅ Deployment complete!"
