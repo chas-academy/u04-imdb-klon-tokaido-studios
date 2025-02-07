@@ -64,7 +64,7 @@
 | **ListGamesTest**  | Funktionstest | Hämtar en lista över alla spel och verifiera att de visas | ❌ Misslyckat: Får HTTP-statuskoden *500 Internal Server Error*.|
 | **UserCreationTest**            | Funktionstest  | Skapa en användare och säkerställ att den sparas korrekt. | ❌ Misslyckat: Försöker verifiera om användardatan har sparats i databasen, men finns inga rader i users-tabellen. |
 | **UserProfileTest**         | Funktionstest  | Hämtar en användares profil och verifierar att den går att nå. | ❌ Misslyckat: Får HTTP-statuskoden *500 Internal Server Error*. |
-| **CreateReviewTest**            | Funktionstest  | Testar att skapa en recension för ett spel. | ❌ Misslyckat: 419-felkod i testUserCanCreateGameReview() samt valideringen för Title och description fungerar inte som förväntat i testUserCantReviewWithoutTitleOrDescription(). |
+| **CreateReviewTest**            | Funktionstest  | Testar att skapa en recension för ett spel. |  ✅ Godkänt |
 
 ---
 

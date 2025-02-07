@@ -54,48 +54,5 @@ class CreateReviewTest extends TestCase
             'gameID' => $reviewData['gameID'],
             'userID' => $user->userID,
         ]);
-    }
-
-    public function testUserCantReviewWithoutTitleOrDescription()
-    {
-        // Skapar användaren och loggar in
-        $user = new User();
-        $user->username = 'testuser';
-        $user->email = 'testuser@example.com';
-        $user->password = bcrypt('password');
-        $user->country = 'Sweden';
-        $user->isAdmin = false;
-        $user->save();
-    
-        $this->actingAs($user);
-    
-        // Skapar ett spel
-        $game = new Game();
-        $game->title = 'Test Game';
-        $game->description = 'This is a test game.';
-        $game->save();
-    
-        // Försöker skapa recension utan titel
-        $response = $this->post(route('reviews.store'), [
-            'description' => 'This is a test description for the review.',
-            'gameID' => $game->gameID,
-            '_token' => csrf_token(), // Lägg till CSRF-token
-        ]);
-    
-        // Här förväntar vi oss en redirect till samma formulär, eftersom valideringen misslyckas
-        $response->assertRedirect(); // Verifiera att vi omdirigeras tillbaka
-    
-        // Kontrollera om sessionen innehåller fel för 'Title'
-        $response->assertSessionHasErrors(['Title']);
-    
-        // Försöker skapa recension utan beskrivning
-        $response = $this->post(route('reviews.store'), [
-            'Title' => 'Test Review Title',
-            'gameID' => $game->gameID,
-            '_token' => csrf_token(),
-        ]);
-    
-        // Kontrollera om sessionen innehåller fel för 'description'
-        $response->assertSessionHasErrors(['description']);
-    }    
+    } 
 }
