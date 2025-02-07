@@ -56,6 +56,16 @@
 | **ReviewTest**         | Enhetstest  | Verifierar att en recension kan kopplas till ett spel och en användare. | ❌ Misslyckat: User::factory fungerar inte/User.php saknar factory. |
 | **UserTest**            | Enhetstest  | Testar att en användare/användarlistor kan skapas och sparas i databasen. | ❌ Misslyckat: Sanctum::actingAs() funkar ej rätt, User::factory()->create() inte anropas |
 
+### Utförelsedatum: 7 feb 2025
+#### Följande test är nya test som särskiljer sig från de tidigare.
+| Testnamn                 | Typ av test  | Syfte | Status |
+|--------------------------|-------------|--------------------------------------------------|---------|
+| **CreateGameTest**            | Funktionstest | Testar att spel kan skapas, uppdateras och raderas via controllern. | ✅ Godkänt |
+| **ListGamesTest**  | Funktionstest | Hämtar en lista över alla spel och verifiera att de visas | ❌ Misslyckat: Får HTTP-statuskoden *500 Internal Server Error*.|
+| **UserCreationTest**            | Funktionstest  | Skapa en användare och säkerställ att den sparas korrekt. | ❌ Misslyckat: Försöker verifiera om användardatan har sparats i databasen, men finns inga rader i users-tabellen. |
+| **UserProfileTest**         | Funktionstest  | Hämtar en användares profil och verifierar att den går att nå. | ❌ Misslyckat: Får HTTP-statuskoden *500 Internal Server Error*. |
+| **CreateReviewTest**            | Funktionstest  | Testar att skapa en recension för ett spel. | ❌ Misslyckat |
+
 ---
 
 ## 🔄 **Diverse:**
