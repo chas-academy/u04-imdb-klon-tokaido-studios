@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Games')
+@section('title', 'Platforms')
 
 @section('content')
 
@@ -35,9 +35,9 @@
                     "Steam Deck"
                     => "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Steam_Deck_%28front%29.png/220px-Steam_Deck_%28front%29.png"
                     ];
-                $imageName = $platformImages[$platform->name] ?? 'skyrim.jpg';
-            @endphp
-            <img src="{{ asset('images/platform/' . $imageName) }}" 
+                $imageName = $platformImages[$platform->name] ?? asset('images/games/skyrim.jpg');
+             @endphp
+            <img src="{{ $imageName }}" 
             alt="platform image" 
             class="w-64 h-64 object-cover rounded-lg">
 

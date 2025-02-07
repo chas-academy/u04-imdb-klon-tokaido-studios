@@ -66,7 +66,7 @@ class GameSeeder extends Seeder
                 "description" => "The highly anticipated continuation of Final Fantasy VII Remake, this game follows Cloud and his allies as they confront the forces of Shinra, explore deeper storylines, and uncover more of the secrets surrounding the world of Gaia. It's part of a multi-part remake of the original Final Fantasy VII.",
                 "genres" => [1, 2, 3], // Action, Adventure, RPG
                 "platforms" => [1, 3, 4, 2, 5, 6], // PC, PS5, Xbox Series X/S, PS4, Xbox One, Nintendo Switch
-                "image_url" => "http://u04-imdb-klon-tokaido-studios.test/images/games/final_fantasy_vii_rebirth.jpg",
+                "image_url" => "http://u04-imdb-klon-tokaido-studios.test/images/games/final_fantasy_vii.jpg",
                 "video_url" => "https://youtu.be/utVE4aUKYuY?feature=shared"
             ],
             [

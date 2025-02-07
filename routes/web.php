@@ -141,10 +141,12 @@ Route::middleware(UserMiddleware::class)->group(function ()
 
     });
 
-    // Visa alla listor för alla användare
-    Route::get('/lists', [UserListController::class, 'showAllLists'])->name('userlist.all');
+    
 
 });
+
+// Visa alla listor för alla användare
+Route::get('/lists', [UserListController::class, 'showAllLists'])->name('userlist.all');
 
 /* LÄMNAS UT KOMMENTERAT FÖR FRAMTIDA IMPELEMENTERING */
 /*
