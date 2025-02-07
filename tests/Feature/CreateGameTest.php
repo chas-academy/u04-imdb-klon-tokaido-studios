@@ -7,7 +7,7 @@ use App\Models\Genre;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class NewTests extends TestCase {
+class CreateGameTest extends TestCase {
 
     use RefreshDatabase;
 
