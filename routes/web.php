@@ -141,6 +141,30 @@ Route::middleware(UserMiddleware::class)->group(function ()
 
     });
 
+    // ADMIN BEHÖRIGHETER
+Route::middleware(['auth', AdminMiddleware::class])->group(function()
+{
+    Route::prefix('games')->group(function()
+    {
+        Route::get('/create', [GameController::class, 'createGame'])
+        ->name('games.create');
+        Route::post('/', [GameController::class, 'storeGame'])
+        ->name('games.store');
+        Route::get('/{gameID}/edit', [GameController::class, 'editGame'])
+        ->name('games.edit');
+        Route::put('/{gameID}', [GameController::class, 'updateGame'])
+        ->name('games.update');
+        Route::delete('/{gameID}', [GameController::class, 'deleteGame'])
+        ->name('games.destroy');
+        Route::get('/admin/profile', [AdminController::class, 'showProfile'])
+        ->name('admin.profile');
+        Route::get('/admin/reviews', [AdminController::class, 'showAllReviews'])
+        ->name('admin.reviews');
+        Route::get('/admin/lists', [AdminController::class, 'showAllLists'])
+        ->name('admin.lists');
+    });
+});
+
     
 
 });

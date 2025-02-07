@@ -10,17 +10,29 @@ use Illuminate\Database\Seeder;
 class DatabaseSeeder extends Seeder
 {
     public function run(): void
-    {   // anropar seeders
-        $this->call(PlatformSeeder::class);
-        $this->call(GenreSeeder::class);
-        $this->call(GameSeeder::class);
-        $this->call(AdminSeeder::class);
-        $this->call(UserSeeder::class);
-        $this->call(UserListSeeder::class);
-        $this->call(ReviewSeeder::class);
-        // skapar realtioner
-        $this->seedGameGenres();
+    {  
+                // Först, skapa plattformar och genrer
+                $this->call(PlatformSeeder::class);
+                $this->call(GenreSeeder::class);
+                
+                // Sedan, skapa spel. Viktigt att detta kommer före 'game_lists' eller relaterade tabeller
+                $this->call(GameSeeder::class);
+                
+                // Efter spel är infogade, skapa användare och recenser
+                $this->call(AdminSeeder::class);
+                $this->call(UserSeeder::class);
+                
+                // Nu kan vi lägga till relationerna i game_lists
+                $this->call(UserListSeeder::class);  // Säkerställ att detta kommer efter spel och användare
+                
+                // Skapa recenser om nödvändigt
+                $this->call(ReviewSeeder::class);
+                
+                // Skapa relaterade relationer för spel och genrer
+                $this->seedGameGenres();  
     }
+
+    
         private function seedGameGenres()
         {// Definiera en koppling mellan spel och genrer
            $gameGenres = [
@@ -38,6 +50,7 @@ class DatabaseSeeder extends Seeder
             'Civilization VI' => [4], // Strategy
             'COD' => ['Action']
         ];
+
         $genres = Genre::all()->keyBy('name');
         $games = Game::all()->keyBy('title');
         foreach ($gameGenres as $gameTitle => $genreNames) {

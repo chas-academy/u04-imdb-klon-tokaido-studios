@@ -22,10 +22,10 @@ class GameSeeder extends Seeder
                 "video_url" => "https://youtu.be/AKXiKBnzpBQ?feature=shared"
             ],
             [
-                "title" => "Skyrim",
+                "title" => "The Elder Scrolls V: Skyrim",
                 "description" => " A classic open-world RPG set in the northern province of Tamriel, Skyrim lets you play as the Dragonborn, a hero destined to stop the ancient dragon Alduin. It features open-ended gameplay, extensive mod support, and a rich world full of dragons, magic, and lore.",
                 "genres" => [1, 2, 3], // Action, Adventure, RPG
-                "platforms" => [1, 2, 3, 4, 5, 6], // PC, PS3, Xbox 360, PS4, Xbox One, Nintendo Switch
+                "platforms" => [1], // PC
                 "image_url" => "http://u04-imdb-klon-tokaido-studios.test/images/games/skyrim.jpg",
                 "video_url" => "https://youtu.be/6umhTJQltak?feature=shared"
             ],
@@ -41,15 +41,15 @@ class GameSeeder extends Seeder
                 "title" => "Factorio",
                 "description" => "A real-time strategy and simulation game focused on resource management, automation, and factory-building. Players work to build and optimize complex factories while defending against hostile creatures, all while expanding and improving the production chain.",
                 "genres" => [4], // Strategy
-                "platforms" => [1, 3, 4, 2, 5, 6], // PC, PS5, Xbox Series X/S, PS4, Xbox One, Nintendo Switch
+                "platforms" => [1], // PC
                 "image_url" => "http://u04-imdb-klon-tokaido-studios.test/images/games/factorio.jpg",
                 "video_url" => "https://youtu.be/J8SBp4SyvLc?feature=shared"
             ],
             [
                 "title" => "It Takes Two",
-                "description" => "A loot-driven first-person shooter with RPG elements, Borderlands 3 features the chaotic world of Pandora. Players choose from unique characters known as Vault Hunters and embark on a mission to stop the villainous Calypso twins while collecting tons of weapons and gear",
+                "description" => "is a cooperative action-adventure game developed by Hazelight Studios. It follows the story of Cody and May, a couple on the brink of divorce, who are magically transformed into tiny dolls. Together, they must navigate through creative and whimsical environments, solving puzzles and overcoming obstacles that test their teamwork and relationship. The game is designed for two players, either locally or online, with each player controlling one of the characters. It emphasizes collaboration, with each player having unique abilities to help progress through the various challenges. The game has received praise for its inventive gameplay, story, and co-op mechanics.",
                 "genres" => [5, 2], // Puzzle, Adventure
-                "platforms" => [1, 3, 4, 2, 5, 6], // PC, PS5, Xbox Series X/S, PS4, Xbox One, Nintendo Switch
+                "platforms" => [1, 3, 4], // PC, PS5, Xbox Series X/S
                 "image_url" => "http://u04-imdb-klon-tokaido-studios.test/images/games/it_takes_two.jpg",
                 "video_url" => "https://youtu.be/ohClxMmNLQQ?feature=shared"
             ],
@@ -57,7 +57,7 @@ class GameSeeder extends Seeder
                 "title" => "Borderlands 3",
                 "description" => "A loot-driven first-person shooter with RPG elements, Borderlands 3 features the chaotic world of Pandora. Players choose from unique characters known as Vault Hunters and embark on a mission to stop the villainous Calypso twins while collecting tons of weapons and gear",
                 "genres" => [1, 3], // Action, RPG
-                "platforms" => [1, 3, 4, 2, 5, 6], // PC, PS5, Xbox Series X/S, PS4, Xbox One, Nintendo Switch
+                "platforms" => [1, 2, 5,], // PC,, PS4, Xbox One
                 "image_url" => "http://u04-imdb-klon-tokaido-studios.test/images/games/borderlands_3.jpg",
                 "video_url" => "https://youtu.be/gjLQ2Uj4OPw?feature=shared"
             ],
@@ -65,17 +65,15 @@ class GameSeeder extends Seeder
                 "title" => "Final Fantasy VII Rebirth",
                 "description" => "The highly anticipated continuation of Final Fantasy VII Remake, this game follows Cloud and his allies as they confront the forces of Shinra, explore deeper storylines, and uncover more of the secrets surrounding the world of Gaia. It's part of a multi-part remake of the original Final Fantasy VII.",
                 "genres" => [1, 2, 3], // Action, Adventure, RPG
-                "platforms" => [1, 3, 4, 2, 5, 6], // PC, PS5, Xbox Series X/S, PS4, Xbox One, Nintendo Switch
+                "platforms" => [5,], // PS5
                 "image_url" => "http://u04-imdb-klon-tokaido-studios.test/images/games/final_fantasy_vii.jpg",
                 "video_url" => "https://youtu.be/utVE4aUKYuY?feature=shared"
             ],
             [
                 "title" => "The Witcher 3: Wild Hunt",
-                "description" => "A vast, open-world RPG set in a dark fantasy world. Players control Geralt of Rivia, a monster hunter, as he searches for his adopted daughter. The game is known for its deep story, complex characters, and a richly detailed world with quests that offer multiple choices and consequences.
-
-",
+                "description" => "A vast, open-world RPG set in a dark fantasy world. Players control Geralt of Rivia, a monster hunter, as he searches for his adopted daughter. The game is known for its deep story, complex characters, and a richly detailed world with quests that offer multiple choices and consequences.",
                 "genres" => [2, 1, 3], // Adventure, Action, RPG
-                "platforms" => [1, 3, 4, 2, 5, 6], // PC, PS5, Xbox Series X/S, PS4, Xbox One, Nintendo Switch
+                "platforms" => [1, 3, 4, 2, 5,], // PC, PS5, Xbox Series X/S, PS4, Xbox One
                 "image_url" => "http://u04-imdb-klon-tokaido-studios.test/images/games/wild_hunt.jpg",
                 "video_url" => "https://youtu.be/XHrskkHf958?feature=shared"
             ],
@@ -91,7 +89,7 @@ class GameSeeder extends Seeder
                 "title" => "Grand Theft Auto V",
                 "description" => "A highly popular open-world action-adventure game set in the fictional city of Los Santos. Players control three protagonists and engage in a mix of heists, exploration, driving, and combat, with an expansive single-player campaign and a highly active online multiplayer mode, GTA Online.",
                 "genres" => [1, 2], // Action, Adventure
-                "platforms" => [1, 3, 4, 2, 5, 6], // PC, PS5, Xbox Series X/S, PS4, Xbox One, Nintendo Switch
+                "platforms" => [1, 3, 4, 2, 5], // PC, PS5, Xbox Series X/S, PS4, Xbox One
                 "image_url" => "http://u04-imdb-klon-tokaido-studios.test/images/games/gta_v.jpg",
                 "video_url" => "https://youtu.be/QkkoHAzjnUs?feature=shared"
             ],
@@ -99,7 +97,7 @@ class GameSeeder extends Seeder
                 "title" => "Portal 2",
                 "description" => "A physics-based puzzle game where players solve complex puzzles using a portal gun that creates linked portals on surfaces. The sequel to the beloved Portal, Portal 2 builds on the original with a captivating story, witty humor, and innovative puzzles.",
                 "genres" => [2, 5], // Adventure, Puzzle
-                "platforms" => [1, 3, 4, 2, 5, 6], // PC, PS5, Xbox Series X/S, PS4, Xbox One, Nintendo Switch
+                "platforms" => [1, 6], // PC, Nintendo Switch
                 "image_url" => "http://u04-imdb-klon-tokaido-studios.test/images/games/portal_2.png",
                 "video_url" => "https://youtu.be/A88YiZdXugA?feature=shared"
             ],

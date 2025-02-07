@@ -32,11 +32,11 @@ class UserListSeeder extends Seeder
             "listID" => 3,
             "listname" => "Top 5 games", 
             "description" => "Top 5 games to play",
-            "userID" => 2, // ingen User
+            "userID" => 2, 
             "games" => [7, 9, 11, 12, 3] 
         ],
     ];
-                    // Skapa eller uppdatera listor i databasen
+        // Skapa eller uppdatera listor i databasen
         foreach ($lists as $list) {
             $userList = UserList::updateOrCreate(
                 ['listID' => $list['listID']],
