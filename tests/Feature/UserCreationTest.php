@@ -15,13 +15,14 @@ class UserCreationTest extends TestCase {
         $userData = [
             'username' => 'testuser',
             'email' => 'testuser@example.com',
-            'password' => 'password123',
+            'password' => 'password123', // Lösenordet kommer hashas i databasen
             'country' => 'Sweden',
             'isAdmin' => false,
         ];
 
         $response = $this->post('/registerNewUser', $userData);
-
+        
+        // Kontrollerar att användaruppgifter sparas i databasen
         $this->assertDatabaseHas('users', [
             'username' => $userData['username'],
             'email' => $userData['email'],
@@ -29,7 +30,8 @@ class UserCreationTest extends TestCase {
             'isAdmin' => $userData['isAdmin'],
         ]);
 
+        // Kontrollerar att lösenordet inte är lagrat som rent text
         $user = User::where('email', $userData['email'])->first();
-        $this->assertNotEquals($user->password, $userData['password']);
+        $this->assertNotEquals($user->password, $userData['password']); // Lösenordet ska vara hashat
     }
 }
