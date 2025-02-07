@@ -11,6 +11,7 @@ class UserProfileTest extends TestCase {
     use RefreshDatabase;
 
     public function testUserViewProfile() {
+        // Skapar manuellt en användare
         $user = new User();
         $user->username = 'testuser';
         $user->email = 'testuser@example.com';
@@ -19,11 +20,12 @@ class UserProfileTest extends TestCase {
         $user->isAdmin = false;
         $user->save();
 
+        //Loggar in användaren
         $this->actingAs($user);
 
         $response = $this->get(route('users.profile'));
-        $response->assertStatus(200);
-        $response->assertSee($user->username);
-        $response->assertSee($user->email);
+        $response->assertStatus(200); //Säkerställer rätt HTTP-statuskod
+        $response->assertSee($user->username); // Kontrollerar att användarens data visas på sidan, till exempel användarnamn
+        $response->assertSee($user->email); // Samma med email
     }
 }
