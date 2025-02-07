@@ -10,7 +10,7 @@ use Tests\TestCase;
 class UserProfileTest extends TestCase {
     use RefreshDatabase;
 
-    public function userViewProfile() {
+    public function testUserViewProfile() {
         $user = new User();
         $user->username = 'testuser';
         $user->email = 'testuser@example.com';

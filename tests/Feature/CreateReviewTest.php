@@ -10,7 +10,7 @@ use Tests\TestCase;
 class CreateReviewTest extends TestCase {
     use RefreshDatabase;
 
-    public function userGameReview() {
+    public function testUserGameReview() {
         $user = new User();
         $user->username = 'testuser';
         $user->email = 'testuser@example.com';
@@ -43,7 +43,7 @@ class CreateReviewTest extends TestCase {
         ]);
     }
 
-    public function userCantReviewWithoutTitleOrDesc() {
+    public function testUserCantReviewWithoutTitleOrDesc() {
 
         $user = new User();
         $user->username = 'testuser';
