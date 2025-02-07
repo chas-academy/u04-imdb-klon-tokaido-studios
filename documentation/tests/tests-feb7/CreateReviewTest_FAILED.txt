@@ -1,0 +1,40 @@
+
+   FAIL  Tests\Feature\CreateReviewTest
+  ⨯ user can create game review                                          0.36s  
+  ⨯ user cant review without title or description                        0.33s  
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\CreateReviewTest > user can create game review         
+  Expected response status code [201, 301, 302, 303, 307, 308] but received 419.
+Failed asserting that false is true.
+
+  at tests/Feature/CreateReviewTest.php:45
+     41▕         // Skickar POST-begäran för att skapa recensionen via den korrekta rutten
+     42▕         $response = $this->post(route('reviews.store'), $reviewData);
+     43▕ 
+     44▕         // Omdirigerar till spelets recensioner
+  ➜  45▕         $response->assertRedirect(route('reviews.game_review', $game->gameID));
+     46▕ 
+     47▕         // Kontrollerar att recensionen finns i databasen
+     48▕         $this->assertDatabaseHas('reviews', [
+     49▕             'Title' => $reviewData['Title'],
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\CreateReviewTest > user cant review without title o…   
+  Session is missing expected key [errors].
+Failed asserting that false is true.
+
+  at tests/Feature/CreateReviewTest.php:83
+     79▕             'gameID' => $game->gameID,
+     80▕         ]);
+     81▕ 
+     82▕         // Kontrollerar att det finns fel för 'Title'
+  ➜  83▕         $response->assertSessionHasErrors('Title');
+     84▕ 
+     85▕         // Försöker att skapa en recension utan beskrivning
+     86▕         $response = $this->post(route('reviews.create', $game->gameID), [
+     87▕             'Title' => 'Test Review Title',
+
+
+  Tests:    2 failed (2 assertions)
+  Duration: 0.71s
+
