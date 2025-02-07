@@ -21,7 +21,7 @@ class UserProfileTest extends TestCase {
 
         $this->actingAs($user);
 
-        $response = $this->get(route('profile.edit'));
+        $response = $this->get(route('users.profile'));
         $response->assertStatus(200);
         $response->assertSee($user->username);
         $response->assertSee($user->email);
