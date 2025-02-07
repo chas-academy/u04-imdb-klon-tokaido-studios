@@ -7,7 +7,8 @@ use App\Models\Genre;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class createGameTest extends TestCase {
+class NewTests extends TestCase {
+
     use RefreshDatabase;
 
     public function testCreateAGame() {
@@ -22,9 +23,9 @@ class createGameTest extends TestCase {
             'trailer' => 'https://example.com/trailer.mp4',
             'genres' => [$genre->genreID],
         ];
-
-        $response = $this->post(route('games.store'), $gameData);
-
+        
+        $response = $this->withoutMiddleware()->post(route('games.store'), $gameData);
+        
         $response->assertRedirect(route('games.index'));
 
         $this->assertDatabaseHas('games', [
