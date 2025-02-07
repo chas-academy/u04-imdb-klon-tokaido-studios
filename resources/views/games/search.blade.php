@@ -15,9 +15,9 @@
           <h2 class="text-lg text-gray-800 hover:text-blue-500 font-bold text-center">
             {{ $game->title }}
           </h2>
-          <img src="{{ asset($game->image) }}" 
-          alt="Game image"
-          class="w-64 h-64 object-cover rounded-lg">
+             <img src="{{ asset('images/games/' . basename($game->image)) }}" 
+     alt="Game image"
+     class="w-64 h-64 object-cover rounded-lg">
           <p class="text-sm text-gray-600">
             {{ $game->description }}
           </p>
