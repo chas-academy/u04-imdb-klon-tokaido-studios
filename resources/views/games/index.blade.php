@@ -45,7 +45,7 @@
                 class="w-32 h-32 object-cover rounded-lg">
             </iframe>
           </p>
-          <div class="mt-4 flex space-x-2">
+          <div class="mt-4 flex flex-wrap gap-y-2 justify-center space-x-2">
             
           
             @if(auth()->check() && auth()->user()->isAdmin)

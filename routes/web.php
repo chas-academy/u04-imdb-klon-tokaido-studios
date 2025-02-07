@@ -7,11 +7,13 @@ use App\Http\Controllers\GenreController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Middleware\UserMiddleware;
 use App\Http\Middleware\AdminMiddleware;
+use App\Http\Controllers\UserListController;
 
 
 
@@ -38,8 +40,15 @@ Route::prefix('auth')->group(function()
     Route::post('/registerNewUser', [RegisterController::class, 'registerUser'])
     ->name('registerUser');
 
-    // LOGIN
+    // LOGIN /*
+    /*
     Route::view('/login', 'auth.login')->name('login');
+    */
+    Route::get('/login', [AuthenticatedSessionController::class, 'create'])->name('login');
+    Route::post('/login', [AuthenticatedSessionController::class, 'store']);
+    // Logout route
+    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+
 });
 
 
@@ -92,39 +101,43 @@ Route::middleware(UserMiddleware::class)->group(function ()
         Route::get('/reviews', [UserController::class, 'showReviews'])
         ->name('users.reviews');
     
-        Route::get('/lists', [UserController::class, 'showLists'])
+        // Visa alla listor för den inloggade användaren
+        Route::get('/lists', [UserListController::class, 'index'])
         ->name('users.lists');
     
         Route::delete('/', [UserController::class, 'destroy'])
         ->name('users.destroy');
     });
-});
-
-
-
-// ADMIN BEHÖRIGHETER
-Route::middleware(['auth', AdminMiddleware::class])->group(function()
-{
-    Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])
-    ->name('admin.dashboard');
-
-    Route::prefix('games')->group(function()
+        
+    Route::prefix('list')->group(function()
     {
-        Route::get('/', [GameController::class, 'createGame'])
-        ->name('games.create');
+        // Skapa en ny lista
+        Route::get('/create', [UserListController::class, 'createList'])->name('userlist.create');
+        Route::post('/', [UserListController::class, 'storeList'])->name('user.lists.store');
+        
+        // Redigera en lista
+        Route::get('/{listID}/edit', [UserListController::class, 'editList'])->name('userlist.edit');
+        Route::put('/{listID}', [UserListController::class, 'updateList'])->name('userlist.update');
+        
+        // Ta bort en lista
+        Route::delete('/{listID}', [UserListController::class, 'deleteList'])->name('userlist.delete');
 
-        Route::post('/', [GameController::class, 'storeGame'])
-        ->name('games.store');
-
-        Route::get('/{gameID}/edit', [GameController::class, 'editGame'])
-        ->name('games.edit');
-
-        Route::put('/{gameID}', [GameController::class, 'updateGame'])
-        ->name('games.update');
-
-        Route::delete('/{gameID}', [GameController::class, 'deleteGame'])
-        ->name('games.destroy');
     });
+
+    // Visa alla listor för alla användare
+    Route::get('/lists', [UserListController::class, 'showAllLists'])->name('userlist.all');
+
 });
 
+/* LÄMNAS UT KOMMENTERAT FÖR FRAMTIDA IMPELEMENTERING */
+/*
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 require __DIR__.'/auth.php';
+*/

@@ -13,10 +13,6 @@
         @foreach ($genres as $genre)
 
         <li class="bg-white shadow-md rounded-lg p-4 flex flex-col items-center space-y-4 border-2 border-orange-500">
-
-            <h2 class="text-gray-800 hover:text-blue-500 text-xl font-bold text-center">
-                <a href="{{ route('genres.games', ['id' => $genre->genreID]) }}">{{ $genre->name }}</a>
-            </h2>
             @php
                 $genreImages = [
                     'Action' => 'action.jpg',
@@ -29,7 +25,12 @@
             @endphp
             <img src="{{ asset('images/genres/' . $imageName) }}" 
             alt="Genre image" 
-            class="w-64 h-64 object-cover rounded-lg">
+            class="w-64 h-64 object-cover rounded-lg mb-4">
+            <h2 class="text-xl font-bold text-center">
+                <x-button-styles size="small" class="max-w-xs mb-6">
+                    <a href="{{ route('genres.games', ['id' => $genre->genreID]) }}">{{ $genre->name }}</a>
+                </x-button-styles>
+            </h2>
 
         </li>
         @endforeach
