@@ -12,7 +12,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Middleware\UserMiddleware;
 use App\Http\Middleware\AdminMiddleware;
-
+use App\Http\Controllers\Auth\PasswordResetController;
 
 
 
@@ -126,5 +126,15 @@ Route::middleware(['auth', AdminMiddleware::class])->group(function()
         ->name('games.destroy');
     });
 });
+
+// Route för att visa formuläret
+Route::get('/reset-password/{token}', function ($token) {
+    return view('auth.reset-password', ['token' => $token]);
+})->middleware('guest')->name('password.reset');
+
+// Route för att hantera återställningen
+Route::post('/reset-password', [PasswordResetController::class, 'store'])
+    ->middleware('guest')
+    ->name('password.store');
 
 require __DIR__.'/auth.php';

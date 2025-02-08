@@ -13,9 +13,9 @@ class DatabaseSeeder extends Seeder
         $this->call(GenreSeeder::class);
         $this->call(GameSeeder::class);
         $this->call(AdminSeeder::class);
-        // $this->call(UserSeeder::class);
-        // $this->call(UserListSeeder::class);
-        // $this->call(ReviewSeeder::class);
+       $this->call(UserSeeder::class);
+        $this->call(UserListSeeder::class);
+       $this->call(ReviewSeeder::class);
         // skapar realtioner
         $this->seedGameGenres();
     }

@@ -5,18 +5,19 @@ namespace App\Models;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Auth\CanResetPassword; // ✅ Lägg till detta
+use Illuminate\Auth\Passwords\CanResetPassword as CanResetPasswordTrait; // ✅ Lägg till detta
+use Illuminate\Notifications\Notifiable; // ✅ Lägg till detta
 
-class User extends Model implements Authenticatable
+class User extends Model implements Authenticatable, CanResetPassword // ✅ Lägg till CanResetPassword
 {
-
-    use AuthenticatableTrait;
+    use AuthenticatableTrait, CanResetPasswordTrait, Notifiable; // ✅ Lägg till Notifiable & CanResetPasswordTrait
 
     protected $primaryKey = 'userID';
     public $incrementing = true;
     protected $keyType = 'int';
 
-    protected $fillable =
-    [
+    protected $fillable = [
         'username', 
         'email', 
         'password', 
@@ -28,8 +29,7 @@ class User extends Model implements Authenticatable
         'password',
     ];
 
-    protected $casts = 
-    [
+    protected $casts = [
         'isAdmin' => 'boolean',
     ];
 
