@@ -41,7 +41,15 @@ class UserListController extends Controller
             $list->games()->attach($validatedData['games']);
         }
 
-        return redirect()->route('users.lists')->with('success', 'List created with games');
+        $userID = auth()->id();
+
+        if ($userID == '1') { 
+            return redirect()->route("admin.lists")->with("success", "List has been updated with games");
+        }
+        else {
+            return redirect()->route("users.lists")->with("success", "List has been updated with games");
+        }
+
     }
 
     public function editList($listID)
@@ -54,6 +62,7 @@ class UserListController extends Controller
     public function updateList(Request $request, $listID)
     {
         $list = UserList::findOrFail($listID);
+        $userID = auth()->id();
 
         $validatedData = $request->validate([
             "listname" => "required|max:255",
@@ -69,17 +78,29 @@ class UserListController extends Controller
             $list->games()->detach();
         }
 
-        return redirect()->route("users.lists")->with("success", "List has been updated with games");
+        if ($userID == '1') { 
+            return redirect()->route("admin.lists")->with("success", "List has been updated with games");
+        }
+        else {
+            return redirect()->route("users.lists")->with("success", "List has been updated with games");
+        }
     }
 
     public function deleteList($listID)
     {
         $list = UserList::findOrFail($listID);
+        $userID = auth()->id();
 
         $list->games()->detach();
         $list->delete();
 
-        return redirect()->route("users.lists")->with("success", "List has been deleted");
+        if ($userID == '1') {  // Notera === istället för =
+            return redirect()->route("admin.lists")->with("success", "List has been deleted");
+        }
+        else {
+            return redirect()->route("users.lists")->with("success", "List has been deleted");
+        }
+
     }
 
     public function showLists($userID)

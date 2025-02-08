@@ -118,6 +118,6 @@ class GameController extends Controller
         $game = Game::findOrFail($gameID);
         $game->delete();
 
-        return redirect()->route('games.index')->with('success', 'Spelet har tagits bort!');
+        return redirect()->back()->with('success', 'Spelet har tagits bort!');
     }
 }
