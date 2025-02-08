@@ -16,10 +16,10 @@ class UserListSeeder extends Seeder
        $lists = [
         [
             "listID" => 1,
-            "listname" => "Games I want to buy",
-            "description" => "A list of games I want to buy",
+            "listname" => "Top 5 Games",
+            "description" => "A list of the best games we recommend right now",
             "userID" => 1,
-            "games" => [2, 4, 6, 10]
+            "games" => [2, 4, 6, 10, 12]
         ],
         [
             "listID" => 2,
@@ -30,10 +30,10 @@ class UserListSeeder extends Seeder
         ],
         [
             "listID" => 3,
-            "listname" => "Top 5 games", 
-            "description" => "Top 5 games to play",
+            "listname" => "Games to buy", 
+            "description" => "A list of games I want to buy",
             "userID" => 2, 
-            "games" => [7, 9, 11, 12, 3] 
+            "games" => [7, 9, 11] 
         ],
     ];
         // Skapa eller uppdatera listor i databasen

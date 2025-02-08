@@ -36,7 +36,28 @@
                 class="w-32 h-32 object-cover rounded-lg">
             </iframe>
           </p>
-          <div class="mt-4 flex space-x-2">
+          <div class="mt-4 flex flex-wrap gap-y-2 justify-center space-x-2">
+            
+          
+            @if(auth()->check() && auth()->user()->isAdmin)
+          
+            <x-button-styles size="small">
+                <a href="{{ route('games.edit', $game->gameID) }}">Edit</a>
+            </x-button-styles>
+
+            <form action="{{ route('games.destroy', $game->gameID) }}" method="POST">
+                
+            @csrf
+                @method('DELETE')
+                <x-button-styles size="small" type="submit" onclick="return confirm('Are you sure you want to delete this game?')">
+                    Delete
+                </x-button-styles>
+
+            </form>
+
+            @endif
+            <!-- slut på admin -->
+            
             <x-button-styles size="small">
             <a href="{{ route('reviews.game_review', $game->gameID) }}">Review</a>
             </x-button-styles>

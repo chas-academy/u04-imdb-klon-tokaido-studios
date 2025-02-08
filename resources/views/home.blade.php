@@ -78,7 +78,7 @@
                         <div class="mt-2">
                             <p class="font-semibold">Games:</p>
                             <div class="space-y-2">
-                                @foreach($list->games->take(3) as $game)
+                                @foreach($list->games->take(5) as $game)
                                     <div class="flex items-center">
                                         <img 
                                             src="{{ $game->image }}" 
