@@ -16,11 +16,11 @@
                 IGDb
             </a>
             @auth
-                <div>Du är inloggad som: {{ Auth::user()->username }}</div>
+                <div>You are logged in as: {{ Auth::user()->username }}</div>
             @endauth
             
             @guest
-                <div>Du är inte inloggad</div>
+                <div>You are not logged in</div>
             @endguest
 
             <!-- Sök och dropdown -->
@@ -59,6 +59,10 @@
                     <a href="{{ route('genres.index') }}" class="hover:underline">Genres</a>
                 </x-button-styles>
 
+                <x-button-styles class="w-full md:w-auto">
+                    <a href="{{ route('platforms.index') }}" class="hover:underline">Platforms</a>
+                </x-button-styles>
+
                 @auth
                     <form method="POST" action="{{ route('logout') }}" class="inline">
                         @csrf
@@ -70,10 +74,10 @@
                 @endauth
                 @guest
                     <x-button-styles>
-                        <a href="{{ route('login') }}" class="hover:underline w-full md:w-auto">Logga in</a>
+                        <a href="{{ route('login') }}" class="hover:underline w-full md:w-auto">Log in</a>
                     </x-button-styles>
                     <x-button-styles>
-                        <a href="{{ route('registerNewUser') }}" class="hover:underline w-full md:w-auto">Registrera</a>
+                        <a href="{{ route('registerNewUser') }}" class="hover:underline w-full md:w-auto">Register</a>
                     </x-button-styles>
                 @endguest
             </div>
