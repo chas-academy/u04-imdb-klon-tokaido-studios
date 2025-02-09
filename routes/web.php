@@ -38,9 +38,6 @@ Route::prefix('auth')->group(function()
     // REGISTRERA NY ANVÄNDARE
     Route::post('/registerNewUser', [RegisterController::class, 'registerUser'])
     ->name('registerUser');
-    // REGISTRERA NY ANVÄNDARE
-    Route::post('/registerNewUser', [RegisterController::class, 'registerUser'])
-    ->name('registerUser');
 
     // LOGIN /*
     /*

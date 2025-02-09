@@ -20,7 +20,9 @@ class UserCreationTest extends TestCase {
             'isAdmin' => false,
         ];
 
-        $response = $this->post('/registerNewUser', $userData);
+        $response = $this->withoutMiddleware()->post('/auth/registerNewUser', $userData);
+
+        $response->assertStatus(302);
         
         // Kontrollerar att användaruppgifter sparas i databasen
         $this->assertDatabaseHas('users', [
