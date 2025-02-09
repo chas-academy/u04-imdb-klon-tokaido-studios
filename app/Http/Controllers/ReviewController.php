@@ -53,32 +53,22 @@ class ReviewController extends Controller
 
         $review->update($validatedData);
 
-        $userID = auth()->id();
-
-        if ($userID == '1') {
-            return redirect()->route('admin.reviews')->with('success', 'Review deleted successfully');
-        }
-        else {
-            return redirect()->route('users.reviews', $review->gameID)->with('success', 'Review updated successfully');
-        }
-        
+        return redirect()->route('users.reviews', $review->gameID)->with('success', 'Review updated successfully');
     }
 
 
     public function destroy(Review $review)
     {
         $gameID = $review->gameID;
+
         $review->delete();
 
-        $userID = auth()->id();
+        if(Auth::user()->isAdmin)
+        {
+            return redirect()->route('admin.reviews', $gameID)->with('success', 'Review deleted successfully');
+        }
 
-        if ($userID == '1') {
-            return redirect()->route('admin.reviews')->with('success', 'Review deleted successfully');
-        }
-        else {
-            return redirect()->route('users.reviews', $gameID)->with('success', 'Review deleted successfully');
-        }
-    
+        return redirect()->route('users.reviews', $gameID)->with('success', 'Review deleted successfully');
     }
 
     // Visar alla recensioner för ett spel

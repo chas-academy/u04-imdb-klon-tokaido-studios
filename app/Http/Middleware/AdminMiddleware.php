@@ -12,8 +12,17 @@ class AdminMiddleware
 {
     public function handle(Request $request, Closure $next): Response
 {
-    if (!auth()->check() || !auth()->user()->isAdmin) {
-        abort(403, 'Access Denied');
+
+    if (!Auth::check()) {
+
+        return redirect('/auth/login')->withErrors(['error' => 'You must be logged in to access this page.']);
+
+    }
+
+    if (!Auth::user()->isAdmin) {
+
+        return redirect('/auth/login')->withErrors(['error' => 'You Do Not Have Access To This Page']);
+
     }
 
     return $next ($request);
