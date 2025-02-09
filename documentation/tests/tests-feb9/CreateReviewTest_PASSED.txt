@@ -1,0 +1,7 @@
+
+   PASS  Tests\Feature\CreateReviewTest
+  ✓ user can create game review                                          0.10s  
+
+  Tests:    1 passed (4 assertions)
+  Duration: 0.12s
+

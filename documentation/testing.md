@@ -66,6 +66,16 @@
 | **UserProfileTest**         | Funktionstest  | Hämtar en användares profil och verifierar att den går att nå. | ❌ Misslyckat: Får HTTP-statuskoden *500 Internal Server Error*. |
 | **CreateReviewTest**            | Funktionstest  | Testar att skapa en recension för ett spel. |  ✅ Godkänt |
 
+### Utförelsedatum: 9 feb 2025
+#### Följande test är nya test som särskiljer sig från de tidigare.
+| Testnamn                 | Typ av test  | Syfte | Status |
+|--------------------------|-------------|--------------------------------------------------|---------|
+| **CreateGameTest**            | Funktionstest | Testar att spel kan skapas, uppdateras och raderas via controllern. | ✅ Godkänt |
+| **ListGamesTest**  | Funktionstest | Hämtar en lista över alla spel och verifiera att de visas | ✅ Godkänt  |
+| **UserCreationTest**            | Funktionstest  | Skapa en användare och säkerställ att den sparas korrekt. |  ✅ Godkänt  |
+| **UserProfileTest**         | Funktionstest  | Hämtar en användares profil och verifierar att den går att nå. |  ✅ Godkänt |
+| **CreateReviewTest**            | Funktionstest  | Testar att skapa en recension för ett spel. |  ✅ Godkänt |
+
 ---
 
 ## 🔄 **Diverse:**
