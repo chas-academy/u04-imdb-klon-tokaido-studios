@@ -14,8 +14,7 @@
             </div>
         </div>
 
-        @if (auth()->check() && (auth()->user()->isAdmin || !auth()->user()->isAdmin))
-            
+        @auth
             @if(!$userReview)
 
                 <p class="text-xl font-semibold mb-4">You haven't reviewed this game yet.</p>
@@ -48,8 +47,15 @@
 
         @endif
 
+
+        @php
+            $Url_1 = route('reviews.create', $game->gameID);
+            $previousUrl = url()->previous();
+            $redirectUrl = $previousUrl === $Url_1 ? route('games.index') : $previousUrl;
+        @endphp
+
         <x-button-styles size="small" class="mt-4">
-            <a href="{{ route('games.index') }}">Back to Games</a>
+            <a href="{{ $redirectUrl }}">Back to Games</a>
         </x-button-styles>
 
     </div>

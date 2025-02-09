@@ -24,12 +24,25 @@ class GameController extends Controller
 
     public function createGame()
     {
-        $genres = Genre::all();
-        return view('games.create', compact('genres'));
+
+        if (!auth()->user()->isAdmin)
+        {
+            abort(403, 'Access Denied');
+        }
+
+            $genres = Genre::all();
+            return view('games.create', compact('genres'));
+            
     }
 
     public function storeGame(Request $request)
     {
+
+        if (!auth()->user()->isAdmin)
+        {
+            abort(403, 'Access Denied');
+        }
+
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             'description' => 'required',
@@ -53,6 +66,12 @@ class GameController extends Controller
 
     public function editGame($gameID)
     {
+
+        if (!auth()->user()->isAdmin)
+        {
+            abort(403, 'Access Denied');
+        }
+
         $game = Game::findOrFail($gameID);
         $genres = Genre::all();
         return view('games.edit', compact('game', 'genres'));
@@ -60,6 +79,12 @@ class GameController extends Controller
 
     public function updateGame(Request $request, $gameID)
     {
+
+        if (!auth()->user()->isAdmin)
+        {
+            abort(403, 'Access Denied');
+        }
+
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             'description' => 'required',
@@ -84,9 +109,15 @@ class GameController extends Controller
 
     public function deleteGame($gameID)
     {
+
+        if (!auth()->user()->isAdmin)
+        {
+            abort(403, 'Access Denied');
+        }
+
         $game = Game::findOrFail($gameID);
         $game->delete();
 
-        return redirect()->route('games.index')->with('success', 'Spelet har tagits bort!');
+        return redirect()->back()->with('success', 'Spelet har tagits bort!');
     }
 }

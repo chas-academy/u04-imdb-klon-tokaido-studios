@@ -16,10 +16,10 @@ class UserListSeeder extends Seeder
        $lists = [
         [
             "listID" => 1,
-            "listname" => "Games I want to buy",
-            "description" => "A list of games I want to buy",
+            "listname" => "Top 5 Games",
+            "description" => "A list of the best games we recommend right now",
             "userID" => 1,
-            "games" => [2, 4, 6, 10]
+            "games" => [2, 4, 6, 10, 12]
         ],
         [
             "listID" => 2,
@@ -30,13 +30,13 @@ class UserListSeeder extends Seeder
         ],
         [
             "listID" => 3,
-            "listname" => "Top 20 games", // lägger till fler games när det finns mer spel
-            "description" => "Top 20 games to play",
-            "userID" => 2, // ingen User
-            "games" => [7, 9, 11, 12] // lägger till 4st sålänge till lägger till fler spel i db
+            "listname" => "Games to buy", 
+            "description" => "A list of games I want to buy",
+            "userID" => 2, 
+            "games" => [7, 9, 11] 
         ],
     ];
-                    // Skapa eller uppdatera listor i databasen
+        // Skapa eller uppdatera listor i databasen
         foreach ($lists as $list) {
             $userList = UserList::updateOrCreate(
                 ['listID' => $list['listID']],
