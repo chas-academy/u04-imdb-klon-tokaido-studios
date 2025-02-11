@@ -29,35 +29,7 @@
 
 ## ✅ **Tester och status:**
 
-### Utförelsedatum: 4 feb 2025
-| Testnamn                 | Typ av test  | Syfte | Status |
-|--------------------------|-------------|--------------------------------------------------|---------|
-| **AuthTest**            | Funktionstest | Säkerställer att inloggning, registrering och autentisering fungerar. | ❌ Misslyckat |
-| **GameTest**  | Integrationstest | Testar att spel/genrer kan skapas, uppdateras och raderas via controllern.  | ❌ Misslyckat |
-| **ProfileTest**            | Enhetstest  | Testar att en användare kan skapas och sparas i databasen. | ❌ Misslyckat |
-| **ReviewTest**         | Enhetstest  | Verifierar att en recension kan kopplas till ett spel och en användare. | ❌ Misslyckat |
-| **UserTest**            | Enhetstest  | Testar att en användare/användarlistor kan skapas och sparas i databasen. | ❌ Misslyckat |
-
-### Utförelsedatum: 5 feb 2025
-| Testnamn                 | Typ av test  | Syfte | Status |
-|--------------------------|-------------|--------------------------------------------------|---------|
-| **AuthTest**            | Funktionstest | Säkerställer att inloggning, registrering och autentisering fungerar. | ❌ Misslyckat |
-| **GameTest**  | Integrationstest | Testar att spel/genrer kan skapas, uppdateras och raderas via controllern.  | ❌ Misslyckat |
-| **ProfileTest**            | Enhetstest  | Testar att en användare kan skapas och sparas i databasen. | ❌ Misslyckat |
-| **ReviewTest**         | Enhetstest  | Verifierar att en recension kan kopplas till ett spel och en användare. | ❌ Misslyckat |
-| **UserTest**            | Enhetstest  | Testar att en användare/användarlistor kan skapas och sparas i databasen. | ❌ Misslyckat |
-
-### Utförelsedatum: 6 feb 2025
-| Testnamn                 | Typ av test  | Syfte | Status |
-|--------------------------|-------------|--------------------------------------------------|---------|
-| **AuthTest**            | Funktionstest | Säkerställer att inloggning, registrering och autentisering fungerar. | ❌ Misslyckat: User::factory fungerar inte/User.php saknar factory, |
-| **GameTest**  | Integrationstest | Testar att spel/genrer kan skapas, uppdateras och raderas via controllern.  | ❌ Misslyckat: Laravel klagar på att ingen krypteringsnyckel har angetts/inte laddats korrekt. |
-| **ProfileTest**            | Enhetstest  | Testar att en användare kan skapas och sparas i databasen. | ❌ Misslyckat: Autentisering eller relationer i profilen fungerar ej som förväntat |
-| **ReviewTest**         | Enhetstest  | Verifierar att en recension kan kopplas till ett spel och en användare. | ❌ Misslyckat: User::factory fungerar inte/User.php saknar factory. |
-| **UserTest**            | Enhetstest  | Testar att en användare/användarlistor kan skapas och sparas i databasen. | ❌ Misslyckat: Sanctum::actingAs() funkar ej rätt, User::factory()->create() inte anropas |
-
 ### Utförelsedatum: 7 feb 2025
-#### Följande test är nya test som särskiljer sig från de tidigare.
 | Testnamn                 | Typ av test  | Syfte | Status |
 |--------------------------|-------------|--------------------------------------------------|---------|
 | **CreateGameTest**            | Funktionstest | Testar att spel kan skapas, uppdateras och raderas via controllern. | ✅ Godkänt |
@@ -67,7 +39,6 @@
 | **CreateReviewTest**            | Funktionstest  | Testar att skapa en recension för ett spel. |  ✅ Godkänt |
 
 ### Utförelsedatum: 9 feb 2025
-#### Följande test är nya test som särskiljer sig från de tidigare.
 | Testnamn                 | Typ av test  | Syfte | Status |
 |--------------------------|-------------|--------------------------------------------------|---------|
 | **CreateGameTest**            | Funktionstest | Testar att spel kan skapas, uppdateras och raderas via controllern. | ✅ Godkänt |
