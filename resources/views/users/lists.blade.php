@@ -26,7 +26,7 @@
                             @foreach($list->games as $game)
                                 <div class="flex items-center">
                                     <img 
-                                        src="{{ asset($game->image) }}" 
+                                     src="{{ asset('images/games/' . basename($game->image)) }}" 
                                         alt="{{ $game->title }}" 
                                         class="w-12 h-12 object-cover rounded-lg mr-4"
                                     >
