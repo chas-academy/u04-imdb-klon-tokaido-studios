@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\UserList;
 use App\Models\Game;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 
 class UserListController extends Controller
@@ -25,8 +26,13 @@ class UserListController extends Controller
 
     public function storeList(Request $request)
     {
+        
         $validatedData = $request->validate([
-            "listname" => "required|max:255",
+            "listname" => [
+                "required",
+                "max:255",
+                Rule::unique('user_lists', 'listname'), // checks if the list name already exists
+            ],
             "description" => "nullable|string",
             "games" => "array",
         ]);
@@ -65,7 +71,11 @@ class UserListController extends Controller
         $userID = auth()->id();
 
         $validatedData = $request->validate([
-            "listname" => "required|max:255",
+            "listname" => [
+                "required",
+                "max:255",
+                Rule::unique('user_lists', 'listname')->ignore($listID, 'listID'), // passes the current list name when updating
+            ],
             "description" => "nullable|string",
             "games" => "array",
         ]);

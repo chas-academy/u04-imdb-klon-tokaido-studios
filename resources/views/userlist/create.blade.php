@@ -8,6 +8,15 @@
             <label for="listname">Listname</label>
             <input type="text" class="form-control" id="listname" name="listname" required>
         </div>
+        @if ($errors->any())
+            <div class="alert alert-danger text-red-600">
+                <ul>
+                    @foreach ($errors->get('listname') as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="form-group">
             <label for="description">Description</label>
             <textarea class="form-control" id="description" name="description"></textarea>

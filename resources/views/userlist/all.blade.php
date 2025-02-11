@@ -25,8 +25,8 @@
                             <div class="flex items-center">
                                 @if(!empty($game->image))
                                     <img 
-                                        src="{{ $game->image }}" 
-                                        alt="{{ $game->title }}" 
+                                        src="{{ asset('images/games/' . basename($game->image)) }}" 
+                                        alt="Game image" 
                                         class="w-12 h-12 object-cover rounded-lg mr-4"
                                     >
                                 @else
