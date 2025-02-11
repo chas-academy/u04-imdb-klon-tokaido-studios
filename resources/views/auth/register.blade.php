@@ -13,6 +13,15 @@
 
 <label for="username">Username:</label>
 <input type="text" name="username" class="mt-2" placeholder="Minst 5 bokstäver"  required><br>
+@if ($errors->any())
+    <div class="alert alert-danger text-red-600">
+        <ul>
+            @foreach ($errors->get('username') as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
 <label for="email">Email:</label>
 <input type="email" name="email" for="email" class="mt-2" required><br>
