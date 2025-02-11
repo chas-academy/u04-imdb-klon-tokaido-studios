@@ -113,21 +113,7 @@ class AdminController extends Controller
         return redirect()->route('admin.user')->with('success', 'User deleted successfully');
     }
 
-
-    public function toggleActive($id)
-    {
-        $user = $this->findUser($id);
-
-        $user->isActive = !$user->isActive;
-
-        $user->save();
-
-        $status = $user ->isActive ? 'Active' : 'Not Active';
-
-        return back()->with('success', "{$user->username} is set to {$status}.");
-    }
-
-
+    
     public function editUser($id)
     {
         $user = $this->findUser($id);
