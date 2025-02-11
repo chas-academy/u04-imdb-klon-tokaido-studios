@@ -1,0 +1,7 @@
+
+   PASS  Tests\Feature\GenreModelTest
+  ✓ create genres                                                        0.08s  
+
+  Tests:    1 passed (1 assertions)
+  Duration: 0.11s
+

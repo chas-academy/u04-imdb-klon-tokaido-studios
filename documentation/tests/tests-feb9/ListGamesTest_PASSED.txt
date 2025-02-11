@@ -1,0 +1,7 @@
+
+   PASS  Tests\Feature\ListGamesTest
+  ✓ list all games                                                       0.10s  
+
+  Tests:    1 passed (5 assertions)
+  Duration: 0.13s
+

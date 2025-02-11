@@ -1,0 +1,23 @@
+
+   FAIL  Tests\Feature\UserProfileTest
+  ⨯ user view profile                                                    0.57s  
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\UserProfileTest > user view profile                    
+  Expected response status code [200] but received 500.
+Failed asserting that 500 is identical to 200.
+
+  at tests/Feature/UserProfileTest.php:27
+     23▕         //Loggar in användaren
+     24▕         $this->actingAs($user);
+     25▕ 
+     26▕         $response = $this->get(route('users.profile'));
+  ➜  27▕         $response->assertStatus(200); //Säkerställer rätt HTTP-statuskod
+     28▕         $response->assertSee($user->username); // Kontrollerar att användarens data visas på sidan, till exempel användarnamn
+     29▕         $response->assertSee($user->email); // Samma med email
+     30▕     }
+     31▕ }
+
+
+  Tests:    1 failed (1 assertions)
+  Duration: 0.59s
+

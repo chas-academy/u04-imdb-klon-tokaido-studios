@@ -1,0 +1,23 @@
+
+   FAIL  Tests\Feature\ListGamesTest
+  ⨯ list all games                                                       0.30s  
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\ListGamesTest > list all games                         
+  Expected response status code [200] but received 500.
+Failed asserting that 500 is identical to 200.
+
+  at tests/Feature/ListGamesTest.php:35
+     31▕         $game2->genres()->attach($genre2);
+     32▕ 
+     33▕         $response = $this->get(route('games.index'));
+     34▕ 
+  ➜  35▕         $response->assertStatus(200);
+     36▕ 
+     37▕         $response->assertSee($game1->title);
+     38▕         $response->assertSee($game2->title);
+     39▕
+
+
+  Tests:    1 failed (1 assertions)
+  Duration: 0.32s
+
