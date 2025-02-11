@@ -7,11 +7,14 @@ use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\CanResetPassword; // ✅ Lägg till detta
 use Illuminate\Auth\Passwords\CanResetPassword as CanResetPasswordTrait; // ✅ Lägg till detta
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Notifications\Notifiable; // ✅ Lägg till detta
 
 class User extends Model implements Authenticatable, CanResetPassword // ✅ Lägg till CanResetPassword
 {
     use AuthenticatableTrait, CanResetPasswordTrait, Notifiable; // ✅ Lägg till Notifiable & CanResetPasswordTrait
+
+    use HasFactory, Notifiable;
 
     protected $primaryKey = 'userID';
     public $incrementing = true;

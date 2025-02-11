@@ -1,0 +1,7 @@
+
+   PASS  Tests\Feature\CreateGameTest
+  ✓ only admin can create game                                           0.11s  
+
+  Tests:    1 passed (4 assertions)
+  Duration: 0.14s
+

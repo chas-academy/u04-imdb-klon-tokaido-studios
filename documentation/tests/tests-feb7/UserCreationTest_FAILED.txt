@@ -1,0 +1,29 @@
+
+   FAIL  Tests\Feature\UserCreationTest
+  ⨯ create a user                                                        0.10s  
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\UserCreationTest > create a user                       
+  Failed asserting that a row in the table [users] matches the attributes {
+    "username": "testuser",
+    "email": "testuser@example.com",
+    "country": "Sweden",
+    "isAdmin": false
+}.
+
+The table is empty.
+
+  at tests/Feature/UserCreationTest.php:26
+     22▕ 
+     23▕         $response = $this->post('/registerNewUser', $userData);
+     24▕         
+     25▕         // Kontrollerar att användaruppgifter sparas i databasen
+  ➜  26▕         $this->assertDatabaseHas('users', [
+     27▕             'username' => $userData['username'],
+     28▕             'email' => $userData['email'],
+     29▕             'country' => $userData['country'],
+     30▕             'isAdmin' => $userData['isAdmin'],
+
+
+  Tests:    1 failed (1 assertions)
+  Duration: 0.12s
+
