@@ -56,3 +56,13 @@ Vi använder **Mailgun** för att skicka återställningsmejl.
 - 🎨 [Design Guide](./DESIGN_GUIDE.md)  
 - 📜 [Scenarios](./documentation/scenarios.md)  
 - 🧪 [Testing](./documentation/testing.md)  
+
+---
+
+## 🎨 Design & Planering
+
+📌 **Länkar till våra designresurser i Figma:**  
+- 🎮 [Projektet i Figma](https://www.figma.com/files/team/1463431489971115067/project/327856347/Team-project?fuid=1417977732575714300)  
+- 🧑‍🎨 [Persona](https://www.figma.com/design/czdV9BmHyxK8182M49fo40/Persona?t=61YPz58jiXIW0uXl-0)  
+- 📐 [Wireframe](https://www.figma.com/design/qyunZ8Fkymk6JJh32Dk83Q/Figma-Skisser?t=OLlyAw6hys9wndCH-0)  
+- 🗺️ [Sitemap](https://www.figma.com/board/kOnpcHG2OSlIcbdZhhWiHx/Sitemap?node-id=0-1&t=FE719OdLxpFqbsIf-1)  
