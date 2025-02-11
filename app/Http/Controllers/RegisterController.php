@@ -27,7 +27,7 @@ class RegisterController extends Controller
             'country' => 'Sweden',
         ]);
 
-        return redirect()->route('login')->with('success', 'Kontot har skapats!');
+        return response()->json(['message' => 'User created', 'user' => $user], 302);
         
     }
 }

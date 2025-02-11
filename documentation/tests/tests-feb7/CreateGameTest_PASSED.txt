@@ -1,0 +1,7 @@
+
+   PASS  tests\Feature\Auth\CreateGameTest
+  ✓ create a game                                                        0.10s  
+
+  Tests:    1 passed (4 assertions)
+  Duration: 0.12s
+
