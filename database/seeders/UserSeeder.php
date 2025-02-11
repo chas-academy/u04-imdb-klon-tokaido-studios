@@ -45,14 +45,14 @@ class UserSeeder extends Seeder
                 "email" => "manamancer@example.com",
                 "password" => "mana",
                 "country" => "USA",
-                "isAdmin" => true
+                "isAdmin" => false
             ],
             [
                 "username" => "AdamWarlock", 
                 "email" => "adamwarlock@example.com",
                 "password" => "adam", 
                 "country" => "UK", 
-                "isAdmin" => true
+                "isAdmin" => false
             ]
             ];
             foreach ($users as $user) {
