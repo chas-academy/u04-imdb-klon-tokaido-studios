@@ -48,5 +48,5 @@ För att komma igång med projektet, följ dessa steg:
 [Länk till Github Strategi](./GITHUB_STRATEGY.md)<br>
 [Länk till Design Strategi](./DESIGN_GUIDE.md)<br>
 [Länk till Scenarios](./documentation/scenarios.md)<br>
-[Länk till Scenarios](./documentation/testing.md)<br>
+[Länk till Testing](./documentation/testing.md)<br>
 >>>>>>>>> Temporary merge branch 2
