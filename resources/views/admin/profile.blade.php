@@ -30,16 +30,7 @@
                 {{ auth()->user()->isAdmin ? 'View all lists' : 'View my lists' }}
             </a>
         </x-button-styles>
-     
-
-        @if (auth()->check() && auth()->user()->isAdmin)
-        <x-button-styles>
-            <a href="{{ route('admin.user') }}">
-                View all Users
-            </a>
-            </x-button-styles><br>
-        @endif
-
+        </div>
 
         <h2 class="text-2xl text-[#F57C00] font-semibold mb-4 mt-12">Account Management</h2>
         

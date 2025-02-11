@@ -98,6 +98,42 @@ Route::get('/games/{game}/review', [ReviewController::class, 'showReview'])
 ->name('reviews.game_review');
 
 
+Route::middleware(['auth', AdminMiddleware::class])->group(function()
+{
+
+    Route::prefix('admin')->group (function ()
+    {
+
+        Route::get('/profile', [AdminController::class, 'showProfile'])
+        ->name('admin.profile');
+    
+        Route::get('/reviews', [AdminController::class, 'showAllReviews'])
+        ->name('admin.reviews');
+    
+        Route::get('/lists', [AdminController::class, 'showAllLists'])
+        ->name('admin.lists');
+    
+        Route::get('/user', [AdminController::class, 'showAllUsers'])
+        ->name('admin.user');
+    
+        Route::get('/createUsers', [AdminController::class, 'createUsers'])
+        ->name('users.create');
+    
+        Route::put('/editUsers/{id}', [AdminController::class, 'updateUser'])
+        ->name('users.update');
+
+        Route::get('/editUsers/{id}', [AdminController::class, 'editUser'])
+        ->name('users.edit');
+    
+        Route::delete('/users/{id}', [AdminController::class, 'destroy'])
+        ->name('users.destroy');
+
+        Route::patch('/users/{id}/toggleActive', [AdminController::class, 'toggleActive'])
+        ->name('users.toggleActive');
+
+    });
+
+});
 
 // INLOGGAD ANVÄNDARE BEHÖRIGHETER
 Route::middleware(UserMiddleware::class)->group(function ()
@@ -153,16 +189,35 @@ Route::middleware(['auth', AdminMiddleware::class])->group(function()
         ->name('games.update');
         Route::delete('/{gameID}', [GameController::class, 'deleteGame'])
         ->name('games.destroy');
+
         Route::get('/admin/profile', [AdminController::class, 'showProfile'])
         ->name('admin.profile');
+
         Route::get('/admin/reviews', [AdminController::class, 'showAllReviews'])
         ->name('admin.reviews');
+
         Route::get('/admin/lists', [AdminController::class, 'showAllLists'])
         ->name('admin.lists');
     });
 });
 
-    
+
+
+// TILL FORMULÄRETS SIDA
+Route::get('/registerNewUser', function () {
+    return view('auth.register'); 
+})->name('auth.register');
+
+
+
+
+
+// TILL FORMULÄRETS SIDA
+Route::get('/registerNewUser', function () {
+    return view('auth.register'); 
+})->name('auth.register');
+
+
 
 });
 
@@ -178,17 +233,4 @@ Route::get('/reset-password/{token}', function ($token) {
 Route::post('/reset-password', [PasswordResetController::class, 'store'])
     ->middleware('guest')
     ->name('password.store');
-
 require __DIR__.'/auth.php';
-
-/* LÄMNAS UT KOMMENTERAT FÖR FRAMTIDA IMPELEMENTERING */
-/*
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-*/
