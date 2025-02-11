@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use PhpParser\Node\Stmt\Return_;
 
 class Game extends Model
 {
@@ -37,4 +38,12 @@ class Game extends Model
     {
         return $this->belongsToMany(UserList::class, 'game_lists', 'gameID', 'listID');
     }
+
+    // Relation till platform (många till många via games_platforms)
+    public function platforms()
+    {
+        return $this->belongsToMany(Platform::class,"games_platforms", "gameID", "platformID");
+    }
+        
+    
 }

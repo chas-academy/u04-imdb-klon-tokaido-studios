@@ -12,10 +12,19 @@ class AdminMiddleware
 {
     public function handle(Request $request, Closure $next): Response
 {
-    if (auth()->check() && auth()->user()->isAdmin) {
-        return $next($request);
+
+    if (!Auth::check()) {
+
+        return redirect('/auth/login')->withErrors(['error' => 'You must be logged in to access this page.']);
+
     }
 
-    return redirect('/');
+    if (!Auth::user()->isAdmin) {
+
+        return redirect('/auth/login')->withErrors(['error' => 'You Do Not Have Access To This Page']);
+
+    }
+
+    return $next ($request);
 }
 }

@@ -60,7 +60,13 @@ class ReviewController extends Controller
     public function destroy(Review $review)
     {
         $gameID = $review->gameID;
+
         $review->delete();
+
+        if(Auth::user()->isAdmin)
+        {
+            return redirect()->route('admin.reviews', $gameID)->with('success', 'Review deleted successfully');
+        }
 
         return redirect()->route('users.reviews', $gameID)->with('success', 'Review deleted successfully');
     }
