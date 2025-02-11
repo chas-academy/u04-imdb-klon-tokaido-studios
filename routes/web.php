@@ -127,10 +127,7 @@ Route::middleware(['auth', AdminMiddleware::class])->group(function()
     
         Route::delete('/users/{id}', [AdminController::class, 'destroy'])
         ->name('users.destroy');
-
-        Route::patch('/users/{id}/toggleActive', [AdminController::class, 'toggleActive'])
-        ->name('users.toggleActive');
-
+        
     });
 
 });

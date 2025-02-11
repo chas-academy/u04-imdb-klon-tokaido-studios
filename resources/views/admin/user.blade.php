@@ -29,15 +29,6 @@
                             <a href="{{ route('users.edit', $user->userID) }}">Edit</a>
                         </x-button-styles>
 
-                        <form action="{{ route('users.toggleActive', $user->userID) }}" method="POST">
-                            @csrf
-                            @method('PATCH')
-
-                            <x-button-styles size="small" type="submit">
-                                {{ $user->isActive ? 'Set To Inactive' : 'Set To Active' }}
-                            </x-button-styles>
-                        </form>
-
                         <form action="{{ route('users.destroy', ['id' => $user->userID]) }}" method="POST">
                             @csrf
                             @method('DELETE')
