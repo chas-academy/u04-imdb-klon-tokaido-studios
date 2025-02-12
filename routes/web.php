@@ -174,8 +174,7 @@ Route::middleware(UserMiddleware::class)->group(function ()
     // ADMIN BEHÖRIGHETER
 Route::middleware(['auth', AdminMiddleware::class])->group(function()
 {
-    Route::delete('/users/{id}', [AdminController::class, 'destroy'])
-    ->name('users.destroy');
+    
     
     Route::prefix('games')->group(function()
     {
