@@ -41,24 +41,5 @@
         @endif
 
 
-        <h2 class="text-2xl text-[#F57C00] font-semibold mb-4 mt-12">Account Management</h2>
-        
-        @auth
-
-            @if(!Auth::user()->isAdmin)
-            <form action="{{ route('users.destroy') }}" method="POST" class="mt-4">
-                @csrf
-                @method('DELETE')
-
-                <input type="hidden" name="confirm" value="yes">
-
-                <x-button-styles size="small" type="submit">
-                    Delete Account
-                </x-button-styles>
-                
-            </form>
-
-            @endif
-        @endauth
     </div>
 @endsection
