@@ -152,8 +152,6 @@ Route::middleware(UserMiddleware::class)->group(function ()
         Route::get('/lists', [UserListController::class, 'index'])
         ->name('users.lists');
     
-        Route::delete('/', [UserController::class, 'destroy'])
-        ->name('users.destroy');
     });
         
     Route::prefix('list')->group(function()
