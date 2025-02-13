@@ -30,23 +30,6 @@ public function showLists()
     return view('users.lists', compact('user', 'lists'));
 }
 
-    public function destroy(Request $request)
-    {
-        $user = auth()->user();
-
-        if($user->isAdmin)
-        {
-            return back()->withErrors(['error' => 'Admin Konto kan ej raderas.']);
-        }
-
-        if (!$request->has('confirm') || $request->input('confirm') !== 'yes') {
-            return back()->withErrors(['error' => 'Bekräftelse krävs för att radera ditt konto.']);
-        }
-
-
-        $user->delete();
-        return redirect('/')->with('success', 'User deleted successfully');
-    }
 
     public function logout(Request $request)
     {
